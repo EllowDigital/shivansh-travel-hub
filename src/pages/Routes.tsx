@@ -32,6 +32,17 @@ const agraRoutes = [
   { to: "Shimla", distance: "580 km", price: "₹8,500" },
   { to: "Manali", distance: "760 km", price: "₹10,500" },
   { to: "Dehradun", distance: "430 km", price: "₹6,200" },
+  { to: "Lucknow", distance: "370 km", price: "₹5,500" },
+  { to: "Gorakhpur", distance: "590 km", price: "₹8,500" },
+  { to: "Indore", distance: "620 km", price: "₹9,000" },
+  { to: "Ranthambore", distance: "280 km", price: "₹4,200" },
+  { to: "Rishikesh", distance: "460 km", price: "₹6,800" },
+  { to: "Mussoorie", distance: "440 km", price: "₹6,500" },
+  { to: "Pushkar", distance: "400 km", price: "₹5,800" },
+  { to: "Mount Abu", distance: "580 km", price: "₹8,500" },
+  { to: "Orchha", distance: "280 km", price: "₹4,200" },
+  { to: "Khajuraho", distance: "400 km", price: "₹5,800" },
+  { to: "Amritsar", distance: "680 km", price: "₹9,500" },
 ];
 
 const delhiRoutes = [
