@@ -169,7 +169,7 @@ const Routes = () => (
         <p className="mt-2 text-secondary-foreground/90 text-sm sm:text-base">Contact us for custom routes and special pricing.</p>
         <div className="mt-6 flex justify-center gap-3 sm:gap-4 flex-wrap">
           <Link to="/contact"><Button variant="default" size="lg" className="text-sm sm:text-base">Get Custom Quote</Button></Link>
-          <a href="tel:+919876543210">
+          <a href="tel:+918960446756">
             <Button variant="hero-outline" size="lg" className="border-primary text-primary hover:bg-primary/10 gap-2 text-sm sm:text-base">
               <Phone className="h-4 w-4" /> Call Now
             </Button>
