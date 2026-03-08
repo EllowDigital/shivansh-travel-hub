@@ -3,7 +3,11 @@ import { Button } from "@/components/ui/button";
 import BookingForm from "@/components/BookingForm";
 import SectionHeading from "@/components/SectionHeading";
 import heroBg from "@/assets/hero-bg.jpg";
-import { Plane, Car, MapPin, ShieldCheck, Clock, Star, Users, Phone, ArrowRight, Headphones, BadgeCheck, IndianRupee, Zap } from "lucide-react";
+import swiftDzire from "@/assets/swift-dzire.png";
+import ertiga from "@/assets/ertiga.png";
+import innova from "@/assets/innova.png";
+import tempoTraveller from "@/assets/tempo-traveller.png";
+import { Plane, Car, MapPin, ShieldCheck, Clock, Star, Users as UsersIcon, Phone, ArrowRight, Headphones, BadgeCheck, IndianRupee, Zap, Users } from "lucide-react";
 
 const services = [
   { icon: Plane, title: "Airport Transfers", desc: "Timely airport pickups & drops across India." },
