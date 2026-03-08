@@ -128,7 +128,7 @@ const RouteCard = ({ from, to, distance, price }: { from: string; to: string; di
 );
 
 const Routes = () => (
-  <div className="pt-14 sm:pt-16">
+  <div className="pt-14 sm:pt-16 lg:pt-[88px]">
     <section className="page-header">
       <div className="container mx-auto text-center">
         <h1 className="page-header-title">Taxi Routes & Pricing</h1>
