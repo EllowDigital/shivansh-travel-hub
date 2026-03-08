@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Open+Sans:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Open+Sans:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -21,7 +21,7 @@
     --secondary: 37 90% 51%;
     --secondary-foreground: 0 0% 100%;
 
-    --muted: 210 20% 95%;
+    --muted: 210 20% 96%;
     --muted-foreground: 210 10% 45%;
 
     --accent: 207 80% 95%;
@@ -31,10 +31,13 @@
     --destructive-foreground: 210 40% 98%;
 
     --border: 210 20% 90%;
-    --input: 210 20% 90%;
+    --input: 210 20% 88%;
     --ring: 207 80% 21%;
 
     --radius: 0.75rem;
+
+    --success: 142 70% 40%;
+    --success-foreground: 0 0% 100%;
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -54,6 +57,7 @@
 
   body {
     @apply bg-background text-foreground font-body antialiased;
+    overflow-x: hidden;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -67,14 +71,41 @@
   }
 
   .section-padding {
-    @apply py-16 md:py-24 px-4;
+    @apply py-12 px-4 sm:py-16 sm:px-6 md:py-20 lg:py-24 lg:px-8;
   }
 
   .hover-lift {
-    @apply transition-all duration-300 hover:-translate-y-2 hover:shadow-xl;
+    @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-lg;
+  }
+
+  .page-header {
+    @apply bg-primary text-primary-foreground py-12 px-4 sm:py-16 md:py-20;
+  }
+
+  .page-header-title {
+    @apply font-heading text-3xl sm:text-4xl md:text-5xl font-bold;
+  }
+
+  .page-header-subtitle {
+    @apply mt-3 text-primary-foreground/80 max-w-xl mx-auto text-sm sm:text-base;
   }
 }
 
 html {
   scroll-behavior: smooth;
+}
+
+/* Smooth scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: hsl(var(--muted));
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--primary) / 0.3);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--primary) / 0.5);
 }

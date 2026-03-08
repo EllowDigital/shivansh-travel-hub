@@ -1,5 +1,6 @@
 import SectionHeading from "@/components/SectionHeading";
-import { Users } from "lucide-react";
+import SEO from "@/components/SEO";
+import { Users, Fuel, Gauge } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import swiftDzire from "@/assets/swift-dzire.png";
@@ -8,37 +9,45 @@ import innova from "@/assets/innova.png";
 import tempoTraveller from "@/assets/tempo-traveller.png";
 
 const cars = [
-  { name: "Swift Dzire", img: swiftDzire, seats: 4, price: "₹11/km", type: "Sedan" },
-  { name: "Ertiga", img: ertiga, seats: 7, price: "₹14/km", type: "MPV" },
-  { name: "Toyota Innova", img: innova, seats: 7, price: "₹16/km", type: "Premium MPV" },
-  { name: "Tempo Traveller", img: tempoTraveller, seats: 12, price: "₹22/km", type: "Mini Bus" },
+  { name: "Swift Dzire", img: swiftDzire, seats: 4, price: "₹11/km", type: "Sedan", fuel: "Petrol/CNG", best: "City & Short Trips" },
+  { name: "Ertiga", img: ertiga, seats: 7, price: "₹14/km", type: "MPV", fuel: "Petrol/Diesel", best: "Family Trips" },
+  { name: "Toyota Innova", img: innova, seats: 7, price: "₹16/km", type: "Premium MPV", fuel: "Diesel", best: "Outstation & Tours" },
+  { name: "Tempo Traveller", img: tempoTraveller, seats: 12, price: "₹22/km", type: "Mini Bus", fuel: "Diesel", best: "Group Travel" },
 ];
 
 const Fleet = () => (
-  <div className="pt-16">
-    <section className="bg-primary text-primary-foreground section-padding">
+  <div className="pt-14 sm:pt-16 lg:pt-[88px]">
+    <SEO
+      title="Our Fleet | Book Swift Dzire, Innova, Ertiga, Tempo Traveller in Agra"
+      description="Choose from our well-maintained fleet: Swift Dzire ₹11/km, Ertiga ₹14/km, Toyota Innova ₹16/km, Tempo Traveller ₹22/km. Book taxi in Agra for any trip."
+      keywords="swift dzire taxi agra, innova hire agra, ertiga cab booking, tempo traveller agra, taxi fleet agra, car rental agra, outstation car agra"
+      canonical="https://shivanshtravels.com/fleet"
+    />
+    <section className="page-header">
       <div className="container mx-auto text-center">
-        <h1 className="font-heading text-4xl md:text-5xl font-bold">Our Fleet</h1>
-        <p className="mt-3 text-primary-foreground/80 max-w-xl mx-auto">Well-maintained vehicles for a safe and comfortable journey.</p>
+        <h1 className="page-header-title">Our Fleet</h1>
+        <p className="page-header-subtitle">Well-maintained vehicles for a safe and comfortable journey across India.</p>
       </div>
     </section>
     <section className="section-padding bg-background">
-      <div className="container mx-auto grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div className="container mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
         {cars.map((c, i) => (
-          <div key={i} className="bg-card rounded-lg overflow-hidden shadow-md hover-lift">
-            <div className="bg-muted p-4 flex items-center justify-center h-48">
-              <img src={c.img} alt={c.name} className="max-h-full object-contain" loading="lazy" />
+          <article key={i} className="bg-card rounded-xl overflow-hidden shadow-md hover-lift border border-border/50">
+            <div className="bg-muted p-4 flex items-center justify-center h-36 sm:h-44">
+              <img src={c.img} alt={`${c.name} for hire in Agra - ${c.type}`} className="max-h-full object-contain" loading="lazy" />
             </div>
-            <div className="p-5">
-              <span className="text-xs font-medium text-secondary">{c.type}</span>
-              <h2 className="font-heading text-lg font-bold text-foreground mt-1">{c.name}</h2>
-              <div className="flex items-center gap-2 mt-2 text-sm text-muted-foreground">
-                <Users className="h-4 w-4" /> {c.seats} Passengers
+            <div className="p-4 sm:p-5">
+              <span className="inline-block text-[10px] sm:text-xs font-semibold text-secondary bg-secondary/10 px-2 py-0.5 rounded-full">{c.type}</span>
+              <h2 className="font-heading text-base sm:text-lg font-bold text-foreground mt-1.5">{c.name}</h2>
+              <div className="mt-2 space-y-1.5 text-xs sm:text-sm text-muted-foreground">
+                <div className="flex items-center gap-2"><Users className="h-3.5 w-3.5 text-secondary" /> {c.seats} Passengers</div>
+                <div className="flex items-center gap-2"><Fuel className="h-3.5 w-3.5 text-secondary" /> {c.fuel}</div>
+                <div className="flex items-center gap-2"><Gauge className="h-3.5 w-3.5 text-secondary" /> Best for {c.best}</div>
               </div>
-              <p className="mt-2 text-xl font-bold text-secondary">{c.price}</p>
-              <Link to="/contact"><Button variant="hero" size="sm" className="w-full mt-4">Book Now</Button></Link>
+              <p className="mt-3 text-lg sm:text-xl font-bold text-secondary">{c.price}</p>
+              <Link to="/contact"><Button variant="hero" size="sm" className="w-full mt-3 text-xs sm:text-sm">Book Now</Button></Link>
             </div>
-          </div>
+          </article>
         ))}
       </div>
     </section>
