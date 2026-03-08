@@ -86,6 +86,27 @@ const delhiRoutes = [
   { to: "Khajuraho", distance: "600 km", price: "₹8,500" },
 ];
 
+const WHATSAPP_NUMBER = "919876543210";
+
+const handleRouteBook = (from: string, to: string, distance: string, price: string) => {
+  const text = [
+    `🚕 *TAXI BOOKING ENQUIRY*`,
+    `━━━━━━━━━━━━━━━━━━`,
+    ``,
+    `📍 *Route Details:*`,
+    `• From: ${from}`,
+    `• To: ${to}`,
+    `• Distance: ${distance}`,
+    `• Estimated Price: ${price}`,
+    ``,
+    `Hi, I want to book a taxi from ${from} to ${to}. Please share availability and confirm the fare.`,
+    ``,
+    `━━━━━━━━━━━━━━━━━━`,
+    `Sent via Shivansh Tour & Travels Website`,
+  ].join("\n");
+  window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`, "_blank");
+};
+
 const RouteCard = ({ from, to, distance, price }: { from: string; to: string; distance: string; price: string }) => (
   <div className="bg-card rounded-xl p-3 sm:p-4 border border-border/50 hover-lift shadow-sm flex items-center justify-between gap-2 sm:gap-3">
     <div className="flex items-center gap-2 min-w-0">
@@ -101,9 +122,7 @@ const RouteCard = ({ from, to, distance, price }: { from: string; to: string; di
     </div>
     <div className="text-right shrink-0">
       <p className="text-xs sm:text-sm font-bold text-secondary">{price}</p>
-      <Link to="/contact">
-        <Button variant="hero" size="sm" className="mt-1 text-[10px] sm:text-xs h-6 sm:h-7 px-2 sm:px-3">Book</Button>
-      </Link>
+      <Button variant="hero" size="sm" className="mt-1 text-[10px] sm:text-xs h-6 sm:h-7 px-2 sm:px-3" onClick={() => handleRouteBook(from, to, distance, price)}>Book</Button>
     </div>
   </div>
 );
