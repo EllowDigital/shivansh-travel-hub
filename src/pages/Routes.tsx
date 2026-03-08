@@ -1,6 +1,7 @@
 import SectionHeading from "@/components/SectionHeading";
 import SEO from "@/components/SEO";
 import { Button } from "@/components/ui/button";
+import { openWhatsAppMessage } from "@/lib/whatsapp";
 import { Link } from "react-router-dom";
 import { Car, ArrowRight, Phone } from "lucide-react";
 
