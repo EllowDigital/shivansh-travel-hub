@@ -1,6 +1,7 @@
 import SectionHeading from "@/components/SectionHeading";
 import SEO from "@/components/SEO";
 import { Button } from "@/components/ui/button";
+import { openWhatsAppMessage } from "@/lib/whatsapp";
 import { Link } from "react-router-dom";
 import { Car, ArrowRight, Phone } from "lucide-react";
 
@@ -91,7 +92,7 @@ const WHATSAPP_NUMBER = "918960446756";
 
 const handleRouteBook = (from: string, to: string, distance: string, price: string) => {
   const text = `🚕 *TAXI BOOKING ENQUIRY*\n━━━━━━━━━━━━━━━━━━\n\n📍 *Route Details:*\n• From: ${from}\n• To: ${to}\n• Distance: ${distance}\n• Estimated Price: ${price}\n\nHi, I want to book a taxi from ${from} to ${to}. Please share availability and confirm the fare.\n\n━━━━━━━━━━━━━━━━━━\nSent via Shivansh Tour & Travels Website`;
-  window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`, "_blank");
+  openWhatsAppMessage(WHATSAPP_NUMBER, text);
 };
 
 const RouteCard = ({ from, to, distance, price }: { from: string; to: string; distance: string; price: string }) => (
