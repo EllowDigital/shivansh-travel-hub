@@ -1,4 +1,5 @@
 import BookingForm from "@/components/BookingForm";
+import SEO from "@/components/SEO";
 import { Phone, Mail, MapPin, MessageCircle, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -12,6 +13,12 @@ const contactInfo = [
 
 const Contact = () => (
   <div className="pt-14 sm:pt-16 lg:pt-[88px]">
+    <SEO
+      title="Contact Us | Book Taxi in Agra | Call +91 89604 46756"
+      description="Contact Shivansh Tour & Travels for taxi bookings, tour packages & custom quotes. Call +91 89604 46756, WhatsApp or email. 24/7 service from Agra."
+      keywords="contact taxi agra, book cab agra, taxi booking phone number agra, whatsapp taxi booking, agra travel agency contact"
+      canonical="https://shivanshtravels.com/contact"
+    />
     <section className="page-header">
       <div className="container mx-auto text-center">
         <h1 className="page-header-title">Contact Us</h1>
@@ -43,21 +50,14 @@ const Contact = () => (
               </div>
             ))}
           </div>
-
           <div className="mt-6 sm:mt-8 rounded-xl overflow-hidden shadow-md border border-border/50">
             <iframe
-              title="Shivansh Tour and Travels Location"
+              title="Shivansh Tour and Travels Location in Agra"
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d227748.38256437284!2d78.0081!3d27.1767!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39747121d702ff6d%3A0xdd2ae4803f767dde!2sAgra%2C%20Uttar%20Pradesh!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
-              width="100%"
-              height="220"
-              style={{ border: 0 }}
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
+              width="100%" height="220" style={{ border: 0 }} allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade"
             />
           </div>
         </div>
-
         <div className="flex justify-center lg:justify-end">
           <BookingForm />
         </div>

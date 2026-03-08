@@ -1,4 +1,5 @@
 import SectionHeading from "@/components/SectionHeading";
+import SEO from "@/components/SEO";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { Car, ArrowRight, Phone } from "lucide-react";
@@ -89,21 +90,7 @@ const delhiRoutes = [
 const WHATSAPP_NUMBER = "918960446756";
 
 const handleRouteBook = (from: string, to: string, distance: string, price: string) => {
-  const text = [
-    `🚕 *TAXI BOOKING ENQUIRY*`,
-    `━━━━━━━━━━━━━━━━━━`,
-    ``,
-    `📍 *Route Details:*`,
-    `• From: ${from}`,
-    `• To: ${to}`,
-    `• Distance: ${distance}`,
-    `• Estimated Price: ${price}`,
-    ``,
-    `Hi, I want to book a taxi from ${from} to ${to}. Please share availability and confirm the fare.`,
-    ``,
-    `━━━━━━━━━━━━━━━━━━`,
-    `Sent via Shivansh Tour & Travels Website`,
-  ].join("\n");
+  const text = `🚕 *TAXI BOOKING ENQUIRY*\n━━━━━━━━━━━━━━━━━━\n\n📍 *Route Details:*\n• From: ${from}\n• To: ${to}\n• Distance: ${distance}\n• Estimated Price: ${price}\n\nHi, I want to book a taxi from ${from} to ${to}. Please share availability and confirm the fare.\n\n━━━━━━━━━━━━━━━━━━\nSent via Shivansh Tour & Travels Website`;
   window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`, "_blank");
 };
 
@@ -127,42 +114,46 @@ const RouteCard = ({ from, to, distance, price }: { from: string; to: string; di
   </div>
 );
 
+const allRouteKeywords = [
+  ...agraRoutes.map(r => `agra to ${r.to.toLowerCase()} taxi`),
+  ...delhiRoutes.map(r => `delhi to ${r.to.toLowerCase()} taxi`),
+].join(", ");
+
 const Routes = () => (
   <div className="pt-14 sm:pt-16 lg:pt-[88px]">
+    <SEO
+      title="Taxi Routes & Pricing | Agra to Delhi, Jaipur, Varanasi Cab Fare"
+      description="Check taxi fare from Agra & Delhi to 70+ cities. Agra to Delhi ₹3,500, Agra to Jaipur ₹3,600, Agra to Varanasi ₹8,000. Book outstation cab online. Call +91 89604 46756."
+      keywords={`outstation taxi routes, taxi fare calculator, ${allRouteKeywords.slice(0, 500)}`}
+      canonical="https://shivanshtravels.com/routes"
+    />
     <section className="page-header">
       <div className="container mx-auto text-center">
         <h1 className="page-header-title">Taxi Routes & Pricing</h1>
         <p className="page-header-subtitle">
-          Affordable outstation taxi services from Agra and Delhi to all major cities.
+          Affordable outstation taxi services from Agra and Delhi to all major cities. Transparent pricing, no hidden charges.
         </p>
       </div>
     </section>
 
-    {/* Agra Routes */}
     <section className="section-padding bg-background">
       <div className="container mx-auto">
-        <SectionHeading title="Taxi Services From Agra" subtitle="Reliable and affordable cab services from Agra to all major destinations." />
+        <SectionHeading title="Taxi Services From Agra" subtitle="Reliable and affordable cab services from Agra to all major destinations across India." />
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-4">
-          {agraRoutes.map((r, i) => (
-            <RouteCard key={i} from="Agra" to={r.to} distance={r.distance} price={r.price} />
-          ))}
+          {agraRoutes.map((r, i) => <RouteCard key={i} from="Agra" to={r.to} distance={r.distance} price={r.price} />)}
         </div>
       </div>
     </section>
 
-    {/* Delhi Routes */}
     <section className="section-padding bg-muted">
       <div className="container mx-auto">
         <SectionHeading title="Taxi Services From Delhi" subtitle="Book outstation taxi from Delhi to popular cities across North India." />
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-4">
-          {delhiRoutes.map((r, i) => (
-            <RouteCard key={i} from="Delhi" to={r.to} distance={r.distance} price={r.price} />
-          ))}
+          {delhiRoutes.map((r, i) => <RouteCard key={i} from="Delhi" to={r.to} distance={r.distance} price={r.price} />)}
         </div>
       </div>
     </section>
 
-    {/* CTA */}
     <section className="section-padding bg-secondary text-center">
       <div className="container mx-auto">
         <h2 className="font-heading text-2xl sm:text-3xl font-bold text-secondary-foreground">Don't See Your Route?</h2>
