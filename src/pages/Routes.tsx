@@ -73,6 +73,17 @@ const delhiRoutes = [
   { to: "Shimla", distance: "350 km", price: "₹5,200" },
   { to: "Manali", distance: "540 km", price: "₹7,800" },
   { to: "Dehradun", distance: "250 km", price: "₹3,800" },
+  { to: "Lucknow", distance: "550 km", price: "₹8,000" },
+  { to: "Gorakhpur", distance: "790 km", price: "₹10,500" },
+  { to: "Indore", distance: "820 km", price: "₹11,000" },
+  { to: "Chandigarh", distance: "250 km", price: "₹3,800" },
+  { to: "Ranthambore", distance: "400 km", price: "₹5,800" },
+  { to: "Rishikesh", distance: "240 km", price: "₹3,600" },
+  { to: "Mussoorie", distance: "280 km", price: "₹4,200" },
+  { to: "Pushkar", distance: "420 km", price: "₹6,000" },
+  { to: "Mount Abu", distance: "700 km", price: "₹9,500" },
+  { to: "Amritsar", distance: "450 km", price: "₹6,500" },
+  { to: "Khajuraho", distance: "600 km", price: "₹8,500" },
 ];
 
 const RouteCard = ({ from, to, distance, price }: { from: string; to: string; distance: string; price: string }) => (
