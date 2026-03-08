@@ -4,10 +4,10 @@ interface Props {
 }
 
 const SectionHeading = ({ title, subtitle }: Props) => (
-  <div className="text-center mb-12">
-    <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground">{title}</h2>
-    {subtitle && <p className="mt-3 text-muted-foreground max-w-2xl mx-auto">{subtitle}</p>}
-    <div className="mt-4 mx-auto w-20 h-1 bg-secondary rounded-full" />
+  <div className="text-center mb-8 sm:mb-12">
+    <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-foreground">{title}</h2>
+    {subtitle && <p className="mt-2 sm:mt-3 text-muted-foreground max-w-2xl mx-auto text-sm sm:text-base">{subtitle}</p>}
+    <div className="mt-3 sm:mt-4 mx-auto w-16 sm:w-20 h-1 bg-secondary rounded-full" />
   </div>
 );
 

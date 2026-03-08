@@ -1,7 +1,7 @@
 import SectionHeading from "@/components/SectionHeading";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { Car, ArrowRight } from "lucide-react";
+import { Car, ArrowRight, Phone } from "lucide-react";
 
 const agraRoutes = [
   { to: "Delhi", distance: "230 km", price: "₹3,500" },
@@ -87,32 +87,34 @@ const delhiRoutes = [
 ];
 
 const RouteCard = ({ from, to, distance, price }: { from: string; to: string; distance: string; price: string }) => (
-  <div className="bg-card rounded-lg p-4 border border-border hover-lift shadow-sm flex items-center justify-between gap-3">
+  <div className="bg-card rounded-xl p-3 sm:p-4 border border-border/50 hover-lift shadow-sm flex items-center justify-between gap-2 sm:gap-3">
     <div className="flex items-center gap-2 min-w-0">
-      <Car className="h-5 w-5 text-secondary shrink-0" />
+      <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-lg bg-accent flex items-center justify-center shrink-0">
+        <Car className="h-4 w-4 text-secondary" />
+      </div>
       <div className="min-w-0">
-        <h3 className="font-heading text-sm font-semibold text-foreground truncate">
-          {from} <ArrowRight className="inline h-3 w-3 mx-1" /> {to}
+        <h3 className="font-heading text-xs sm:text-sm font-semibold text-foreground truncate">
+          {from} <ArrowRight className="inline h-3 w-3 mx-0.5" /> {to}
         </h3>
-        <p className="text-xs text-muted-foreground">{distance}</p>
+        <p className="text-[10px] sm:text-xs text-muted-foreground">{distance}</p>
       </div>
     </div>
     <div className="text-right shrink-0">
-      <p className="text-sm font-bold text-secondary">{price}</p>
+      <p className="text-xs sm:text-sm font-bold text-secondary">{price}</p>
       <Link to="/contact">
-        <Button variant="hero" size="sm" className="mt-1 text-xs h-7 px-3">Book</Button>
+        <Button variant="hero" size="sm" className="mt-1 text-[10px] sm:text-xs h-6 sm:h-7 px-2 sm:px-3">Book</Button>
       </Link>
     </div>
   </div>
 );
 
 const Routes = () => (
-  <div className="pt-16">
-    <section className="bg-primary text-primary-foreground section-padding">
+  <div className="pt-14 sm:pt-16">
+    <section className="page-header">
       <div className="container mx-auto text-center">
-        <h1 className="font-heading text-4xl md:text-5xl font-bold">Taxi Routes & Pricing</h1>
-        <p className="mt-3 text-primary-foreground/80 max-w-xl mx-auto">
-          Affordable outstation taxi services from Agra and Delhi to all major cities. Book now!
+        <h1 className="page-header-title">Taxi Routes & Pricing</h1>
+        <p className="page-header-subtitle">
+          Affordable outstation taxi services from Agra and Delhi to all major cities.
         </p>
       </div>
     </section>
@@ -121,7 +123,7 @@ const Routes = () => (
     <section className="section-padding bg-background">
       <div className="container mx-auto">
         <SectionHeading title="Taxi Services From Agra" subtitle="Reliable and affordable cab services from Agra to all major destinations." />
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-4">
           {agraRoutes.map((r, i) => (
             <RouteCard key={i} from="Agra" to={r.to} distance={r.distance} price={r.price} />
           ))}
@@ -133,7 +135,7 @@ const Routes = () => (
     <section className="section-padding bg-muted">
       <div className="container mx-auto">
         <SectionHeading title="Taxi Services From Delhi" subtitle="Book outstation taxi from Delhi to popular cities across North India." />
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-4">
           {delhiRoutes.map((r, i) => (
             <RouteCard key={i} from="Delhi" to={r.to} distance={r.distance} price={r.price} />
           ))}
@@ -144,11 +146,15 @@ const Routes = () => (
     {/* CTA */}
     <section className="section-padding bg-secondary text-center">
       <div className="container mx-auto">
-        <h2 className="font-heading text-3xl font-bold text-secondary-foreground">Don't See Your Route?</h2>
-        <p className="mt-2 text-secondary-foreground/90">Contact us for custom routes and special pricing for your journey.</p>
-        <div className="mt-6 flex justify-center gap-4 flex-wrap">
-          <Link to="/contact"><Button variant="default" size="lg">Get Custom Quote</Button></Link>
-          <a href="tel:+919876543210"><Button variant="hero-outline" size="lg" className="border-primary text-primary hover:bg-primary/10">Call Now</Button></a>
+        <h2 className="font-heading text-2xl sm:text-3xl font-bold text-secondary-foreground">Don't See Your Route?</h2>
+        <p className="mt-2 text-secondary-foreground/90 text-sm sm:text-base">Contact us for custom routes and special pricing.</p>
+        <div className="mt-6 flex justify-center gap-3 sm:gap-4 flex-wrap">
+          <Link to="/contact"><Button variant="default" size="lg" className="text-sm sm:text-base">Get Custom Quote</Button></Link>
+          <a href="tel:+919876543210">
+            <Button variant="hero-outline" size="lg" className="border-primary text-primary hover:bg-primary/10 gap-2 text-sm sm:text-base">
+              <Phone className="h-4 w-4" /> Call Now
+            </Button>
+          </a>
         </div>
       </div>
     </section>

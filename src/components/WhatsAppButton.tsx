@@ -5,10 +5,11 @@ const WhatsAppButton = () => (
     href="https://wa.me/919876543210?text=Hi%2C%20I%20want%20to%20book%20a%20taxi"
     target="_blank"
     rel="noopener noreferrer"
-    className="fixed bottom-6 right-6 z-50 bg-[hsl(142,70%,40%)] text-primary-foreground rounded-full p-4 shadow-lg hover:scale-110 transition-transform"
+    className="fixed bottom-5 right-5 z-50 bg-[hsl(142,70%,40%)] text-primary-foreground rounded-full p-3 sm:p-4 shadow-lg hover:scale-110 transition-transform animate-bounce"
+    style={{ animationDuration: "2s", animationIterationCount: "3" }}
     aria-label="Chat on WhatsApp"
   >
-    <MessageCircle className="h-6 w-6" />
+    <MessageCircle className="h-5 w-5 sm:h-6 sm:w-6" />
   </a>
 );
 
