@@ -10,7 +10,7 @@ import Index from "./pages/Index";
 import Services from "./pages/Services";
 import Fleet from "./pages/Fleet";
 import Tours from "./pages/Tours";
-import Routes from "./pages/Routes";
+import TaxiRoutes from "./pages/Routes";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
