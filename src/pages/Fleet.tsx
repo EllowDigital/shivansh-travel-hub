@@ -1,4 +1,5 @@
 import SectionHeading from "@/components/SectionHeading";
+import SEO from "@/components/SEO";
 import { Users, Fuel, Gauge } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
@@ -16,18 +17,24 @@ const cars = [
 
 const Fleet = () => (
   <div className="pt-14 sm:pt-16 lg:pt-[88px]">
+    <SEO
+      title="Our Fleet | Book Swift Dzire, Innova, Ertiga, Tempo Traveller in Agra"
+      description="Choose from our well-maintained fleet: Swift Dzire ₹11/km, Ertiga ₹14/km, Toyota Innova ₹16/km, Tempo Traveller ₹22/km. Book taxi in Agra for any trip."
+      keywords="swift dzire taxi agra, innova hire agra, ertiga cab booking, tempo traveller agra, taxi fleet agra, car rental agra, outstation car agra"
+      canonical="https://shivanshtravels.com/fleet"
+    />
     <section className="page-header">
       <div className="container mx-auto text-center">
         <h1 className="page-header-title">Our Fleet</h1>
-        <p className="page-header-subtitle">Well-maintained vehicles for a safe and comfortable journey.</p>
+        <p className="page-header-subtitle">Well-maintained vehicles for a safe and comfortable journey across India.</p>
       </div>
     </section>
     <section className="section-padding bg-background">
       <div className="container mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
         {cars.map((c, i) => (
-          <div key={i} className="bg-card rounded-xl overflow-hidden shadow-md hover-lift border border-border/50">
+          <article key={i} className="bg-card rounded-xl overflow-hidden shadow-md hover-lift border border-border/50">
             <div className="bg-muted p-4 flex items-center justify-center h-36 sm:h-44">
-              <img src={c.img} alt={c.name} className="max-h-full object-contain" loading="lazy" />
+              <img src={c.img} alt={`${c.name} for hire in Agra - ${c.type}`} className="max-h-full object-contain" loading="lazy" />
             </div>
             <div className="p-4 sm:p-5">
               <span className="inline-block text-[10px] sm:text-xs font-semibold text-secondary bg-secondary/10 px-2 py-0.5 rounded-full">{c.type}</span>
@@ -40,7 +47,7 @@ const Fleet = () => (
               <p className="mt-3 text-lg sm:text-xl font-bold text-secondary">{c.price}</p>
               <Link to="/contact"><Button variant="hero" size="sm" className="w-full mt-3 text-xs sm:text-sm">Book Now</Button></Link>
             </div>
-          </div>
+          </article>
         ))}
       </div>
     </section>

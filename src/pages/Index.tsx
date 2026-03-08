@@ -2,12 +2,14 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import BookingForm from "@/components/BookingForm";
 import SectionHeading from "@/components/SectionHeading";
+import SEO from "@/components/SEO";
 import heroBg from "@/assets/hero-bg.jpg";
 import swiftDzire from "@/assets/swift-dzire.png";
 import ertiga from "@/assets/ertiga.png";
 import innova from "@/assets/innova.png";
 import tempoTraveller from "@/assets/tempo-traveller.png";
-import { Plane, Car, MapPin, ShieldCheck, Clock, Star, Users as UsersIcon, Phone, ArrowRight, Headphones, BadgeCheck, IndianRupee, Zap, Users } from "lucide-react";
+import { Plane, Car, MapPin, ShieldCheck, Clock, Star, Users as UsersIcon, Phone, ArrowRight, Headphones, BadgeCheck, IndianRupee, Zap, Users, MessageCircle, ChevronDown, ChevronUp } from "lucide-react";
+import { useState } from "react";
 
 const services = [
   { icon: Plane, title: "Airport Transfers", desc: "Timely airport pickups & drops across India." },
@@ -49,10 +51,10 @@ const whyUs = [
 ];
 
 const testimonials = [
-  { name: "Rahul Sharma", city: "Agra", text: "Excellent service! The driver was very professional and the car was spotless. Booked via WhatsApp and it was so easy!", rating: 5 },
-  { name: "Priya Singh", city: "Delhi", text: "Best taxi service. Used them for our family trip to Varanasi. Very comfortable and affordable. Highly recommended!", rating: 5 },
-  { name: "Amit Verma", city: "Lucknow", text: "Very punctual and affordable. The booking was super easy. Great experience for our Ayodhya trip!", rating: 5 },
-  { name: "Sunita Gupta", city: "Mathura", text: "We booked for Rajasthan tour and everything was perfectly arranged. The driver was knowledgeable and friendly.", rating: 5 },
+  { name: "Rahul Sharma", city: "Agra", text: "Excellent service! The driver was very professional and the car was spotless. Booked via WhatsApp and it was so easy!", rating: 5, trip: "Agra to Delhi" },
+  { name: "Priya Singh", city: "Delhi", text: "Best taxi service. Used them for our family trip to Varanasi. Very comfortable and affordable. Highly recommended!", rating: 5, trip: "Agra to Varanasi" },
+  { name: "Amit Verma", city: "Lucknow", text: "Very punctual and affordable. The booking was super easy. Great experience for our Ayodhya trip!", rating: 5, trip: "Agra to Ayodhya" },
+  { name: "Sunita Gupta", city: "Mathura", text: "We booked for Rajasthan tour and everything was perfectly arranged. The driver was knowledgeable and friendly.", rating: 5, trip: "Rajasthan Tour" },
 ];
 
 const popularRoutes = [
@@ -64,8 +66,79 @@ const popularRoutes = [
   { from: "Agra", to: "Mathura", price: "₹1,200" },
 ];
 
+const faqs = [
+  { q: "How do I book a taxi from Agra to Delhi?", a: "You can book instantly via WhatsApp at +91 89604 46756 or call us. We offer one-way and round-trip taxis from Agra to Delhi starting at ₹3,500 in Swift Dzire." },
+  { q: "What is the fare for Agra to Delhi taxi?", a: "Agra to Delhi taxi fare starts at ₹3,500 for a sedan (Swift Dzire). Ertiga costs ₹4,200 and Innova costs ₹4,800. Prices include toll and driver charges." },
+  { q: "Do you provide airport pickup and drop?", a: "Yes! We provide 24/7 airport pickup and drop services at all major airports including Delhi IGI Airport, Jaipur Airport, Lucknow Airport, and Varanasi Airport." },
+  { q: "Are your drivers verified?", a: "Absolutely. All our drivers are background-verified, experienced professionals with valid licenses. Your safety is our top priority." },
+  { q: "Can I book a round-trip outstation taxi?", a: "Yes, we offer both one-way and round-trip outstation taxi services. Round trips get special discounted rates. Contact us for a custom quote." },
+  { q: "What types of cars are available?", a: "We have Swift Dzire (4-seater), Ertiga (7-seater), Toyota Innova (7-seater premium), and Tempo Traveller (12-seater) for group travel." },
+  { q: "Do you offer tour packages?", a: "Yes! We offer curated tour packages to Ayodhya, Varanasi, Rajasthan, Shimla-Manali, Uttarakhand, and more. All packages include car, hotel, and sightseeing." },
+  { q: "Is there any hidden charge?", a: "No hidden charges at all. The price quoted includes toll, parking, and driver allowance. You pay exactly what we quote — complete transparency." },
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(f => ({
+    "@type": "Question",
+    "name": f.q,
+    "acceptedAnswer": { "@type": "Answer", "text": f.a }
+  }))
+};
+
+const homeSchema = {
+  "@context": "https://schema.org",
+  "@type": "TaxiService",
+  "name": "Shivansh Tour and Travels",
+  "description": "Book affordable taxi & cab services from Agra to Delhi, Jaipur, Varanasi, Ayodhya & all major cities. Airport pickup, outstation trips, tour packages. Call +91 89604 46756.",
+  "url": "https://shivanshtravels.com",
+  "telephone": "+918960446756",
+  "email": "sarwanyadav6174@gmail.com",
+  "address": { "@type": "PostalAddress", "addressLocality": "Agra", "addressRegion": "Uttar Pradesh", "addressCountry": "IN" },
+  "areaServed": { "@type": "Country", "name": "India" },
+  "priceRange": "₹₹",
+  "openingHours": "Mo-Su 00:00-23:59",
+  "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "500", "bestRating": "5" },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Taxi Services",
+    "itemListElement": [
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Agra to Delhi Taxi", "description": "One-way & round-trip taxi from Agra to Delhi starting ₹3,500" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Agra to Jaipur Taxi", "description": "Affordable cab service from Agra to Jaipur starting ₹3,600" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Airport Pickup & Drop", "description": "24/7 airport transfer service at all major airports" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Tour Packages", "description": "All-inclusive tour packages to Ayodhya, Varanasi, Rajasthan & more" } },
+    ]
+  }
+};
+
+const FAQItem = ({ q, a }: { q: string; a: string }) => {
+  const [open, setOpen] = useState(false);
+  return (
+    <div className="border border-border/50 rounded-xl overflow-hidden bg-card">
+      <button onClick={() => setOpen(!open)} className="w-full flex items-center justify-between p-4 sm:p-5 text-left hover:bg-accent/50 transition-colors">
+        <span className="font-heading font-semibold text-foreground text-xs sm:text-sm pr-4">{q}</span>
+        {open ? <ChevronUp className="h-4 w-4 text-secondary shrink-0" /> : <ChevronDown className="h-4 w-4 text-muted-foreground shrink-0" />}
+      </button>
+      {open && (
+        <div className="px-4 sm:px-5 pb-4 sm:pb-5">
+          <p className="text-muted-foreground text-xs sm:text-sm leading-relaxed">{a}</p>
+        </div>
+      )}
+    </div>
+  );
+};
+
 const Index = () => (
   <div>
+    <SEO
+      title="Shivansh Tour & Travels | Best Taxi Service in Agra | Book Cab Online"
+      description="Book affordable taxi & cab services from Agra to Delhi, Jaipur, Varanasi, Ayodhya & 50+ cities. Airport pickup, outstation trips, tour packages. ₹11/km onwards. Call +91 89604 46756."
+      keywords="taxi service agra, cab booking agra, agra to delhi taxi, agra to jaipur taxi, outstation taxi agra, airport taxi agra, tour packages from agra, agra to varanasi cab, agra to ayodhya taxi, cheap taxi agra, best taxi service agra, taxi near me agra, cab service uttar pradesh, book taxi online agra, agra to mathura taxi"
+      canonical="https://shivanshtravels.com"
+      schema={homeSchema}
+    />
+
     {/* Hero */}
     <section
       className="relative min-h-[100svh] flex items-center"
@@ -83,7 +156,7 @@ const Index = () => (
               <span className="text-secondary">Anytime, Anywhere</span>
             </h1>
             <p className="mt-4 text-sm sm:text-base lg:text-lg text-primary-foreground/85 max-w-xl mx-auto lg:mx-0">
-              From airport pickups to outstation trips — comfortable rides at unbeatable prices. Book instantly via WhatsApp!
+              Agra's #1 taxi service — airport pickups, outstation trips & tour packages at unbeatable prices. Book instantly via WhatsApp!
             </p>
             <div className="mt-6 sm:mt-8 flex flex-wrap justify-center lg:justify-start gap-3 sm:gap-4">
               <Link to="/contact">
@@ -97,8 +170,6 @@ const Index = () => (
                 </Button>
               </a>
             </div>
-
-            {/* Trust badges */}
             <div className="mt-8 flex flex-wrap justify-center lg:justify-start gap-4 sm:gap-6 text-primary-foreground/70 text-xs sm:text-sm">
               <span className="flex items-center gap-1.5"><BadgeCheck className="h-4 w-4 text-secondary" /> Verified Drivers</span>
               <span className="flex items-center gap-1.5"><ShieldCheck className="h-4 w-4 text-secondary" /> Safe & Clean Cars</span>
@@ -142,14 +213,12 @@ const Index = () => (
           ))}
         </div>
         <div className="text-center mt-6 sm:mt-8">
-          <Link to="/services">
-            <Button variant="outline" className="gap-2 text-sm">View All Services <ArrowRight className="h-4 w-4" /></Button>
-          </Link>
+          <Link to="/services"><Button variant="outline" className="gap-2 text-sm">View All Services <ArrowRight className="h-4 w-4" /></Button></Link>
         </div>
       </div>
     </section>
 
-    {/* Our Fleet - Car Showcase */}
+    {/* Our Fleet */}
     <section className="section-padding bg-muted">
       <div className="container mx-auto">
         <SectionHeading title="Choose Your Ride" subtitle="Well-maintained cars for every type of journey." />
@@ -157,7 +226,7 @@ const Index = () => (
           {fleetCars.map((c, i) => (
             <Link to="/fleet" key={i} className="bg-card rounded-xl overflow-hidden shadow-md hover-lift border border-border/50 group">
               <div className="bg-gradient-to-b from-accent/50 to-muted p-3 sm:p-4 flex items-center justify-center h-28 sm:h-36">
-                <img src={c.img} alt={c.name} className="max-h-full object-contain group-hover:scale-105 transition-transform duration-300" loading="lazy" />
+                <img src={c.img} alt={`${c.name} taxi for hire in Agra`} className="max-h-full object-contain group-hover:scale-105 transition-transform duration-300" loading="lazy" />
               </div>
               <div className="p-3 sm:p-4 text-center">
                 <span className="text-[10px] sm:text-xs font-semibold text-secondary bg-secondary/10 px-2 py-0.5 rounded-full">{c.type}</span>
@@ -171,9 +240,7 @@ const Index = () => (
           ))}
         </div>
         <div className="text-center mt-6 sm:mt-8">
-          <Link to="/fleet">
-            <Button variant="outline" className="gap-2 text-sm">View Full Fleet <ArrowRight className="h-4 w-4" /></Button>
-          </Link>
+          <Link to="/fleet"><Button variant="outline" className="gap-2 text-sm">View Full Fleet <ArrowRight className="h-4 w-4" /></Button></Link>
         </div>
       </div>
     </section>
@@ -193,9 +260,7 @@ const Index = () => (
           ))}
         </div>
         <div className="text-center mt-6 sm:mt-8">
-          <Link to="/routes">
-            <Button variant="outline" className="gap-2 text-sm">View All Routes <ArrowRight className="h-4 w-4" /></Button>
-          </Link>
+          <Link to="/routes"><Button variant="outline" className="gap-2 text-sm">View All Routes <ArrowRight className="h-4 w-4" /></Button></Link>
         </div>
       </div>
     </section>
@@ -228,17 +293,13 @@ const Index = () => (
               </div>
               <div className="px-4 sm:px-5 py-3 flex items-center justify-between border-t border-border/50">
                 <span className="text-[10px] sm:text-xs text-muted-foreground">✅ Hotel + Car + Sightseeing</span>
-                <Link to="/tours">
-                  <Button variant="outline" size="sm" className="text-[10px] sm:text-xs h-7 px-3">View Details</Button>
-                </Link>
+                <Link to="/tours"><Button variant="outline" size="sm" className="text-[10px] sm:text-xs h-7 px-3">View Details</Button></Link>
               </div>
             </div>
           ))}
         </div>
         <div className="text-center mt-6 sm:mt-8">
-          <Link to="/tours">
-            <Button variant="outline" className="gap-2 text-sm">View All Packages <ArrowRight className="h-4 w-4" /></Button>
-          </Link>
+          <Link to="/tours"><Button variant="outline" className="gap-2 text-sm">View All Packages <ArrowRight className="h-4 w-4" /></Button></Link>
         </div>
       </div>
     </section>
@@ -261,12 +322,13 @@ const Index = () => (
       </div>
     </section>
 
-    {/* Testimonials */}
+    {/* Testimonials with link to Reviews */}
     <section className="section-padding bg-primary">
       <div className="container mx-auto">
         <div className="text-center mb-8 sm:mb-12">
           <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-primary-foreground">What Our Customers Say</h2>
           <div className="mt-3 sm:mt-4 mx-auto w-16 sm:w-20 h-1 bg-secondary rounded-full" />
+          <p className="mt-3 text-primary-foreground/70 text-sm">Rated <strong className="text-secondary">4.9★</strong> by 500+ happy customers</p>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
           {testimonials.map((t, i) => (
@@ -275,18 +337,38 @@ const Index = () => (
                 {[...Array(t.rating)].map((_, j) => <Star key={j} className="h-3.5 w-3.5 fill-secondary text-secondary" />)}
               </div>
               <p className="text-primary-foreground/90 text-xs sm:text-sm italic leading-relaxed">"{t.text}"</p>
-              <div className="mt-3 flex items-center gap-2">
-                <div className="w-8 h-8 rounded-full bg-secondary/30 flex items-center justify-center text-secondary font-bold text-xs">
-                  {t.name[0]}
+              <div className="mt-3 flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <div className="w-8 h-8 rounded-full bg-secondary/30 flex items-center justify-center text-secondary font-bold text-xs">
+                    {t.name[0]}
+                  </div>
+                  <div>
+                    <p className="font-semibold text-secondary text-xs sm:text-sm">{t.name}</p>
+                    <p className="text-[10px] sm:text-xs text-primary-foreground/60">{t.city}</p>
+                  </div>
                 </div>
-                <div>
-                  <p className="font-semibold text-secondary text-xs sm:text-sm">{t.name}</p>
-                  <p className="text-[10px] sm:text-xs text-primary-foreground/60">{t.city}</p>
-                </div>
+                <span className="text-[10px] bg-secondary/20 text-secondary px-2 py-0.5 rounded-full">{t.trip}</span>
               </div>
             </div>
           ))}
         </div>
+        <div className="text-center mt-6 sm:mt-8">
+          <Link to="/reviews">
+            <Button variant="hero" className="gap-2 text-sm">Read All Reviews <ArrowRight className="h-4 w-4" /></Button>
+          </Link>
+        </div>
+      </div>
+    </section>
+
+    {/* FAQ Section */}
+    <section className="section-padding bg-background">
+      <div className="container mx-auto max-w-3xl">
+        <SectionHeading title="Frequently Asked Questions" subtitle="Quick answers to common questions about our taxi services." />
+        <div className="space-y-3">
+          {faqs.map((f, i) => <FAQItem key={i} q={f.q} a={f.a} />)}
+        </div>
+        {/* Hidden FAQ schema */}
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} style={{ display: "none" }} />
       </div>
     </section>
 

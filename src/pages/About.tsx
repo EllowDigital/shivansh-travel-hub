@@ -1,4 +1,5 @@
 import SectionHeading from "@/components/SectionHeading";
+import SEO from "@/components/SEO";
 import { ShieldCheck, Heart, Users, Award, Target, Globe } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
@@ -12,10 +13,16 @@ const values = [
 
 const About = () => (
   <div className="pt-14 sm:pt-16 lg:pt-[88px]">
+    <SEO
+      title="About Shivansh Tour & Travels | Trusted Taxi Service in Agra Since Years"
+      description="Shivansh Tour and Travels is Agra's trusted taxi and tour service provider. Professional drivers, well-maintained fleet, 24/7 support. Serving 50+ cities across India."
+      keywords="about shivansh travels, taxi company agra, trusted cab service agra, travel agency agra, tour operator uttar pradesh"
+      canonical="https://shivanshtravels.com/about"
+    />
     <section className="page-header">
       <div className="container mx-auto text-center">
-        <h1 className="page-header-title">About Us</h1>
-        <p className="page-header-subtitle">Learn more about Shivansh Tour and Travels.</p>
+        <h1 className="page-header-title">About Shivansh Tour & Travels</h1>
+        <p className="page-header-subtitle">Agra's trusted taxi and tour service — serving thousands of happy customers across India.</p>
       </div>
     </section>
 
@@ -24,7 +31,7 @@ const About = () => (
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="font-heading text-xl sm:text-2xl font-bold text-foreground mb-4">Who We Are</h2>
           <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
-            <strong className="text-foreground">Shivansh Tour and Travels</strong> is a leading taxi and tour service provider based in Lucknow, Uttar Pradesh.
+            <strong className="text-foreground">Shivansh Tour and Travels</strong> is a leading taxi and tour service provider based in <strong>Agra, Uttar Pradesh</strong>.
             We specialize in airport pickups, outstation trips, local city rides, and curated tour packages across India.
             With a fleet of well-maintained vehicles and professional drivers, we ensure every journey is safe, comfortable, and memorable.
           </p>
@@ -34,7 +41,6 @@ const About = () => (
           </p>
         </div>
 
-        {/* Mission & Vision */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 mt-10 sm:mt-12 max-w-3xl mx-auto">
           <div className="bg-card rounded-xl p-5 sm:p-6 border border-border/50 shadow-sm text-center">
             <div className="mx-auto mb-3 w-12 h-12 rounded-full bg-accent flex items-center justify-center">
@@ -71,7 +77,6 @@ const About = () => (
       </div>
     </section>
 
-    {/* CTA */}
     <section className="section-padding bg-secondary text-center">
       <div className="container mx-auto">
         <h2 className="font-heading text-2xl sm:text-3xl font-bold text-secondary-foreground">Let's Plan Your Next Trip</h2>
