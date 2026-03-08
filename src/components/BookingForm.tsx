@@ -2,7 +2,9 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { toast } from "sonner";
-import { Send, MapPin, Calendar, Car, User, Phone as PhoneIcon, MessageSquare, Users } from "lucide-react";
+import { Send } from "lucide-react";
+import LocationAutocomplete from "@/components/LocationAutocomplete";
+import { openWhatsAppMessage } from "@/lib/whatsapp";
 
 const carTypes = ["Swift Dzire", "Ertiga", "Toyota Innova", "Tempo Traveller"];
 const tripTypes = ["One Way", "Round Trip", "Local", "Airport"];
@@ -50,8 +52,12 @@ const BookingForm = ({ defaultPickup = "", defaultDrop = "" }: { defaultPickup?:
       `Sent via Shivansh Tour & Travels Website`,
     ].filter(Boolean).join("\n");
 
-    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`, "_blank");
-    toast.success("Redirecting to WhatsApp with your booking details!");
+    const opened = openWhatsAppMessage(WHATSAPP_NUMBER, text);
+    if (opened) {
+      toast.success("Opening WhatsApp with your booking details...");
+    } else {
+      toast.error("Popup blocked. Please allow popups and try again.");
+    }
   };
 
   return (
@@ -78,22 +84,27 @@ const BookingForm = ({ defaultPickup = "", defaultDrop = "" }: { defaultPickup?:
       </div>
 
       <div className="space-y-3">
-        <div className="relative">
-          <MapPin className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-secondary" />
-          <Input placeholder="Pickup Location *" value={form.pickup} onChange={(e) => update("pickup", e.target.value)} className="text-sm pl-10" required />
-        </div>
-        <div className="relative">
-          <MapPin className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-destructive" />
-          <Input placeholder="Drop Location *" value={form.drop} onChange={(e) => update("drop", e.target.value)} className="text-sm pl-10" required />
-        </div>
+        <LocationAutocomplete
+          placeholder="Pickup Location *"
+          value={form.pickup}
+          onChange={(value) => update("pickup", value)}
+          required
+          variant="pickup"
+        />
+
+        <LocationAutocomplete
+          placeholder="Drop Location *"
+          value={form.drop}
+          onChange={(value) => update("drop", value)}
+          required
+          variant="drop"
+        />
+
         <div className="grid grid-cols-2 gap-3">
-          <div className="relative">
-            <Input type="date" value={form.date} onChange={(e) => update("date", e.target.value)} className="text-sm" required />
-          </div>
-          <div className="relative">
-            <Input type="time" value={form.time} onChange={(e) => update("time", e.target.value)} className="text-sm" placeholder="Pickup Time" />
-          </div>
+          <Input type="date" value={form.date} onChange={(e) => update("date", e.target.value)} className="text-sm" required />
+          <Input type="time" value={form.time} onChange={(e) => update("time", e.target.value)} className="text-sm" placeholder="Pickup Time" />
         </div>
+
         <select
           className="w-full h-10 rounded-md border border-input bg-background px-3 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring"
           value={form.car}
@@ -102,10 +113,12 @@ const BookingForm = ({ defaultPickup = "", defaultDrop = "" }: { defaultPickup?:
           <option value="">🚗 Select Car Type</option>
           {carTypes.map((c) => <option key={c} value={c}>{c}</option>)}
         </select>
+
         <div className="grid grid-cols-2 gap-3">
           <Input placeholder="Your Name *" value={form.name} onChange={(e) => update("name", e.target.value)} className="text-sm" required />
           <Input placeholder="Phone *" type="tel" value={form.phone} onChange={(e) => update("phone", e.target.value)} className="text-sm" required />
         </div>
+
         <div className="grid grid-cols-2 gap-3">
           <Input placeholder="Passengers" type="number" min="1" max="20" value={form.passengers} onChange={(e) => update("passengers", e.target.value)} className="text-sm" />
           <Input placeholder="Message (optional)" value={form.message} onChange={(e) => update("message", e.target.value)} className="text-sm" />
@@ -115,9 +128,10 @@ const BookingForm = ({ defaultPickup = "", defaultDrop = "" }: { defaultPickup?:
       <Button type="submit" variant="hero" className="w-full gap-2 mt-4">
         <Send className="h-4 w-4" /> Book via WhatsApp
       </Button>
-      <p className="text-[10px] text-center text-muted-foreground mt-2">✅ Free cancellation • No hidden charges</p>
+      <p className="text-[10px] text-center text-muted-foreground mt-2">✅ Place search enabled • Manual input also accepted</p>
     </form>
   );
 };
 
 export default BookingForm;
+
