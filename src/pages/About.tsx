@@ -11,7 +11,7 @@ const values = [
 ];
 
 const About = () => (
-  <div className="pt-14 sm:pt-16">
+  <div className="pt-14 sm:pt-16 lg:pt-[88px]">
     <section className="page-header">
       <div className="container mx-auto text-center">
         <h1 className="page-header-title">About Us</h1>

@@ -86,7 +86,7 @@ const delhiRoutes = [
   { to: "Khajuraho", distance: "600 km", price: "₹8,500" },
 ];
 
-const WHATSAPP_NUMBER = "919876543210";
+const WHATSAPP_NUMBER = "918960446756";
 
 const handleRouteBook = (from: string, to: string, distance: string, price: string) => {
   const text = [
@@ -128,7 +128,7 @@ const RouteCard = ({ from, to, distance, price }: { from: string; to: string; di
 );
 
 const Routes = () => (
-  <div className="pt-14 sm:pt-16">
+  <div className="pt-14 sm:pt-16 lg:pt-[88px]">
     <section className="page-header">
       <div className="container mx-auto text-center">
         <h1 className="page-header-title">Taxi Routes & Pricing</h1>
@@ -169,7 +169,7 @@ const Routes = () => (
         <p className="mt-2 text-secondary-foreground/90 text-sm sm:text-base">Contact us for custom routes and special pricing.</p>
         <div className="mt-6 flex justify-center gap-3 sm:gap-4 flex-wrap">
           <Link to="/contact"><Button variant="default" size="lg" className="text-sm sm:text-base">Get Custom Quote</Button></Link>
-          <a href="tel:+919876543210">
+          <a href="tel:+918960446756">
             <Button variant="hero-outline" size="lg" className="border-primary text-primary hover:bg-primary/10 gap-2 text-sm sm:text-base">
               <Phone className="h-4 w-4" /> Call Now
             </Button>

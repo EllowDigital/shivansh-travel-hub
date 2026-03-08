@@ -1,16 +1,17 @@
 import BookingForm from "@/components/BookingForm";
 import { Phone, Mail, MapPin, MessageCircle, Clock } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const contactInfo = [
-  { icon: Phone, title: "Phone", content: "+91 98765 43210", href: "tel:+919876543210" },
-  { icon: MessageCircle, title: "WhatsApp", content: "Chat on WhatsApp", href: "https://wa.me/919876543210" },
-  { icon: Mail, title: "Email", content: "info@shivanshtravels.com", href: "mailto:info@shivanshtravels.com" },
-  { icon: MapPin, title: "Address", content: "Lucknow, Uttar Pradesh, India" },
+  { icon: Phone, title: "Phone", content: "+91 89604 46756", href: "tel:+918960446756" },
+  { icon: MessageCircle, title: "WhatsApp", content: "Chat on WhatsApp", href: "https://wa.me/918960446756" },
+  { icon: Mail, title: "Email", content: "sarwanyadav6174@gmail.com", href: "mailto:sarwanyadav6174@gmail.com" },
+  { icon: MapPin, title: "Address", content: "Agra, Uttar Pradesh, India" },
   { icon: Clock, title: "Working Hours", content: "24/7 — Always Available" },
 ];
 
 const Contact = () => (
-  <div className="pt-14 sm:pt-16">
+  <div className="pt-14 sm:pt-16 lg:pt-[88px]">
     <section className="page-header">
       <div className="container mx-auto text-center">
         <h1 className="page-header-title">Contact Us</h1>
@@ -20,7 +21,6 @@ const Contact = () => (
 
     <section className="section-padding bg-background">
       <div className="container mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12">
-        {/* Info */}
         <div>
           <h2 className="font-heading text-xl sm:text-2xl font-bold text-foreground mb-5 sm:mb-6">Get In Touch</h2>
           <div className="space-y-4">
@@ -44,11 +44,10 @@ const Contact = () => (
             ))}
           </div>
 
-          {/* Map */}
           <div className="mt-6 sm:mt-8 rounded-xl overflow-hidden shadow-md border border-border/50">
             <iframe
               title="Shivansh Tour and Travels Location"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d227748.38256437284!2d80.7714!3d26.8467!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399bfd991f32b16b%3A0x93ccba8909978be7!2sLucknow%2C%20Uttar%20Pradesh!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d227748.38256437284!2d78.0081!3d27.1767!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39747121d702ff6d%3A0xdd2ae4803f767dde!2sAgra%2C%20Uttar%20Pradesh!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
               width="100%"
               height="220"
               style={{ border: 0 }}
@@ -59,7 +58,6 @@ const Contact = () => (
           </div>
         </div>
 
-        {/* Booking form */}
         <div className="flex justify-center lg:justify-end">
           <BookingForm />
         </div>

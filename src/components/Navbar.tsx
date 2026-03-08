@@ -24,13 +24,23 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Close mobile menu on route change
   useEffect(() => { setOpen(false); }, [location.pathname]);
 
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
       scrolled ? "bg-card/98 backdrop-blur-lg shadow-md" : "bg-card/95 backdrop-blur-md shadow-sm"
     }`}>
+      {/* Top bar with phone */}
+      <div className="bg-primary text-primary-foreground text-xs py-1.5 px-4 hidden sm:block">
+        <div className="container mx-auto flex items-center justify-between">
+          <span>📍 Serving across India from Agra, UP</span>
+          <div className="flex items-center gap-4">
+            <a href="mailto:sarwanyadav6174@gmail.com" className="hover:text-secondary transition-colors">✉ sarwanyadav6174@gmail.com</a>
+            <a href="tel:+918960446756" className="hover:text-secondary transition-colors font-medium">📞 +91 89604 46756</a>
+          </div>
+        </div>
+      </div>
+
       <div className="container mx-auto flex items-center justify-between h-14 sm:h-16 px-4">
         <Link to="/" className="font-heading text-lg sm:text-xl font-bold text-primary shrink-0">
           Shivansh<span className="text-secondary"> Tour & Travels</span>
@@ -49,7 +59,7 @@ const Navbar = () => {
               {l.label}
             </Link>
           ))}
-          <a href="tel:+919876543210" className="ml-2">
+          <a href="tel:+918960446756" className="ml-2">
             <Button size="sm" variant="hero" className="gap-1.5">
               <Phone className="h-3.5 w-3.5" /> Call Now
             </Button>
@@ -57,13 +67,18 @@ const Navbar = () => {
         </div>
 
         {/* Mobile toggle */}
-        <button
-          className="lg:hidden p-2 -mr-2 text-foreground hover:text-secondary transition-colors"
-          onClick={() => setOpen(!open)}
-          aria-label="Toggle menu"
-        >
-          {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-        </button>
+        <div className="flex items-center gap-2 lg:hidden">
+          <a href="tel:+918960446756" className="p-2 text-secondary">
+            <Phone className="h-5 w-5" />
+          </a>
+          <button
+            className="p-2 -mr-2 text-foreground hover:text-secondary transition-colors"
+            onClick={() => setOpen(!open)}
+            aria-label="Toggle menu"
+          >
+            {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile menu */}
@@ -87,7 +102,7 @@ const Navbar = () => {
             </Link>
           ))}
           <div className="pt-2 pb-1">
-            <a href="tel:+919876543210">
+            <a href="tel:+918960446756">
               <Button size="sm" variant="hero" className="w-full gap-1.5">
                 <Phone className="h-3.5 w-3.5" /> Call Now
               </Button>

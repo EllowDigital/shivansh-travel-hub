@@ -12,7 +12,7 @@ const services = [
 ];
 
 const Services = () => (
-  <div className="pt-14 sm:pt-16">
+  <div className="pt-14 sm:pt-16 lg:pt-[88px]">
     <section className="page-header">
       <div className="container mx-auto text-center">
         <h1 className="page-header-title">Our Services</h1>
