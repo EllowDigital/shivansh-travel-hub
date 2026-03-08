@@ -86,7 +86,7 @@ const delhiRoutes = [
   { to: "Khajuraho", distance: "600 km", price: "₹8,500" },
 ];
 
-const WHATSAPP_NUMBER = "919876543210";
+const WHATSAPP_NUMBER = "918960446756";
 
 const handleRouteBook = (from: string, to: string, distance: string, price: string) => {
   const text = [
