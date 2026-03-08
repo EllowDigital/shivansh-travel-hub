@@ -149,7 +149,36 @@ const Index = () => (
       </div>
     </section>
 
-    {/* Popular Routes - NEW */}
+    {/* Our Fleet - Car Showcase */}
+    <section className="section-padding bg-muted">
+      <div className="container mx-auto">
+        <SectionHeading title="Choose Your Ride" subtitle="Well-maintained cars for every type of journey." />
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-5">
+          {fleetCars.map((c, i) => (
+            <Link to="/fleet" key={i} className="bg-card rounded-xl overflow-hidden shadow-md hover-lift border border-border/50 group">
+              <div className="bg-gradient-to-b from-accent/50 to-muted p-3 sm:p-4 flex items-center justify-center h-28 sm:h-36">
+                <img src={c.img} alt={c.name} className="max-h-full object-contain group-hover:scale-105 transition-transform duration-300" loading="lazy" />
+              </div>
+              <div className="p-3 sm:p-4 text-center">
+                <span className="text-[10px] sm:text-xs font-semibold text-secondary bg-secondary/10 px-2 py-0.5 rounded-full">{c.type}</span>
+                <h3 className="font-heading text-sm sm:text-base font-bold text-foreground mt-1.5">{c.name}</h3>
+                <div className="flex items-center justify-center gap-1 mt-1 text-[10px] sm:text-xs text-muted-foreground">
+                  <Users className="h-3 w-3" /> {c.seats}
+                </div>
+                <p className="mt-1.5 text-base sm:text-lg font-bold text-secondary">{c.price}</p>
+              </div>
+            </Link>
+          ))}
+        </div>
+        <div className="text-center mt-6 sm:mt-8">
+          <Link to="/fleet">
+            <Button variant="outline" className="gap-2 text-sm">View Full Fleet <ArrowRight className="h-4 w-4" /></Button>
+          </Link>
+        </div>
+      </div>
+    </section>
+
+    {/* Popular Routes */}
     <section className="section-padding bg-accent/50">
       <div className="container mx-auto">
         <SectionHeading title="Popular Routes" subtitle="Most booked taxi routes with transparent pricing." />
