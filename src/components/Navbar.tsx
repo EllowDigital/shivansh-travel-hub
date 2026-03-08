@@ -10,7 +10,7 @@ const navLinks = [
   { to: "/tours", label: "Tours" },
   { to: "/routes", label: "Routes" },
   { to: "/reviews", label: "Reviews" },
-  { to: "/gallery", label: "Gallery" },
+  { to: "/blog", label: "Blog" },
   { to: "/about", label: "About" },
   { to: "/contact", label: "Contact" },
 ];
