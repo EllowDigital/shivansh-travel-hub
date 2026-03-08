@@ -13,6 +13,7 @@ import Tours from "./pages/Tours";
 import TaxiRoutes from "./pages/Routes";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
+import Gallery from "./pages/Gallery";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
