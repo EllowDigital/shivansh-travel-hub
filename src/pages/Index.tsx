@@ -13,7 +13,14 @@ const services = [
   { icon: Plane, title: "Airport Transfers", desc: "Timely airport pickups & drops across India." },
   { icon: Car, title: "Outstation Taxi", desc: "Affordable one-way & round trip cabs." },
   { icon: MapPin, title: "Local City Taxi", desc: "Comfortable rides within your city." },
-  { icon: Users, title: "Tour Packages", desc: "Curated religious & leisure tours." },
+  { icon: UsersIcon, title: "Tour Packages", desc: "Curated religious & leisure tours." },
+];
+
+const fleetCars = [
+  { name: "Swift Dzire", img: swiftDzire, seats: "4 Seater", price: "₹11/km", type: "Sedan" },
+  { name: "Ertiga", img: ertiga, seats: "7 Seater", price: "₹14/km", type: "MPV" },
+  { name: "Toyota Innova", img: innova, seats: "7 Seater", price: "₹16/km", type: "Premium" },
+  { name: "Tempo Traveller", img: tempoTraveller, seats: "12 Seater", price: "₹22/km", type: "Group" },
 ];
 
 const destinations = [
