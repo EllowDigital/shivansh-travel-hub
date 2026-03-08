@@ -18,7 +18,6 @@ const popularRoutes = [
 const Footer = () => (
   <footer className="bg-primary text-primary-foreground">
     <div className="container mx-auto px-4 py-10 sm:py-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-      {/* Brand */}
       <div>
         <Link to="/" className="flex items-center gap-2 mb-3">
           <Car className="h-6 w-6 text-secondary" />
@@ -31,7 +30,6 @@ const Footer = () => (
         </p>
       </div>
 
-      {/* Quick Links */}
       <div>
         <h4 className="font-heading font-semibold mb-4 text-secondary text-sm uppercase tracking-wider">Quick Links</h4>
         <ul className="space-y-2 text-sm text-primary-foreground/80">
@@ -43,7 +41,6 @@ const Footer = () => (
         </ul>
       </div>
 
-      {/* Popular Routes */}
       <div>
         <h4 className="font-heading font-semibold mb-4 text-secondary text-sm uppercase tracking-wider">Popular Routes</h4>
         <ul className="space-y-2 text-sm text-primary-foreground/80">
@@ -55,21 +52,20 @@ const Footer = () => (
         </ul>
       </div>
 
-      {/* Contact */}
       <div>
         <h4 className="font-heading font-semibold mb-4 text-secondary text-sm uppercase tracking-wider">Contact Us</h4>
         <ul className="space-y-3 text-sm text-primary-foreground/80">
           <li className="flex items-center gap-2">
             <Phone className="h-4 w-4 text-secondary shrink-0" />
-            <a href="tel:+919876543210" className="hover:text-secondary transition-colors">+91 98765 43210</a>
+            <a href="tel:+918960446756" className="hover:text-secondary transition-colors">+91 89604 46756</a>
           </li>
           <li className="flex items-center gap-2">
             <Mail className="h-4 w-4 text-secondary shrink-0" />
-            <a href="mailto:info@shivanshtravels.com" className="hover:text-secondary transition-colors text-xs sm:text-sm break-all">info@shivanshtravels.com</a>
+            <a href="mailto:sarwanyadav6174@gmail.com" className="hover:text-secondary transition-colors text-xs sm:text-sm break-all">sarwanyadav6174@gmail.com</a>
           </li>
           <li className="flex items-start gap-2">
             <MapPin className="h-4 w-4 text-secondary shrink-0 mt-0.5" />
-            <span>Lucknow, Uttar Pradesh, India</span>
+            <span>Agra, Uttar Pradesh, India</span>
           </li>
         </ul>
       </div>

@@ -2,15 +2,17 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { toast } from "sonner";
-import { Send } from "lucide-react";
+import { Send, MapPin, Calendar, Car, User, Phone as PhoneIcon, MessageSquare, Users } from "lucide-react";
 
 const carTypes = ["Swift Dzire", "Ertiga", "Toyota Innova", "Tempo Traveller"];
+const tripTypes = ["One Way", "Round Trip", "Local", "Airport"];
 
-const WHATSAPP_NUMBER = "919876543210";
+const WHATSAPP_NUMBER = "918960446756";
 
 const BookingForm = ({ defaultPickup = "", defaultDrop = "" }: { defaultPickup?: string; defaultDrop?: string }) => {
+  const [tripType, setTripType] = useState("One Way");
   const [form, setForm] = useState({
-    pickup: defaultPickup, drop: defaultDrop, date: "", car: "", name: "", phone: "", passengers: "", message: "",
+    pickup: defaultPickup, drop: defaultDrop, date: "", time: "", car: "", name: "", phone: "", passengers: "", message: "",
   });
 
   const update = (key: string, val: string) => setForm((p) => ({ ...p, [key]: val }));
@@ -28,6 +30,8 @@ const BookingForm = ({ defaultPickup = "", defaultDrop = "" }: { defaultPickup?:
       `🚕 *NEW TAXI BOOKING REQUEST*`,
       `━━━━━━━━━━━━━━━━━━`,
       ``,
+      `📋 *Trip Type:* ${tripType}`,
+      ``,
       `👤 *Customer Details:*`,
       `• Name: ${form.name}`,
       `• Phone: ${form.phone}`,
@@ -37,6 +41,7 @@ const BookingForm = ({ defaultPickup = "", defaultDrop = "" }: { defaultPickup?:
       `• Pickup: ${form.pickup}`,
       `• Drop: ${form.drop}`,
       `• Date: ${formattedDate}`,
+      form.time ? `• Time: ${form.time}` : "",
       form.car ? `• Car Type: ${form.car}` : `• Car Type: Any Available`,
       ``,
       form.message ? `💬 *Message:* ${form.message}` : "",
@@ -50,35 +55,67 @@ const BookingForm = ({ defaultPickup = "", defaultDrop = "" }: { defaultPickup?:
   };
 
   return (
-    <form onSubmit={handleSubmit} className="bg-card rounded-xl shadow-2xl p-5 sm:p-6 space-y-3 w-full max-w-md">
+    <form onSubmit={handleSubmit} className="bg-card rounded-xl shadow-2xl p-5 sm:p-6 w-full max-w-md">
       <h3 className="font-heading text-lg font-bold text-foreground text-center">Book Your Taxi</h3>
-      <p className="text-xs text-muted-foreground text-center -mt-1">Fill the form & get instant confirmation</p>
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-        <Input placeholder="Pickup Location *" value={form.pickup} onChange={(e) => update("pickup", e.target.value)} className="text-sm" required />
-        <Input placeholder="Drop Location *" value={form.drop} onChange={(e) => update("drop", e.target.value)} className="text-sm" required />
+      <p className="text-xs text-muted-foreground text-center mb-4">Fill the form & get instant confirmation</p>
+
+      {/* Trip Type Tabs */}
+      <div className="grid grid-cols-4 gap-1 bg-muted rounded-lg p-1 mb-4">
+        {tripTypes.map((t) => (
+          <button
+            key={t}
+            type="button"
+            onClick={() => setTripType(t)}
+            className={`text-[10px] sm:text-xs font-medium py-2 rounded-md transition-all ${
+              tripType === t
+                ? "bg-secondary text-secondary-foreground shadow-sm"
+                : "text-muted-foreground hover:text-foreground"
+            }`}
+          >
+            {t}
+          </button>
+        ))}
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-        <Input type="date" value={form.date} onChange={(e) => update("date", e.target.value)} className="text-sm" required />
+
+      <div className="space-y-3">
+        <div className="relative">
+          <MapPin className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-secondary" />
+          <Input placeholder="Pickup Location *" value={form.pickup} onChange={(e) => update("pickup", e.target.value)} className="text-sm pl-10" required />
+        </div>
+        <div className="relative">
+          <MapPin className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-destructive" />
+          <Input placeholder="Drop Location *" value={form.drop} onChange={(e) => update("drop", e.target.value)} className="text-sm pl-10" required />
+        </div>
+        <div className="grid grid-cols-2 gap-3">
+          <div className="relative">
+            <Input type="date" value={form.date} onChange={(e) => update("date", e.target.value)} className="text-sm" required />
+          </div>
+          <div className="relative">
+            <Input type="time" value={form.time} onChange={(e) => update("time", e.target.value)} className="text-sm" placeholder="Pickup Time" />
+          </div>
+        </div>
         <select
           className="w-full h-10 rounded-md border border-input bg-background px-3 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring"
           value={form.car}
           onChange={(e) => update("car", e.target.value)}
         >
-          <option value="">Select Car Type</option>
+          <option value="">🚗 Select Car Type</option>
           {carTypes.map((c) => <option key={c} value={c}>{c}</option>)}
         </select>
+        <div className="grid grid-cols-2 gap-3">
+          <Input placeholder="Your Name *" value={form.name} onChange={(e) => update("name", e.target.value)} className="text-sm" required />
+          <Input placeholder="Phone *" type="tel" value={form.phone} onChange={(e) => update("phone", e.target.value)} className="text-sm" required />
+        </div>
+        <div className="grid grid-cols-2 gap-3">
+          <Input placeholder="Passengers" type="number" min="1" max="20" value={form.passengers} onChange={(e) => update("passengers", e.target.value)} className="text-sm" />
+          <Input placeholder="Message (optional)" value={form.message} onChange={(e) => update("message", e.target.value)} className="text-sm" />
+        </div>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-        <Input placeholder="Your Name *" value={form.name} onChange={(e) => update("name", e.target.value)} className="text-sm" required />
-        <Input placeholder="Phone Number *" type="tel" value={form.phone} onChange={(e) => update("phone", e.target.value)} className="text-sm" required />
-      </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-        <Input placeholder="No. of Passengers" type="number" min="1" max="20" value={form.passengers} onChange={(e) => update("passengers", e.target.value)} className="text-sm" />
-        <Input placeholder="Optional Message" value={form.message} onChange={(e) => update("message", e.target.value)} className="text-sm" />
-      </div>
-      <Button type="submit" variant="hero" className="w-full gap-2">
-        <Send className="h-4 w-4" /> Send Booking via WhatsApp
+
+      <Button type="submit" variant="hero" className="w-full gap-2 mt-4">
+        <Send className="h-4 w-4" /> Book via WhatsApp
       </Button>
+      <p className="text-[10px] text-center text-muted-foreground mt-2">✅ Free cancellation • No hidden charges</p>
     </form>
   );
 };
