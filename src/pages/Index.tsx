@@ -7,6 +7,10 @@ import swiftDzire from "@/assets/swift-dzire.png";
 import ertiga from "@/assets/ertiga.png";
 import innova from "@/assets/innova.png";
 import tempoTraveller from "@/assets/tempo-traveller.png";
+import tajMahal from "@/assets/gallery/taj-mahal.jpg";
+import hawaMahal from "@/assets/gallery/jaipur-hawa-mahal.jpg";
+import varanasiGhats from "@/assets/gallery/varanasi-ghats.jpg";
+import ayodhyaTemple from "@/assets/gallery/ayodhya-temple.jpg";
 import {
   Plane,
   Car,
@@ -26,7 +30,7 @@ import {
   ChevronDown,
   ChevronUp,
 } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const services = [
   {
@@ -113,7 +117,36 @@ const stats = [
   { value: "100%", label: "Safe Journeys" },
 ];
 
-const heroBg = "/agra-taxi-service-hero.jpg";
+const heroSlides = [
+  {
+    title: "Taj Mahal, Agra",
+    alt: "Taj Mahal monument in Agra",
+    desktopImage: "/agra-taxi-service-hero.jpg",
+    tabletImage: tajMahal,
+    mobileImage: tajMahal,
+  },
+  {
+    title: "Hawa Mahal, Jaipur",
+    alt: "Hawa Mahal monument in Jaipur",
+    desktopImage: hawaMahal,
+    tabletImage: hawaMahal,
+    mobileImage: hawaMahal,
+  },
+  {
+    title: "Varanasi Ghats",
+    alt: "Famous ghats in Varanasi",
+    desktopImage: varanasiGhats,
+    tabletImage: varanasiGhats,
+    mobileImage: varanasiGhats,
+  },
+  {
+    title: "Ayodhya Temple",
+    alt: "Famous temple monument in Ayodhya",
+    desktopImage: ayodhyaTemple,
+    tabletImage: ayodhyaTemple,
+    mobileImage: ayodhyaTemple,
+  },
+];
 
 const whyUs = [
   {
@@ -363,7 +396,18 @@ const FAQItem = ({ q, a }: { q: string; a: string }) => {
   );
 };
 
-const Index = () => (
+const Index = () => {
+  const [currentHeroSlide, setCurrentHeroSlide] = useState(0);
+
+  useEffect(() => {
+    const intervalId = window.setInterval(() => {
+      setCurrentHeroSlide((prev) => (prev + 1) % heroSlides.length);
+    }, 4500);
+
+    return () => window.clearInterval(intervalId);
+  }, []);
+
+  return (
   <div>
     <SEO
       title="Shivansh Tour & Travels | Best Taxi Service in Agra | Book Cab Online"
@@ -374,14 +418,29 @@ const Index = () => (
     />
 
     {/* Hero */}
-    <section
-      className="relative min-h-[100svh] flex items-center"
-      style={{
-        backgroundImage: `url(${heroBg})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-      }}
-    >
+    <section className="relative min-h-[100svh] flex items-center overflow-hidden">
+      <div className="absolute inset-0">
+        {heroSlides.map((slide, index) => (
+          <div
+            key={slide.title}
+            className={`absolute inset-0 transition-opacity duration-700 ${
+              index === currentHeroSlide ? "opacity-100" : "opacity-0"
+            }`}
+            aria-hidden={index !== currentHeroSlide}
+          >
+            <picture>
+              <source media="(min-width: 1024px)" srcSet={slide.desktopImage} />
+              <source media="(min-width: 640px)" srcSet={slide.tabletImage} />
+              <img
+                src={slide.mobileImage}
+                alt={slide.alt}
+                className="h-full w-full object-cover object-center"
+                loading={index === 0 ? "eager" : "lazy"}
+              />
+            </picture>
+          </div>
+        ))}
+      </div>
       <div className="absolute inset-0 bg-gradient-to-br from-primary/85 via-primary/65 to-primary/40" />
       <div className="relative z-10 container mx-auto px-4 py-24 sm:py-28 lg:py-20">
         <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
@@ -429,6 +488,21 @@ const Index = () => (
               <span className="flex items-center gap-1.5">
                 <Clock className="h-4 w-4 text-secondary" /> 24/7 Available
               </span>
+            </div>
+            <div className="mt-5 flex items-center justify-center lg:justify-start gap-2">
+              {heroSlides.map((slide, index) => (
+                <button
+                  key={slide.title}
+                  type="button"
+                  onClick={() => setCurrentHeroSlide(index)}
+                  className={`h-2.5 rounded-full transition-all ${
+                    index === currentHeroSlide
+                      ? "w-7 bg-secondary"
+                      : "w-2.5 bg-primary-foreground/50 hover:bg-primary-foreground/75"
+                  }`}
+                  aria-label={`Show hero image ${index + 1}: ${slide.title}`}
+                />
+              ))}
             </div>
           </div>
           <div
@@ -788,5 +862,6 @@ const Index = () => (
     </section>
   </div>
 );
+};
 
 export default Index;
