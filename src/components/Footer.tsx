@@ -106,8 +106,8 @@ const Footer = () => (
           <li className="flex items-start gap-2">
             <MapPin className="h-4 w-4 text-secondary shrink-0 mt-0.5" />
             <span>
-              Ganga Enclave Phase-2, Near Khel Gaon Khel Road, Dayal Bagh,
-              Agra, Uttar Pradesh - 282005
+              Ganga Enclave Phase-2, Near Khel Gaon Khel Road, Dayal Bagh, Agra,
+              Uttar Pradesh - 282005
             </span>
           </li>
         </ul>

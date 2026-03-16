@@ -114,7 +114,8 @@ const reviewSchema = {
   image: "https://shivansh-tour-hub.netlify.app/og-image.jpg",
   address: {
     "@type": "PostalAddress",
-    streetAddress: "Ganga Enclave Phase-2, Near Khel Gaon Khel Road, Dayal Bagh",
+    streetAddress:
+      "Ganga Enclave Phase-2, Near Khel Gaon Khel Road, Dayal Bagh",
     addressLocality: "Agra",
     addressRegion: "Uttar Pradesh",
     postalCode: "282005",
