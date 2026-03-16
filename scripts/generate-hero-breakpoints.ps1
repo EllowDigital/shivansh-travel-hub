@@ -8,7 +8,9 @@ $targets = @(
   @{ Name = "manali-mountains"; Source = "src/assets/gallery/manali-mountains.jpg" },
   @{ Name = "rishikesh-bridge"; Source = "src/assets/gallery/rishikesh-bridge.jpg" },
   @{ Name = "tour-happy-family"; Source = "src/assets/gallery/happy-family.jpg" },
-  @{ Name = "innova-tour"; Source = "src/assets/gallery/innova-trip.jpg" }
+  @{ Name = "innova-tour"; Source = "src/assets/gallery/innova-trip.jpg" },
+  @{ Name = "agra-taj-sunrise"; Source = "src/assets/gallery/taj-mahal.jpg" },
+  @{ Name = "india-travel-collage"; Source = "public/og-image.jpg" }
 )
 
 $sizes = @(
