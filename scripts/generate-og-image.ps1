@@ -1,6 +1,6 @@
 Add-Type -AssemblyName System.Drawing
 
-$inputPath = "public/agra-taxi-service-hero.jpg"
+$inputPath = "public/hero/agra-taj-desktop.jpg"
 $carPath = "src/assets/swift-dzire.png"
 $outputPath = "public/og-image.jpg"
 $width = 1200
@@ -21,67 +21,67 @@ $offsetY = [int](($height - $drawHeight) / 2)
 $graphics.DrawImage($bg, $offsetX, $offsetY, $drawWidth, $drawHeight)
 
 $fullRect = New-Object System.Drawing.Rectangle(0, 0, $width, $height)
-$overlay = New-Object System.Drawing.Drawing2D.LinearGradientBrush(
-  $fullRect,
-  ([System.Drawing.Color]::FromArgb(178, 8, 32, 52)),
-  ([System.Drawing.Color]::FromArgb(118, 15, 66, 102)),
-  20.0
+$overlayDark = New-Object System.Drawing.SolidBrush([System.Drawing.Color]::FromArgb(90, 8, 22, 34))
+$graphics.FillRectangle($overlayDark, $fullRect)
+
+$leftShade = New-Object System.Drawing.Drawing2D.LinearGradientBrush(
+  (New-Object System.Drawing.Rectangle(0, 0, 760, $height)),
+  ([System.Drawing.Color]::FromArgb(205, 7, 26, 43)),
+  ([System.Drawing.Color]::FromArgb(30, 7, 26, 43)),
+  0.0
 )
-$graphics.FillRectangle($overlay, $fullRect)
+$graphics.FillRectangle($leftShade, 0, 0, 760, $height)
 
-$leftPanelRect = New-Object System.Drawing.Rectangle(68, 84, 620, 466)
-$leftPanelBrush = New-Object System.Drawing.SolidBrush([System.Drawing.Color]::FromArgb(126, 5, 20, 34))
-$panelBorder = New-Object System.Drawing.Pen([System.Drawing.Color]::FromArgb(130, 120, 175, 215), 2)
-$carPanelRect = New-Object System.Drawing.Rectangle(708, 84, 424, 466)
-$carPanelBrush = New-Object System.Drawing.SolidBrush([System.Drawing.Color]::FromArgb(112, 5, 20, 34))
-$carFramePen = New-Object System.Drawing.Pen([System.Drawing.Color]::FromArgb(120, 255, 255, 255), 2)
-$groundPen = New-Object System.Drawing.Pen([System.Drawing.Color]::FromArgb(170, 235, 240, 245), 3)
-$goldPen = New-Object System.Drawing.Pen([System.Drawing.Color]::FromArgb(220, 246, 190, 84), 4)
-$goldPen.LineJoin = [System.Drawing.Drawing2D.LineJoin]::Round
-
-$graphics.FillRectangle($leftPanelBrush, $leftPanelRect)
-$graphics.DrawRectangle($panelBorder, $leftPanelRect)
+$carPanelRect = New-Object System.Drawing.Rectangle(700, 86, 430, 458)
+$carPanelBrush = New-Object System.Drawing.SolidBrush([System.Drawing.Color]::FromArgb(112, 6, 20, 34))
+$carBorderPen = New-Object System.Drawing.Pen([System.Drawing.Color]::FromArgb(150, 205, 224, 240), 2)
 $graphics.FillRectangle($carPanelBrush, $carPanelRect)
-$graphics.DrawRectangle($carFramePen, $carPanelRect)
+$graphics.DrawRectangle($carBorderPen, $carPanelRect)
 
 $car = [System.Drawing.Image]::FromFile($carPath)
-$carInnerWidth = 392
-$carInnerHeight = 360
+$carInnerWidth = 382
+$carInnerHeight = 280
 $carScale = [Math]::Min($carInnerWidth / $car.Width, $carInnerHeight / $car.Height)
 $carDrawWidth = [int][Math]::Floor($car.Width * $carScale)
 $carDrawHeight = [int][Math]::Floor($car.Height * $carScale)
 $carDrawX = [int]($carPanelRect.X + (($carPanelRect.Width - $carDrawWidth) / 2))
-$carDrawY = [int]($carPanelRect.Y + 44 + (($carInnerHeight - $carDrawHeight) / 2))
+$carDrawY = [int]($carPanelRect.Y + 110 + (($carInnerHeight - $carDrawHeight) / 2))
+
+$shadowBrush = New-Object System.Drawing.SolidBrush([System.Drawing.Color]::FromArgb(110, 8, 12, 18))
+$shadowWidth = [int]($carDrawWidth * 0.72)
+$shadowHeight = 24
+$shadowX = [int]($carDrawX + (($carDrawWidth - $shadowWidth) / 2))
+$shadowY = [int]($carDrawY + $carDrawHeight - 8)
+$graphics.FillEllipse($shadowBrush, $shadowX, $shadowY, $shadowWidth, $shadowHeight)
+
 $graphics.DrawImage($car, $carDrawX, $carDrawY, $carDrawWidth, $carDrawHeight)
 
-$groundY = $carPanelRect.Y + $carPanelRect.Height - 64
-$graphics.DrawLine($groundPen, $carPanelRect.X + 32, $groundY, $carPanelRect.X + $carPanelRect.Width - 32, $groundY)
-
-$accentPath = New-Object System.Drawing.Drawing2D.GraphicsPath
-$accentPath.StartFigure()
-$accentPath.AddLine(730, 126, 1110, 126)
-$accentPath.AddLine(1110, 126, 1074, 164)
-$graphics.DrawPath($goldPen, $accentPath)
-
-$brandFont = New-Object System.Drawing.Font("Segoe UI", 72, [System.Drawing.FontStyle]::Bold, [System.Drawing.GraphicsUnit]::Pixel)
-$subBrandFont = New-Object System.Drawing.Font("Segoe UI", 40, [System.Drawing.FontStyle]::Bold, [System.Drawing.GraphicsUnit]::Pixel)
-$taglineFont = New-Object System.Drawing.Font("Segoe UI", 34, [System.Drawing.FontStyle]::Bold, [System.Drawing.GraphicsUnit]::Pixel)
-$metaFont = New-Object System.Drawing.Font("Segoe UI", 27, [System.Drawing.FontStyle]::Regular, [System.Drawing.GraphicsUnit]::Pixel)
-$phoneFont = New-Object System.Drawing.Font("Segoe UI", 31, [System.Drawing.FontStyle]::Bold, [System.Drawing.GraphicsUnit]::Pixel)
-$carLabelFont = New-Object System.Drawing.Font("Segoe UI", 25, [System.Drawing.FontStyle]::Bold, [System.Drawing.GraphicsUnit]::Pixel)
+$brandFont = New-Object System.Drawing.Font("Segoe UI", 74, [System.Drawing.FontStyle]::Bold, [System.Drawing.GraphicsUnit]::Pixel)
+$subBrandFont = New-Object System.Drawing.Font("Segoe UI", 42, [System.Drawing.FontStyle]::Bold, [System.Drawing.GraphicsUnit]::Pixel)
+$taglineFont = New-Object System.Drawing.Font("Segoe UI", 46, [System.Drawing.FontStyle]::Bold, [System.Drawing.GraphicsUnit]::Pixel)
+$metaFont = New-Object System.Drawing.Font("Segoe UI", 30, [System.Drawing.FontStyle]::Regular, [System.Drawing.GraphicsUnit]::Pixel)
+$phoneFont = New-Object System.Drawing.Font("Segoe UI", 36, [System.Drawing.FontStyle]::Bold, [System.Drawing.GraphicsUnit]::Pixel)
+$panelTitleFont = New-Object System.Drawing.Font("Segoe UI", 27, [System.Drawing.FontStyle]::Bold, [System.Drawing.GraphicsUnit]::Pixel)
+$panelMetaFont = New-Object System.Drawing.Font("Segoe UI", 22, [System.Drawing.FontStyle]::Regular, [System.Drawing.GraphicsUnit]::Pixel)
 
 $white = New-Object System.Drawing.SolidBrush([System.Drawing.Color]::FromArgb(245, 249, 253))
 $accent = New-Object System.Drawing.SolidBrush([System.Drawing.Color]::FromArgb(255, 236, 178, 76))
-$soft = New-Object System.Drawing.SolidBrush([System.Drawing.Color]::FromArgb(220, 218, 230, 244))
+$soft = New-Object System.Drawing.SolidBrush([System.Drawing.Color]::FromArgb(232, 218, 230, 244))
 
-$graphics.DrawString("Shivansh", $brandFont, $white, 110, 124)
-$graphics.DrawString("Tour & Travels", $subBrandFont, $accent, 114, 216)
-$graphics.DrawString("Book Trusted Taxi Rides Across India", $taglineFont, $white, 110, 308)
-$graphics.DrawString("Airport Pickup | Outstation | Tours", $metaFont, $soft, 110, 364)
-$graphics.DrawString("Call +91 8865038345", $phoneFont, $accent, 110, 422)
+$tagBrush = New-Object System.Drawing.SolidBrush([System.Drawing.Color]::FromArgb(170, 19, 54, 82))
+$tagRect = New-Object System.Drawing.Rectangle(86, 60, 344, 44)
+$graphics.FillRectangle($tagBrush, $tagRect)
+$graphics.DrawString("AGRA TAXI SERVICE", (New-Object System.Drawing.Font("Segoe UI", 20, [System.Drawing.FontStyle]::Bold, [System.Drawing.GraphicsUnit]::Pixel)), $accent, 102, 69)
 
-$graphics.DrawString("CLEAN CARS", $carLabelFont, $white, 760, 486)
-$graphics.DrawString("Verified drivers | 24x7", $metaFont, $soft, 760, 522)
+$graphics.DrawString("Shivansh", $brandFont, $white, 84, 118)
+$graphics.DrawString("Tour & Travels", $subBrandFont, $accent, 90, 214)
+$graphics.DrawString("Book Trusted", $taglineFont, $white, 84, 306)
+$graphics.DrawString("Taxi Rides", $taglineFont, $white, 84, 360)
+$graphics.DrawString("Airport Pickup | Outstation | Tours", $metaFont, $soft, 86, 430)
+$graphics.DrawString("Call +91 8865038345", $phoneFont, $accent, 84, 486)
+
+$graphics.DrawString("Clean Cars", $panelTitleFont, $white, 742, 474)
+$graphics.DrawString("Verified drivers | 24x7 support", $panelMetaFont, $soft, 742, 514)
 
 $jpgCodec = [System.Drawing.Imaging.ImageCodecInfo]::GetImageEncoders() | Where-Object { $_.MimeType -eq "image/jpeg" }
 $encParams = New-Object System.Drawing.Imaging.EncoderParameters(1)
@@ -93,18 +93,17 @@ $subBrandFont.Dispose()
 $taglineFont.Dispose()
 $metaFont.Dispose()
 $phoneFont.Dispose()
-$carLabelFont.Dispose()
+$panelTitleFont.Dispose()
+$panelMetaFont.Dispose()
 $white.Dispose()
 $accent.Dispose()
 $soft.Dispose()
-$leftPanelBrush.Dispose()
+$tagBrush.Dispose()
 $carPanelBrush.Dispose()
-$panelBorder.Dispose()
-$carFramePen.Dispose()
-$groundPen.Dispose()
-$goldPen.Dispose()
-$accentPath.Dispose()
-$overlay.Dispose()
+$carBorderPen.Dispose()
+$leftShade.Dispose()
+$overlayDark.Dispose()
+$shadowBrush.Dispose()
 $car.Dispose()
 $bg.Dispose()
 $graphics.Dispose()
