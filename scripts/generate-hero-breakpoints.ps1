@@ -6,12 +6,6 @@ $manualTargets = @(
     Source = "public/agra-taxi-service-hero.jpg"
     Title = "Taj Mahal, Agra"
     Alt = "Taj Mahal monument in Agra"
-  },
-  @{
-    Name = "india-travel-collage"
-    Source = "public/og-image.jpg"
-    Title = "Explore Incredible India"
-    Alt = "Travel collage featuring iconic Indian destinations"
   }
 )
 

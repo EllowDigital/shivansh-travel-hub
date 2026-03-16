@@ -15,13 +15,6 @@ export const heroSlides: HeroSlide[] = [
     mobileImage: "/hero/agra-taj-mobile.jpg",
   },
   {
-    title: "Explore Incredible India",
-    alt: "Travel collage featuring iconic Indian destinations",
-    desktopImage: "/hero/india-travel-collage-desktop.jpg",
-    tabletImage: "/hero/india-travel-collage-tablet.jpg",
-    mobileImage: "/hero/india-travel-collage-mobile.jpg",
-  },
-  {
     title: "Ayodhya Temple",
     alt: "Ayodhya Temple destination view in India",
     desktopImage: "/hero/ayodhya-temple-desktop.jpg",
