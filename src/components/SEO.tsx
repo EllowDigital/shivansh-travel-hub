@@ -8,6 +8,9 @@ interface SEOProps {
   schema?: object;
 }
 
+const SITE_URL = "https://shivanshtravels.com";
+const DEFAULT_OG_IMAGE = `${SITE_URL}/og-image.jpg`;
+
 const SEO = ({ title, description, keywords, canonical, schema }: SEOProps) => {
   useEffect(() => {
     document.title = title;
@@ -28,10 +31,12 @@ const SEO = ({ title, description, keywords, canonical, schema }: SEOProps) => {
     setMeta("og:title", title, true);
     setMeta("og:description", description, true);
     setMeta("og:type", "website", true);
-    if (canonical) setMeta("og:url", canonical, true);
+    setMeta("og:url", canonical || window.location.href, true);
+    setMeta("og:image", DEFAULT_OG_IMAGE, true);
     setMeta("twitter:card", "summary_large_image");
     setMeta("twitter:title", title);
     setMeta("twitter:description", description);
+    setMeta("twitter:image", DEFAULT_OG_IMAGE);
 
     // Canonical
     let link = document.querySelector('link[rel="canonical"]') as HTMLLinkElement | null;
