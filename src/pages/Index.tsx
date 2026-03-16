@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import BookingForm from "@/components/BookingForm";
 import SectionHeading from "@/components/SectionHeading";
 import SEO from "@/components/SEO";
+import { heroSlides } from "@/lib/heroSlides";
 import swiftDzire from "@/assets/swift-dzire.png";
 import ertiga from "@/assets/ertiga.png";
 import innova from "@/assets/innova.png";
@@ -115,65 +116,6 @@ const stats = [
   { value: "50+", label: "Cities Covered" },
   { value: "24/7", label: "Support Available" },
   { value: "100%", label: "Safe Journeys" },
-];
-
-const heroSlides = [
-  {
-    title: "Taj Mahal, Agra",
-    alt: "Taj Mahal monument in Agra",
-    desktopImage: "/hero/agra-taj-desktop.jpg",
-    tabletImage: "/hero/agra-taj-tablet.jpg",
-    mobileImage: "/hero/agra-taj-mobile.jpg",
-  },
-  {
-    title: "Hawa Mahal, Jaipur",
-    alt: "Hawa Mahal monument in Jaipur",
-    desktopImage: "/hero/jaipur-hawa-mahal-desktop.jpg",
-    tabletImage: "/hero/jaipur-hawa-mahal-tablet.jpg",
-    mobileImage: "/hero/jaipur-hawa-mahal-mobile.jpg",
-  },
-  {
-    title: "Varanasi Ghats",
-    alt: "Famous ghats in Varanasi",
-    desktopImage: "/hero/varanasi-ghats-desktop.jpg",
-    tabletImage: "/hero/varanasi-ghats-tablet.jpg",
-    mobileImage: "/hero/varanasi-ghats-mobile.jpg",
-  },
-  {
-    title: "Ayodhya Temple",
-    alt: "Famous temple monument in Ayodhya",
-    desktopImage: "/hero/ayodhya-temple-desktop.jpg",
-    tabletImage: "/hero/ayodhya-temple-tablet.jpg",
-    mobileImage: "/hero/ayodhya-temple-mobile.jpg",
-  },
-  {
-    title: "Rishikesh Lakshman Jhula",
-    alt: "Lakshman Jhula bridge in Rishikesh",
-    desktopImage: "/hero/rishikesh-bridge-desktop.jpg",
-    tabletImage: "/hero/rishikesh-bridge-tablet.jpg",
-    mobileImage: "/hero/rishikesh-bridge-mobile.jpg",
-  },
-  {
-    title: "Manali Mountain Escape",
-    alt: "Scenic mountain route near Manali",
-    desktopImage: "/hero/manali-mountains-desktop.jpg",
-    tabletImage: "/hero/manali-mountains-tablet.jpg",
-    mobileImage: "/hero/manali-mountains-mobile.jpg",
-  },
-  {
-    title: "Family Tour Across India",
-    alt: "Happy family enjoying a tour with taxi service",
-    desktopImage: "/hero/tour-happy-family-desktop.jpg",
-    tabletImage: "/hero/tour-happy-family-tablet.jpg",
-    mobileImage: "/hero/tour-happy-family-mobile.jpg",
-  },
-  {
-    title: "Premium Innova Tours",
-    alt: "Toyota Innova ready for long-distance India tours",
-    desktopImage: "/hero/innova-tour-desktop.jpg",
-    tabletImage: "/hero/innova-tour-tablet.jpg",
-    mobileImage: "/hero/innova-tour-mobile.jpg",
-  },
 ];
 
 const whyUs = [
