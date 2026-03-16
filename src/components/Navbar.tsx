@@ -44,8 +44,13 @@ const Navbar = () => {
       </div>
 
       <div className="container mx-auto flex items-center justify-between h-14 sm:h-16 px-4">
-        <Link to="/" className="font-heading text-lg sm:text-xl font-bold text-primary shrink-0">
-          Shivansh<span className="text-secondary"> Tour & Travels</span>
+        <Link to="/" className="shrink-0" aria-label="Shivansh Tour and Travels home">
+          <img
+            src="/logo.svg"
+            alt="Shivansh Tour and Travels"
+            className="h-9 sm:h-10 w-auto"
+            loading="eager"
+          />
         </Link>
 
         {/* Desktop */}
