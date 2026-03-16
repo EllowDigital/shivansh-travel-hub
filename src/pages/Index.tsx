@@ -58,12 +58,12 @@ const testimonials = [
 ];
 
 const popularRoutes = [
-  { from: "Agra", to: "Delhi", price: "₹3,500" },
-  { from: "Agra", to: "Jaipur", price: "₹3,600" },
-  { from: "Delhi", to: "Manali", price: "₹7,800" },
-  { from: "Agra", to: "Varanasi", price: "₹8,000" },
-  { from: "Delhi", to: "Shimla", price: "₹5,200" },
-  { from: "Agra", to: "Mathura", price: "₹1,200" },
+  { from: "Agra", to: "Delhi", price: "₹3,500", slug: "/agra-to-delhi-taxi" },
+  { from: "Agra", to: "Jaipur", price: "₹3,600", slug: "/agra-to-jaipur-taxi" },
+  { from: "Delhi", to: "Agra", price: "₹3,500", slug: "/delhi-to-agra-taxi" },
+  { from: "Agra", to: "Mathura", price: "₹1,200", slug: "/agra-to-mathura-taxi" },
+  { from: "Delhi Airport", to: "Agra", price: "₹3,900", slug: "/delhi-airport-to-agra-taxi" },
+  { from: "Agra", to: "Lucknow", price: "₹5,500", slug: "/agra-to-lucknow-taxi" },
 ];
 
 const faqs = [
@@ -251,7 +251,7 @@ const Index = () => (
         <SectionHeading title="Popular Routes" subtitle="Most booked taxi routes with transparent pricing." />
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4">
           {popularRoutes.map((r, i) => (
-            <Link to="/routes" key={i} className="bg-card rounded-xl p-4 text-center hover-lift shadow-sm border border-border/50 group">
+            <Link to={r.slug} key={i} className="bg-card rounded-xl p-4 text-center hover-lift shadow-sm border border-border/50 group">
               <div className="text-xs text-muted-foreground">{r.from}</div>
               <ArrowRight className="h-3 w-3 mx-auto my-1 text-secondary" />
               <div className="font-heading font-semibold text-foreground text-sm">{r.to}</div>
