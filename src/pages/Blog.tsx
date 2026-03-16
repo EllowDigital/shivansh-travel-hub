@@ -75,7 +75,7 @@ const Blog = () => (
           Ready to Book Your Trip?
         </h2>
         <p className="mt-2 text-secondary-foreground/90 text-sm sm:text-base">
-          Turn these guides into reality â€” book a taxi with us today!
+          Turn these guides into reality — book a taxi with us today!
         </p>
         <div className="mt-6 flex justify-center gap-3 flex-wrap">
           <Link to="/contact">

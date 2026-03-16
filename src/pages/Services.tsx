@@ -53,7 +53,7 @@ const Services = () => (
       <div className="container mx-auto text-center">
         <h1 className="page-header-title">Our Services</h1>
         <p className="page-header-subtitle">
-          Comprehensive travel solutions for every need â€” from airport pickups
+          Comprehensive travel solutions for every need — from airport pickups
           to outstation trips.
         </p>
       </div>

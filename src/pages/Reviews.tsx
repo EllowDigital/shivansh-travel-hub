@@ -32,7 +32,7 @@ const allReviews = [
   {
     name: "Sunita Gupta",
     city: "Mathura",
-    text: "We booked the Rajasthan tour package and everything was perfectly arranged. Hotel, sightseeing, car â€” all top notch. The driver was friendly and helpful.",
+    text: "We booked the Rajasthan tour package and everything was perfectly arranged. Hotel, sightseeing, car — all top notch. The driver was friendly and helpful.",
     rating: 5,
     trip: "Rajasthan Tour",
     date: "Nov 2025",
@@ -88,7 +88,7 @@ const allReviews = [
   {
     name: "Deepak Tiwari",
     city: "Prayagraj",
-    text: "Very affordable and reliable. The Swift Dzire was perfect for our couple trip. No hidden charges â€” exactly what was quoted. 5 star service!",
+    text: "Very affordable and reliable. The Swift Dzire was perfect for our couple trip. No hidden charges — exactly what was quoted. 5 star service!",
     rating: 5,
     trip: "Agra to Prayagraj",
     date: "Nov 2025",
@@ -114,8 +114,10 @@ const reviewSchema = {
   image: "https://shivansh-tour-hub.netlify.app/og-image.jpg",
   address: {
     "@type": "PostalAddress",
+    streetAddress: "Ganga Enclave Phase-2, Near Khel Gaon Khel Road, Dayal Bagh",
     addressLocality: "Agra",
     addressRegion: "Uttar Pradesh",
+    postalCode: "282005",
     addressCountry: "IN",
   },
   telephone: "+918865038345",
@@ -137,7 +139,7 @@ const reviewSchema = {
 const Reviews = () => (
   <div className="pt-14 sm:pt-16 lg:pt-[88px]">
     <SEO
-      title="Customer Reviews | Shivansh Tour & Travels | Rated 4.9â˜… Taxi Service Agra"
+      title="Customer Reviews | Shivansh Tour & Travels | Rated 4.9★ Taxi Service Agra"
       description={`Read ${allReviews.length}+ genuine reviews from happy customers. Shivansh Tour & Travels rated ${avgRating}/5 for taxi service in Agra, outstation cabs, airport transfers & tour packages.`}
       keywords="shivansh travels reviews, agra taxi reviews, best taxi service agra reviews, customer testimonials taxi agra, cab booking reviews agra"
       canonical="https://shivansh-tour-hub.netlify.app/reviews"
@@ -148,7 +150,7 @@ const Reviews = () => (
       <div className="container mx-auto text-center">
         <h1 className="page-header-title">Customer Reviews</h1>
         <p className="page-header-subtitle">
-          Don't just take our word for it â€” hear from our happy customers.
+          Don't just take our word for it — hear from our happy customers.
         </p>
       </div>
     </section>

@@ -13,8 +13,10 @@ const ServiceAreas = () => {
     telephone: "+91 8865038345",
     address: {
       "@type": "PostalAddress",
+      streetAddress: "Ganga Enclave Phase-2, Near Khel Gaon Khel Road, Dayal Bagh",
       addressLocality: "Agra",
       addressRegion: "Uttar Pradesh",
+      postalCode: "282005",
       addressCountry: "IN",
     },
     areaServed: cities.map((city) => city.name),

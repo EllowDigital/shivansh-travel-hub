@@ -42,19 +42,25 @@ const Navbar = () => {
       {/* Top bar with phone */}
       <div className="bg-primary text-primary-foreground text-xs py-1.5 px-4 hidden sm:block">
         <div className="container mx-auto flex items-center justify-between">
-          <span>ðŸ“ Serving across India from Agra, UP</span>
+          <span>📍 Serving across India from Agra, UP</span>
           <div className="flex items-center gap-4">
             <a
-              href="mailto:sarwanyadav6174@gmail.com"
+              href="mailto:shivanshtourandtravel.in@gmail.com"
               className="hover:text-secondary transition-colors"
             >
-              âœ‰ sarwanyadav6174@gmail.com
+              ✉ shivanshtourandtravel.in@gmail.com
             </a>
             <a
               href="tel:+918865038345"
               className="hover:text-secondary transition-colors font-medium"
             >
-              ðŸ“ž +91 8865038345
+              📞 +91 8865038345
+            </a>
+            <a
+              href="tel:+917505075626"
+              className="hover:text-secondary transition-colors font-medium"
+            >
+              📞 +91 7505075626
             </a>
           </div>
         </div>
