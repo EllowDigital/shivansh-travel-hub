@@ -1,0 +1,17 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" role="img" aria-label="Shivansh logo mark">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0E3858" />
+      <stop offset="100%" stop-color="#072237" />
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#F7C96A" />
+      <stop offset="100%" stop-color="#E6A93E" />
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="16" fill="url(#bg)"/>
+  <path d="M12 44c6 9 14 14 24 15 8 1 15-1 22-6" fill="none" stroke="#fff" stroke-opacity="0.92" stroke-width="4" stroke-linecap="round"/>
+  <path d="M14 38h36l7 9H10zM18 35l7-9h17l7 9" fill="url(#gold)"/>
+  <circle cx="22" cy="47" r="4" fill="#0b1620"/>
+  <circle cx="45" cy="47" r="4" fill="#0b1620"/>
+</svg>
