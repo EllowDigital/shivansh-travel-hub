@@ -379,8 +379,8 @@ const Index = () => (
               <span className="text-secondary">Anytime, Anywhere</span>
             </h1>
             <p className="mt-4 text-sm sm:text-base lg:text-lg text-primary-foreground/85 max-w-xl mx-auto lg:mx-0">
-              Agra's #1 taxi service — airport pickups, outstation trips &
-              tour packages at unbeatable prices. Book instantly via WhatsApp!
+              Agra's #1 taxi service — airport pickups, outstation trips & tour
+              packages at unbeatable prices. Book instantly via WhatsApp!
             </p>
             <div className="mt-6 sm:mt-8 flex flex-wrap justify-center lg:justify-start gap-3 sm:gap-4">
               <Link to="/contact">
@@ -667,8 +667,8 @@ const Index = () => (
           </h2>
           <div className="mt-3 sm:mt-4 mx-auto w-16 sm:w-20 h-1 bg-secondary rounded-full" />
           <p className="mt-3 text-primary-foreground/70 text-sm">
-            Rated <strong className="text-secondary">4.9★</strong> by 500+
-            happy customers
+            Rated <strong className="text-secondary">4.9★</strong> by 500+ happy
+            customers
           </p>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
@@ -775,4 +775,3 @@ const Index = () => (
 );
 
 export default Index;
-

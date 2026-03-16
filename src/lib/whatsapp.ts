@@ -77,4 +77,3 @@ const copyMessageToClipboard = (phone: string, message: string) => {
 };
 
 export { WHATSAPP_NUMBER };
-

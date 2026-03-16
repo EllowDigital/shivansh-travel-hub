@@ -120,4 +120,3 @@ const Fleet = () => (
 );
 
 export default Fleet;
-
