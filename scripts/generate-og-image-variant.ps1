@@ -1,7 +1,6 @@
 Add-Type -AssemblyName System.Drawing
 
 $inputPath = "public/hero/agra-taj-desktop.jpg"
-$carPath = "src/assets/swift-dzire.png"
 $outputPath = "public/og-image-variant.jpg"
 $width = 1200
 $height = 630
@@ -41,19 +40,6 @@ $bottomBand = New-Object System.Drawing.Drawing2D.LinearGradientBrush(
   90.0
 )
 $graphics.FillRectangle($bottomBand, 0, 430, $width, 200)
-
-$car = [System.Drawing.Image]::FromFile($carPath)
-$carMaxWidth = 380
-$carMaxHeight = 200
-$carScale = [Math]::Min($carMaxWidth / $car.Width, $carMaxHeight / $car.Height)
-$carWidth = [int][Math]::Floor($car.Width * $carScale)
-$carHeight = [int][Math]::Floor($car.Height * $carScale)
-$carX = 760
-$carY = 270
-
-$carShadow = New-Object System.Drawing.SolidBrush([System.Drawing.Color]::FromArgb(95, 8, 12, 18))
-$graphics.FillEllipse($carShadow, $carX + 26, $carY + $carHeight - 6, $carWidth - 44, 20)
-$graphics.DrawImage($car, $carX, $carY, $carWidth, $carHeight)
 
 $brandFont = New-Object System.Drawing.Font("Segoe UI", 76, [System.Drawing.FontStyle]::Bold, [System.Drawing.GraphicsUnit]::Pixel)
 $subFont = New-Object System.Drawing.Font("Segoe UI", 42, [System.Drawing.FontStyle]::Bold, [System.Drawing.GraphicsUnit]::Pixel)
@@ -98,8 +84,6 @@ $badgeFill.Dispose()
 $topOverlay.Dispose()
 $leftFade.Dispose()
 $bottomBand.Dispose()
-$carShadow.Dispose()
-$car.Dispose()
 $bg.Dispose()
 $graphics.Dispose()
 $bitmap.Dispose()
