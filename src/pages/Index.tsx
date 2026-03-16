@@ -58,6 +58,7 @@ const fleetCars = [
     seats: "4 Seater",
     price: "₹11/km",
     type: "Sedan",
+    extraFare: "₹11/km after 230 kms",
   },
   {
     name: "Ertiga",
@@ -65,6 +66,7 @@ const fleetCars = [
     seats: "7 Seater",
     price: "₹14/km",
     type: "MPV",
+    extraFare: "₹14/km after 230 kms",
   },
   {
     name: "Toyota Innova",
@@ -72,6 +74,7 @@ const fleetCars = [
     seats: "7 Seater",
     price: "₹16/km",
     type: "Premium",
+    extraFare: "₹16/km after 230 kms",
   },
   {
     name: "Tempo Traveller",
@@ -79,6 +82,7 @@ const fleetCars = [
     seats: "12 Seater",
     price: "₹22/km",
     type: "Group",
+    extraFare: "₹22/km after 230 kms",
   },
 ];
 
@@ -590,22 +594,33 @@ const Index = () => {
                   />
                 </div>
                 <div className="p-3 sm:p-4 text-center">
-                  <span className="text-[10px] sm:text-xs font-semibold text-secondary bg-secondary/10 px-2 py-0.5 rounded-full">
-                    {c.type}
-                  </span>
+                  <div className="flex flex-wrap items-center justify-center gap-1.5">
+                    <span className="text-[10px] sm:text-xs font-semibold text-secondary bg-secondary/10 px-2 py-0.5 rounded-full">
+                      {c.type}
+                    </span>
+                    <span className="text-[10px] sm:text-xs font-medium text-muted-foreground bg-accent px-2 py-0.5 rounded-full">
+                      AC
+                    </span>
+                    <span className="text-[10px] sm:text-xs font-medium text-muted-foreground bg-accent px-2 py-0.5 rounded-full">
+                      {c.seats.replace(" Seater", " Seat")}
+                    </span>
+                  </div>
                   <h3 className="font-heading text-sm sm:text-base font-bold text-foreground mt-1.5">
                     {c.name}
                   </h3>
-                  <div className="flex items-center justify-center gap-1 mt-1 text-[10px] sm:text-xs text-muted-foreground">
-                    <Users className="h-3 w-3" /> {c.seats}
-                  </div>
                   <p className="mt-1.5 text-base sm:text-lg font-bold text-secondary">
                     {c.price}
+                  </p>
+                  <p className="mt-1 text-[10px] sm:text-xs text-muted-foreground">
+                    Extra km fare : {c.extraFare}
                   </p>
                 </div>
               </Link>
             ))}
           </div>
+          <p className="mt-4 text-center text-xs sm:text-sm text-foreground">
+            Cancellation : Free till 1 hour of departure
+          </p>
           <div className="text-center mt-6 sm:mt-8">
             <Link to="/fleet">
               <Button variant="outline" className="gap-2 text-sm">
