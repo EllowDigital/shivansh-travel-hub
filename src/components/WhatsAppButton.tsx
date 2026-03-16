@@ -52,7 +52,9 @@ const getReadableDateTimeDetails = (value: string) => {
   const input = value.trim();
   if (!input) return "";
 
-  const amPmMatch = input.match(/\b(1[0-2]|0?[1-9])(?::([0-5]\d))?\s*(AM|PM)\b/i);
+  const amPmMatch = input.match(
+    /\b(1[0-2]|0?[1-9])(?::([0-5]\d))?\s*(AM|PM)\b/i,
+  );
   if (amPmMatch) {
     const hour12 = Number(amPmMatch[1]);
     const minute = amPmMatch[2] ?? "00";
