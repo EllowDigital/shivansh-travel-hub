@@ -1,4 +1,4 @@
-import { useState } from "react";
+﻿import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { toast } from "sonner";
@@ -9,7 +9,7 @@ import { openWhatsAppMessage } from "@/lib/whatsapp";
 const carTypes = ["Swift Dzire", "Ertiga", "Toyota Innova", "Tempo Traveller"];
 const tripTypes = ["One Way", "Round Trip", "Local", "Airport"];
 
-const WHATSAPP_NUMBER = "918960446756";
+const WHATSAPP_NUMBER = "918865038345";
 
 const BookingForm = ({ defaultPickup = "", defaultDrop = "" }: { defaultPickup?: string; defaultDrop?: string }) => {
   const [tripType, setTripType] = useState("One Way");
@@ -29,26 +29,26 @@ const BookingForm = ({ defaultPickup = "", defaultDrop = "" }: { defaultPickup?:
     const formattedDate = form.date ? new Date(form.date).toLocaleDateString("en-IN", { day: "numeric", month: "long", year: "numeric" }) : "Not specified";
 
     const text = [
-      `🚕 *NEW TAXI BOOKING REQUEST*`,
-      `━━━━━━━━━━━━━━━━━━`,
+      `ðŸš• *NEW TAXI BOOKING REQUEST*`,
+      `â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”`,
       ``,
-      `📋 *Trip Type:* ${tripType}`,
+      `ðŸ“‹ *Trip Type:* ${tripType}`,
       ``,
-      `👤 *Customer Details:*`,
-      `• Name: ${form.name}`,
-      `• Phone: ${form.phone}`,
-      form.passengers ? `• Passengers: ${form.passengers}` : "",
+      `ðŸ‘¤ *Customer Details:*`,
+      `â€¢ Name: ${form.name}`,
+      `â€¢ Phone: ${form.phone}`,
+      form.passengers ? `â€¢ Passengers: ${form.passengers}` : "",
       ``,
-      `📍 *Trip Details:*`,
-      `• Pickup: ${form.pickup}`,
-      `• Drop: ${form.drop}`,
-      `• Date: ${formattedDate}`,
-      form.time ? `• Time: ${form.time}` : "",
-      form.car ? `• Car Type: ${form.car}` : `• Car Type: Any Available`,
+      `ðŸ“ *Trip Details:*`,
+      `â€¢ Pickup: ${form.pickup}`,
+      `â€¢ Drop: ${form.drop}`,
+      `â€¢ Date: ${formattedDate}`,
+      form.time ? `â€¢ Time: ${form.time}` : "",
+      form.car ? `â€¢ Car Type: ${form.car}` : `â€¢ Car Type: Any Available`,
       ``,
-      form.message ? `💬 *Message:* ${form.message}` : "",
+      form.message ? `ðŸ’¬ *Message:* ${form.message}` : "",
       ``,
-      `━━━━━━━━━━━━━━━━━━`,
+      `â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”`,
       `Sent via Shivansh Tour & Travels Website`,
     ].filter(Boolean).join("\n");
 
@@ -110,7 +110,7 @@ const BookingForm = ({ defaultPickup = "", defaultDrop = "" }: { defaultPickup?:
           value={form.car}
           onChange={(e) => update("car", e.target.value)}
         >
-          <option value="">🚗 Select Car Type</option>
+          <option value="">ðŸš— Select Car Type</option>
           {carTypes.map((c) => <option key={c} value={c}>{c}</option>)}
         </select>
 
@@ -128,10 +128,11 @@ const BookingForm = ({ defaultPickup = "", defaultDrop = "" }: { defaultPickup?:
       <Button type="submit" variant="hero" className="w-full gap-2 mt-4">
         <Send className="h-4 w-4" /> Book via WhatsApp
       </Button>
-      <p className="text-[10px] text-center text-muted-foreground mt-2">✅ Place search enabled • Manual input also accepted</p>
+      <p className="text-[10px] text-center text-muted-foreground mt-2">âœ… Place search enabled â€¢ Manual input also accepted</p>
     </form>
   );
 };
 
 export default BookingForm;
+
 

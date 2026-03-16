@@ -1,89 +1,16 @@
-import { Link } from "react-router-dom";
+﻿import { Link } from "react-router-dom";
 import SEO from "@/components/SEO";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Calendar, Clock, User } from "lucide-react";
-
-export interface BlogPost {
-  slug: string;
-  title: string;
-  excerpt: string;
-  date: string;
-  readTime: string;
-  author: string;
-  category: string;
-  keywords: string;
-}
-
-export const blogPosts: BlogPost[] = [
-  {
-    slug: "agra-to-delhi-taxi-complete-guide",
-    title: "Agra to Delhi Taxi: Complete Guide with Fare, Route & Tips (2026)",
-    excerpt: "Planning to travel from Agra to Delhi by taxi? Here's everything you need to know — best routes, fare comparison, car options, and booking tips for a comfortable journey.",
-    date: "March 5, 2026",
-    readTime: "8 min read",
-    author: "Shivansh Travels",
-    category: "Travel Guide",
-    keywords: "agra to delhi taxi, agra to delhi cab fare, agra to delhi by car, agra to delhi route",
-  },
-  {
-    slug: "best-places-to-visit-from-agra",
-    title: "15 Best Places to Visit from Agra by Taxi (Weekend Getaways 2026)",
-    excerpt: "Looking for the best day trips and weekend getaways from Agra? Discover 15 amazing destinations you can reach by taxi — from Mathura to Jaipur, Ranthambore to Fatehpur Sikri.",
-    date: "February 28, 2026",
-    readTime: "10 min read",
-    author: "Shivansh Travels",
-    category: "Destinations",
-    keywords: "places to visit from agra, agra weekend getaways, day trips from agra, agra to mathura, agra to jaipur",
-  },
-  {
-    slug: "ayodhya-ram-mandir-tour-guide",
-    title: "Ayodhya Ram Mandir Tour from Agra: Complete Travel Guide (2026)",
-    excerpt: "Complete guide to visiting Ayodhya Ram Mandir from Agra — best route, taxi fare, darshan timings, nearby temples, hotels, and a detailed 2-day itinerary.",
-    date: "February 20, 2026",
-    readTime: "9 min read",
-    author: "Shivansh Travels",
-    category: "Pilgrimage",
-    keywords: "ayodhya tour from agra, ram mandir darshan, ayodhya travel guide, agra to ayodhya taxi",
-  },
-  {
-    slug: "how-to-book-taxi-in-agra",
-    title: "How to Book a Taxi in Agra: Cheapest & Safest Options (2026)",
-    excerpt: "Confused about booking a taxi in Agra? Compare WhatsApp booking, phone booking, and online options. Learn how to get the best rates and avoid scams.",
-    date: "February 15, 2026",
-    readTime: "6 min read",
-    author: "Shivansh Travels",
-    category: "Tips",
-    keywords: "book taxi agra, taxi booking agra, cheap taxi agra, safe cab agra, taxi near me agra",
-  },
-  {
-    slug: "rajasthan-road-trip-from-agra",
-    title: "Rajasthan Road Trip from Agra: 6-Day Itinerary with Taxi (2026)",
-    excerpt: "Plan the perfect Rajasthan road trip from Agra covering Jaipur, Jodhpur, Udaipur, and Pushkar. Day-by-day itinerary, costs, best stops, and taxi booking tips.",
-    date: "February 10, 2026",
-    readTime: "12 min read",
-    author: "Shivansh Travels",
-    category: "Road Trips",
-    keywords: "rajasthan road trip, agra to jaipur road trip, rajasthan tour by car, rajasthan itinerary",
-  },
-  {
-    slug: "varanasi-tour-from-agra-guide",
-    title: "Varanasi Tour from Agra by Taxi: Route, Fare & 3-Day Itinerary",
-    excerpt: "Everything about traveling from Agra to Varanasi by taxi — route options, fare breakdown, must-visit ghats, temples, and a complete 3-day sightseeing plan.",
-    date: "February 5, 2026",
-    readTime: "9 min read",
-    author: "Shivansh Travels",
-    category: "Pilgrimage",
-    keywords: "varanasi tour from agra, agra to varanasi taxi, varanasi travel guide, kashi vishwanath tour",
-  },
-];
+import { ArrowRight, Calendar, Clock } from "lucide-react";
+import { blogPosts } from "@/lib/blogContent";
 
 const Blog = () => (
   <div className="pt-14 sm:pt-16 lg:pt-[88px]">
     <SEO
       title="Travel Blog | Taxi Tips, Route Guides & Tour Itineraries from Agra"
-      description="Read travel guides, taxi tips, and tour itineraries from Agra. Agra to Delhi guide, Ayodhya tour, Rajasthan road trip, Varanasi travel guide & more."
-      keywords="agra travel blog, taxi guide india, tour itinerary agra, travel tips agra, road trip guide india"
-      canonical="https://shivanshtravels.com/blog"
+      description="Read long-form taxi route guides and travel planning articles: Agra to Delhi taxi tips, Delhi to Agra distance, Taj Mahal tour planning, and destination advice."
+      keywords="agra to delhi taxi blog, delhi to agra distance guide, taj mahal tour from delhi, agra travel planning"
+      canonical="https://shivansh-tour-hub.netlify.app/blog"
     />
     <section className="page-header">
       <div className="container mx-auto text-center">
@@ -129,7 +56,7 @@ const Blog = () => (
     <section className="section-padding bg-secondary text-center">
       <div className="container mx-auto">
         <h2 className="font-heading text-2xl sm:text-3xl font-bold text-secondary-foreground">Ready to Book Your Trip?</h2>
-        <p className="mt-2 text-secondary-foreground/90 text-sm sm:text-base">Turn these guides into reality — book a taxi with us today!</p>
+        <p className="mt-2 text-secondary-foreground/90 text-sm sm:text-base">Turn these guides into reality â€” book a taxi with us today!</p>
         <div className="mt-6 flex justify-center gap-3 flex-wrap">
           <Link to="/contact"><Button variant="default" size="lg" className="text-sm sm:text-base">Book Taxi Now</Button></Link>
           <Link to="/tours"><Button variant="hero-outline" size="lg" className="border-primary text-primary hover:bg-primary/10 text-sm sm:text-base">View Tour Packages</Button></Link>
@@ -140,3 +67,4 @@ const Blog = () => (
 );
 
 export default Blog;
+

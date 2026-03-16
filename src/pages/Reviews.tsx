@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+﻿import { Link } from "react-router-dom";
 import SectionHeading from "@/components/SectionHeading";
 import SEO from "@/components/SEO";
 import { Button } from "@/components/ui/button";
@@ -8,14 +8,14 @@ const allReviews = [
   { name: "Rahul Sharma", city: "Agra", text: "Excellent service! The driver was very professional and the car was spotless. Booked via WhatsApp and it was so easy! Will definitely use again for all my trips.", rating: 5, trip: "Agra to Delhi", date: "Feb 2026" },
   { name: "Priya Singh", city: "Delhi", text: "Best taxi service from Agra. Used them for our family trip to Varanasi. Very comfortable Innova and affordable pricing. The driver knew all the best routes.", rating: 5, trip: "Agra to Varanasi", date: "Jan 2026" },
   { name: "Amit Verma", city: "Lucknow", text: "Very punctual and affordable. The booking was super easy via WhatsApp. Great experience for our Ayodhya trip! The driver was knowledgeable about all temples.", rating: 5, trip: "Agra to Ayodhya", date: "Dec 2025" },
-  { name: "Sunita Gupta", city: "Mathura", text: "We booked the Rajasthan tour package and everything was perfectly arranged. Hotel, sightseeing, car — all top notch. The driver was friendly and helpful.", rating: 5, trip: "Rajasthan Tour", date: "Nov 2025" },
+  { name: "Sunita Gupta", city: "Mathura", text: "We booked the Rajasthan tour package and everything was perfectly arranged. Hotel, sightseeing, car â€” all top notch. The driver was friendly and helpful.", rating: 5, trip: "Rajasthan Tour", date: "Nov 2025" },
   { name: "Vikash Yadav", city: "Noida", text: "Booked a cab for airport pickup at 4 AM and the driver was already waiting. Very reliable service. Clean car, smooth ride. Highly recommended!", rating: 5, trip: "Airport Pickup", date: "Jan 2026" },
   { name: "Meena Devi", city: "Jaipur", text: "Used Shivansh Travels for our pilgrimage tour covering Mathura, Vrindavan, and Ayodhya. The driver was patient at every temple stop. Excellent experience.", rating: 5, trip: "Pilgrimage Tour", date: "Oct 2025" },
   { name: "Rajesh Kumar", city: "Kanpur", text: "Best outstation taxi service I've used. The Ertiga was clean and comfortable for our family of 6. Very reasonable pricing with no hidden charges.", rating: 4, trip: "Agra to Kanpur", date: "Feb 2026" },
   { name: "Anita Patel", city: "Gurgaon", text: "Corporate travel for our team to Agra. Professional drivers, well-maintained cars, and the billing was transparent. Now our regular travel partner.", rating: 5, trip: "Corporate Trip", date: "Dec 2025" },
   { name: "Mohit Agarwal", city: "Agra", text: "Booked Tempo Traveller for our group trip to Manali. Amazing experience! The vehicle was comfortable even on hilly roads. Driver was very experienced.", rating: 5, trip: "Agra to Manali", date: "Sep 2025" },
   { name: "Kavita Sharma", city: "Delhi", text: "Family trip to Shimla-Manali. Everything from pickup to drop was smooth. The driver recommended great local food spots. Will book again!", rating: 5, trip: "Shimla Manali Tour", date: "Oct 2025" },
-  { name: "Deepak Tiwari", city: "Prayagraj", text: "Very affordable and reliable. The Swift Dzire was perfect for our couple trip. No hidden charges — exactly what was quoted. 5 star service!", rating: 5, trip: "Agra to Prayagraj", date: "Nov 2025" },
+  { name: "Deepak Tiwari", city: "Prayagraj", text: "Very affordable and reliable. The Swift Dzire was perfect for our couple trip. No hidden charges â€” exactly what was quoted. 5 star service!", rating: 5, trip: "Agra to Prayagraj", date: "Nov 2025" },
   { name: "Neha Rastogi", city: "Agra", text: "I've been using Shivansh for over a year now. Whether it's a quick local ride or an outstation trip, they never disappoint. Truly the best in Agra.", rating: 5, trip: "Regular Customer", date: "Ongoing" },
 ];
 
@@ -25,14 +25,14 @@ const reviewSchema = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   "name": "Shivansh Tour and Travels",
-  "image": "https://shivanshtravels.com/og-image.jpg",
+  "image": "https://shivansh-tour-hub.netlify.app/og-image.jpg",
   "address": {
     "@type": "PostalAddress",
     "addressLocality": "Agra",
     "addressRegion": "Uttar Pradesh",
     "addressCountry": "IN"
   },
-  "telephone": "+918960446756",
+  "telephone": "+918865038345",
   "aggregateRating": {
     "@type": "AggregateRating",
     "ratingValue": avgRating,
@@ -51,10 +51,10 @@ const reviewSchema = {
 const Reviews = () => (
   <div className="pt-14 sm:pt-16 lg:pt-[88px]">
     <SEO
-      title="Customer Reviews | Shivansh Tour & Travels | Rated 4.9★ Taxi Service Agra"
+      title="Customer Reviews | Shivansh Tour & Travels | Rated 4.9â˜… Taxi Service Agra"
       description={`Read ${allReviews.length}+ genuine reviews from happy customers. Shivansh Tour & Travels rated ${avgRating}/5 for taxi service in Agra, outstation cabs, airport transfers & tour packages.`}
       keywords="shivansh travels reviews, agra taxi reviews, best taxi service agra reviews, customer testimonials taxi agra, cab booking reviews agra"
-      canonical="https://shivanshtravels.com/reviews"
+      canonical="https://shivansh-tour-hub.netlify.app/reviews"
       schema={reviewSchema}
     />
 
@@ -62,7 +62,7 @@ const Reviews = () => (
       <div className="container mx-auto text-center">
         <h1 className="page-header-title">Customer Reviews</h1>
         <p className="page-header-subtitle">
-          Don't just take our word for it — hear from our happy customers.
+          Don't just take our word for it â€” hear from our happy customers.
         </p>
       </div>
     </section>
@@ -125,7 +125,7 @@ const Reviews = () => (
         </p>
         <div className="mt-6 flex justify-center gap-3 flex-wrap">
           <Link to="/contact"><Button variant="hero" size="lg" className="gap-2 text-sm sm:text-base">Book Now</Button></Link>
-          <a href="https://wa.me/918960446756" target="_blank" rel="noopener noreferrer">
+          <a href="https://wa.me/918865038345" target="_blank" rel="noopener noreferrer">
             <Button variant="hero-outline" size="lg" className="gap-2 text-sm sm:text-base">
               <MessageCircle className="h-4 w-4" /> WhatsApp Us
             </Button>
@@ -137,3 +137,4 @@ const Reviews = () => (
 );
 
 export default Reviews;
+

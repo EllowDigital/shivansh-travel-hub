@@ -1,9 +1,8 @@
-import { Link } from "react-router-dom";
+﻿import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import BookingForm from "@/components/BookingForm";
 import SectionHeading from "@/components/SectionHeading";
 import SEO from "@/components/SEO";
-import heroBg from "@/assets/hero-bg.jpg";
 import swiftDzire from "@/assets/swift-dzire.png";
 import ertiga from "@/assets/ertiga.png";
 import innova from "@/assets/innova.png";
@@ -19,19 +18,19 @@ const services = [
 ];
 
 const fleetCars = [
-  { name: "Swift Dzire", img: swiftDzire, seats: "4 Seater", price: "₹11/km", type: "Sedan" },
-  { name: "Ertiga", img: ertiga, seats: "7 Seater", price: "₹14/km", type: "MPV" },
-  { name: "Toyota Innova", img: innova, seats: "7 Seater", price: "₹16/km", type: "Premium" },
-  { name: "Tempo Traveller", img: tempoTraveller, seats: "12 Seater", price: "₹22/km", type: "Group" },
+  { name: "Swift Dzire", img: swiftDzire, seats: "4 Seater", price: "â‚¹11/km", type: "Sedan" },
+  { name: "Ertiga", img: ertiga, seats: "7 Seater", price: "â‚¹14/km", type: "MPV" },
+  { name: "Toyota Innova", img: innova, seats: "7 Seater", price: "â‚¹16/km", type: "Premium" },
+  { name: "Tempo Traveller", img: tempoTraveller, seats: "12 Seater", price: "â‚¹22/km", type: "Group" },
 ];
 
 const destinations = [
-  { name: "Ayodhya", tag: "Religious", price: "From ₹4,999", days: "2D/1N" },
-  { name: "Varanasi", tag: "Spiritual", price: "From ₹6,999", days: "3D/2N" },
-  { name: "Prayagraj", tag: "Heritage", price: "From ₹3,999", days: "2D/1N" },
-  { name: "Mathura Vrindavan", tag: "Pilgrimage", price: "From ₹4,499", days: "2D/1N" },
-  { name: "Uttarakhand", tag: "Hill Station", price: "From ₹14,999", days: "5D/4N" },
-  { name: "Rajasthan", tag: "Royal Tour", price: "From ₹19,999", days: "6D/5N" },
+  { name: "Ayodhya", tag: "Religious", price: "From â‚¹4,999", days: "2D/1N" },
+  { name: "Varanasi", tag: "Spiritual", price: "From â‚¹6,999", days: "3D/2N" },
+  { name: "Prayagraj", tag: "Heritage", price: "From â‚¹3,999", days: "2D/1N" },
+  { name: "Mathura Vrindavan", tag: "Pilgrimage", price: "From â‚¹4,499", days: "2D/1N" },
+  { name: "Uttarakhand", tag: "Hill Station", price: "From â‚¹14,999", days: "5D/4N" },
+  { name: "Rajasthan", tag: "Royal Tour", price: "From â‚¹19,999", days: "6D/5N" },
 ];
 
 const stats = [
@@ -41,13 +40,15 @@ const stats = [
   { value: "100%", label: "Safe Journeys" },
 ];
 
+const heroBg = "/agra-taxi-service-hero.jpg";
+
 const whyUs = [
   { icon: ShieldCheck, title: "Verified Drivers", desc: "Background-checked, experienced professionals." },
-  { icon: IndianRupee, title: "No Hidden Charges", desc: "Transparent pricing — what you see is what you pay." },
+  { icon: IndianRupee, title: "No Hidden Charges", desc: "Transparent pricing â€” what you see is what you pay." },
   { icon: Zap, title: "Instant Booking", desc: "Book in seconds via WhatsApp. No app needed." },
   { icon: Headphones, title: "24/7 Support", desc: "Round the clock customer service for any help." },
   { icon: BadgeCheck, title: "Clean & Hygienic Cars", desc: "Sanitized vehicles maintained to high standards." },
-  { icon: Clock, title: "On-Time Guarantee", desc: "Punctual pickups — we value your time." },
+  { icon: Clock, title: "On-Time Guarantee", desc: "Punctual pickups â€” we value your time." },
 ];
 
 const testimonials = [
@@ -58,23 +59,23 @@ const testimonials = [
 ];
 
 const popularRoutes = [
-  { from: "Agra", to: "Delhi", price: "₹3,500" },
-  { from: "Agra", to: "Jaipur", price: "₹3,600" },
-  { from: "Delhi", to: "Manali", price: "₹7,800" },
-  { from: "Agra", to: "Varanasi", price: "₹8,000" },
-  { from: "Delhi", to: "Shimla", price: "₹5,200" },
-  { from: "Agra", to: "Mathura", price: "₹1,200" },
+  { from: "Agra", to: "Delhi", price: "â‚¹3,500", slug: "/agra-to-delhi-taxi" },
+  { from: "Agra", to: "Jaipur", price: "â‚¹3,600", slug: "/agra-to-jaipur-taxi" },
+  { from: "Delhi", to: "Agra", price: "â‚¹3,500", slug: "/delhi-to-agra-taxi" },
+  { from: "Agra", to: "Mathura", price: "â‚¹1,200", slug: "/agra-to-mathura-taxi" },
+  { from: "Delhi Airport", to: "Agra", price: "â‚¹3,900", slug: "/delhi-airport-to-agra-taxi" },
+  { from: "Agra", to: "Lucknow", price: "â‚¹5,500", slug: "/agra-to-lucknow-taxi" },
 ];
 
 const faqs = [
-  { q: "How do I book a taxi from Agra to Delhi?", a: "You can book instantly via WhatsApp at +91 89604 46756 or call us. We offer one-way and round-trip taxis from Agra to Delhi starting at ₹3,500 in Swift Dzire." },
-  { q: "What is the fare for Agra to Delhi taxi?", a: "Agra to Delhi taxi fare starts at ₹3,500 for a sedan (Swift Dzire). Ertiga costs ₹4,200 and Innova costs ₹4,800. Prices include toll and driver charges." },
+  { q: "How do I book a taxi from Agra to Delhi?", a: "You can book instantly via WhatsApp at +91 8865038345 or call us. We offer one-way and round-trip taxis from Agra to Delhi starting at â‚¹3,500 in Swift Dzire." },
+  { q: "What is the fare for Agra to Delhi taxi?", a: "Agra to Delhi taxi fare starts at â‚¹3,500 for a sedan (Swift Dzire). Ertiga costs â‚¹4,200 and Innova costs â‚¹4,800. Prices include toll and driver charges." },
   { q: "Do you provide airport pickup and drop?", a: "Yes! We provide 24/7 airport pickup and drop services at all major airports including Delhi IGI Airport, Jaipur Airport, Lucknow Airport, and Varanasi Airport." },
   { q: "Are your drivers verified?", a: "Absolutely. All our drivers are background-verified, experienced professionals with valid licenses. Your safety is our top priority." },
   { q: "Can I book a round-trip outstation taxi?", a: "Yes, we offer both one-way and round-trip outstation taxi services. Round trips get special discounted rates. Contact us for a custom quote." },
   { q: "What types of cars are available?", a: "We have Swift Dzire (4-seater), Ertiga (7-seater), Toyota Innova (7-seater premium), and Tempo Traveller (12-seater) for group travel." },
   { q: "Do you offer tour packages?", a: "Yes! We offer curated tour packages to Ayodhya, Varanasi, Rajasthan, Shimla-Manali, Uttarakhand, and more. All packages include car, hotel, and sightseeing." },
-  { q: "Is there any hidden charge?", a: "No hidden charges at all. The price quoted includes toll, parking, and driver allowance. You pay exactly what we quote — complete transparency." },
+  { q: "Is there any hidden charge?", a: "No hidden charges at all. The price quoted includes toll, parking, and driver allowance. You pay exactly what we quote â€” complete transparency." },
 ];
 
 const faqSchema = {
@@ -91,21 +92,21 @@ const homeSchema = {
   "@context": "https://schema.org",
   "@type": "TaxiService",
   "name": "Shivansh Tour and Travels",
-  "description": "Book affordable taxi & cab services from Agra to Delhi, Jaipur, Varanasi, Ayodhya & all major cities. Airport pickup, outstation trips, tour packages. Call +91 89604 46756.",
-  "url": "https://shivanshtravels.com",
-  "telephone": "+918960446756",
+  "description": "Book affordable taxi & cab services from Agra to Delhi, Jaipur, Varanasi, Ayodhya & all major cities. Airport pickup, outstation trips, tour packages. Call +91 8865038345.",
+  "url": "https://shivansh-tour-hub.netlify.app",
+  "telephone": "+918865038345",
   "email": "sarwanyadav6174@gmail.com",
   "address": { "@type": "PostalAddress", "addressLocality": "Agra", "addressRegion": "Uttar Pradesh", "addressCountry": "IN" },
   "areaServed": { "@type": "Country", "name": "India" },
-  "priceRange": "₹₹",
+  "priceRange": "â‚¹â‚¹",
   "openingHours": "Mo-Su 00:00-23:59",
   "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "500", "bestRating": "5" },
   "hasOfferCatalog": {
     "@type": "OfferCatalog",
     "name": "Taxi Services",
     "itemListElement": [
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Agra to Delhi Taxi", "description": "One-way & round-trip taxi from Agra to Delhi starting ₹3,500" } },
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Agra to Jaipur Taxi", "description": "Affordable cab service from Agra to Jaipur starting ₹3,600" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Agra to Delhi Taxi", "description": "One-way & round-trip taxi from Agra to Delhi starting â‚¹3,500" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Agra to Jaipur Taxi", "description": "Affordable cab service from Agra to Jaipur starting â‚¹3,600" } },
       { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Airport Pickup & Drop", "description": "24/7 airport transfer service at all major airports" } },
       { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Tour Packages", "description": "All-inclusive tour packages to Ayodhya, Varanasi, Rajasthan & more" } },
     ]
@@ -133,9 +134,9 @@ const Index = () => (
   <div>
     <SEO
       title="Shivansh Tour & Travels | Best Taxi Service in Agra | Book Cab Online"
-      description="Book affordable taxi & cab services from Agra to Delhi, Jaipur, Varanasi, Ayodhya & 50+ cities. Airport pickup, outstation trips, tour packages. ₹11/km onwards. Call +91 89604 46756."
+      description="Book affordable taxi & cab services from Agra to Delhi, Jaipur, Varanasi, Ayodhya & 50+ cities. Airport pickup, outstation trips, tour packages. â‚¹11/km onwards. Call +91 8865038345."
       keywords="taxi service agra, cab booking agra, agra to delhi taxi, agra to jaipur taxi, outstation taxi agra, airport taxi agra, tour packages from agra, agra to varanasi cab, agra to ayodhya taxi, cheap taxi agra, best taxi service agra, taxi near me agra, cab service uttar pradesh, book taxi online agra, agra to mathura taxi"
-      canonical="https://shivanshtravels.com"
+      canonical="https://shivansh-tour-hub.netlify.app"
       schema={homeSchema}
     />
 
@@ -149,14 +150,14 @@ const Index = () => (
         <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
           <div className="flex-1 text-primary-foreground animate-fade-up text-center lg:text-left">
             <span className="inline-block bg-secondary/20 text-secondary border border-secondary/30 rounded-full px-4 py-1.5 text-xs sm:text-sm font-medium mb-5">
-              🚗 India's Trusted Taxi & Tour Service
+              ðŸš— India's Trusted Taxi & Tour Service
             </span>
             <h1 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight">
               Book Your Ride <br className="hidden sm:block" />
               <span className="text-secondary">Anytime, Anywhere</span>
             </h1>
             <p className="mt-4 text-sm sm:text-base lg:text-lg text-primary-foreground/85 max-w-xl mx-auto lg:mx-0">
-              Agra's #1 taxi service — airport pickups, outstation trips & tour packages at unbeatable prices. Book instantly via WhatsApp!
+              Agra's #1 taxi service â€” airport pickups, outstation trips & tour packages at unbeatable prices. Book instantly via WhatsApp!
             </p>
             <div className="mt-6 sm:mt-8 flex flex-wrap justify-center lg:justify-start gap-3 sm:gap-4">
               <Link to="/contact">
@@ -164,7 +165,7 @@ const Index = () => (
                   Book Taxi <ArrowRight className="h-4 w-4" />
                 </Button>
               </Link>
-              <a href="tel:+918960446756">
+              <a href="tel:+918865038345">
                 <Button variant="hero-outline" size="lg" className="gap-2 text-sm sm:text-base">
                   <Phone className="h-4 w-4" /> Call Now
                 </Button>
@@ -251,7 +252,7 @@ const Index = () => (
         <SectionHeading title="Popular Routes" subtitle="Most booked taxi routes with transparent pricing." />
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4">
           {popularRoutes.map((r, i) => (
-            <Link to="/routes" key={i} className="bg-card rounded-xl p-4 text-center hover-lift shadow-sm border border-border/50 group">
+            <Link to={r.slug} key={i} className="bg-card rounded-xl p-4 text-center hover-lift shadow-sm border border-border/50 group">
               <div className="text-xs text-muted-foreground">{r.from}</div>
               <ArrowRight className="h-3 w-3 mx-auto my-1 text-secondary" />
               <div className="font-heading font-semibold text-foreground text-sm">{r.to}</div>
@@ -292,7 +293,7 @@ const Index = () => (
                 </div>
               </div>
               <div className="px-4 sm:px-5 py-3 flex items-center justify-between border-t border-border/50">
-                <span className="text-[10px] sm:text-xs text-muted-foreground">✅ Hotel + Car + Sightseeing</span>
+                <span className="text-[10px] sm:text-xs text-muted-foreground">âœ… Hotel + Car + Sightseeing</span>
                 <Link to="/tours"><Button variant="outline" size="sm" className="text-[10px] sm:text-xs h-7 px-3">View Details</Button></Link>
               </div>
             </div>
@@ -328,7 +329,7 @@ const Index = () => (
         <div className="text-center mb-8 sm:mb-12">
           <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-primary-foreground">What Our Customers Say</h2>
           <div className="mt-3 sm:mt-4 mx-auto w-16 sm:w-20 h-1 bg-secondary rounded-full" />
-          <p className="mt-3 text-primary-foreground/70 text-sm">Rated <strong className="text-secondary">4.9★</strong> by 500+ happy customers</p>
+          <p className="mt-3 text-primary-foreground/70 text-sm">Rated <strong className="text-secondary">4.9â˜…</strong> by 500+ happy customers</p>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
           {testimonials.map((t, i) => (
@@ -381,7 +382,7 @@ const Index = () => (
         </p>
         <div className="mt-6 flex justify-center gap-3 sm:gap-4 flex-wrap">
           <Link to="/contact"><Button variant="default" size="lg" className="text-sm sm:text-base">Book Now</Button></Link>
-          <a href="tel:+918960446756">
+          <a href="tel:+918865038345">
             <Button variant="hero-outline" size="lg" className="border-primary text-primary hover:bg-primary/10 gap-2 text-sm sm:text-base">
               <Phone className="h-4 w-4" /> Call Now
             </Button>
@@ -393,3 +394,4 @@ const Index = () => (
 );
 
 export default Index;
+

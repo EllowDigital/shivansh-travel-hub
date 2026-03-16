@@ -1,4 +1,4 @@
-import SectionHeading from "@/components/SectionHeading";
+﻿import SectionHeading from "@/components/SectionHeading";
 import SEO from "@/components/SEO";
 import { ShieldCheck, Heart, Users, Award, Target, Globe } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -17,12 +17,12 @@ const About = () => (
       title="About Shivansh Tour & Travels | Trusted Taxi Service in Agra Since Years"
       description="Shivansh Tour and Travels is Agra's trusted taxi and tour service provider. Professional drivers, well-maintained fleet, 24/7 support. Serving 50+ cities across India."
       keywords="about shivansh travels, taxi company agra, trusted cab service agra, travel agency agra, tour operator uttar pradesh"
-      canonical="https://shivanshtravels.com/about"
+      canonical="https://shivansh-tour-hub.netlify.app/about"
     />
     <section className="page-header">
       <div className="container mx-auto text-center">
         <h1 className="page-header-title">About Shivansh Tour & Travels</h1>
-        <p className="page-header-subtitle">Agra's trusted taxi and tour service — serving thousands of happy customers across India.</p>
+        <p className="page-header-subtitle">Agra's trusted taxi and tour service â€” serving thousands of happy customers across India.</p>
       </div>
     </section>
 
@@ -36,7 +36,7 @@ const About = () => (
             With a fleet of well-maintained vehicles and professional drivers, we ensure every journey is safe, comfortable, and memorable.
           </p>
           <p className="mt-4 text-muted-foreground text-sm sm:text-base leading-relaxed">
-            Whether you're a family heading to a pilgrimage, a tourist exploring India's heritage, or a corporate traveler needing reliable transport —
+            Whether you're a family heading to a pilgrimage, a tourist exploring India's heritage, or a corporate traveler needing reliable transport â€”
             we are here for you, 24 hours a day, 7 days a week.
           </p>
         </div>
@@ -90,3 +90,4 @@ const About = () => (
 );
 
 export default About;
+

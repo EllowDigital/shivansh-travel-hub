@@ -1,4 +1,4 @@
-import { useState } from "react";
+﻿import { useState } from "react";
 import SectionHeading from "@/components/SectionHeading";
 import SEO from "@/components/SEO";
 import { Button } from "@/components/ui/button";
@@ -15,14 +15,14 @@ import innovaTrip from "@/assets/gallery/innova-trip.jpg";
 import rishikeshBridge from "@/assets/gallery/rishikesh-bridge.jpg";
 
 const galleryItems = [
-  { img: tajMahal, title: "Taj Mahal, Agra", category: "Destinations", desc: "Sunrise at the iconic Taj Mahal" },
-  { img: happyFamily, title: "Happy Customers", category: "Customers", desc: "Family trip to a heritage site with our sedan" },
-  { img: varanasiGhats, title: "Varanasi Ghats", category: "Destinations", desc: "Evening aarti at the sacred ghats of Varanasi" },
-  { img: jaipurHawaMahal, title: "Hawa Mahal, Jaipur", category: "Destinations", desc: "The stunning Palace of Winds in Jaipur" },
-  { img: manaliMountains, title: "Road to Manali", category: "Road Trips", desc: "Scenic mountain road to Manali" },
-  { img: ayodhyaTemple, title: "Ayodhya Temple", category: "Destinations", desc: "Grand temple architecture in Ayodhya" },
-  { img: innovaTrip, title: "Our Innova on Tour", category: "Fleet", desc: "Toyota Innova ready for an outstation trip" },
-  { img: rishikeshBridge, title: "Rishikesh Bridge", category: "Road Trips", desc: "Iconic suspension bridge at sunset in Rishikesh" },
+  { img: tajMahal, title: "Taj Mahal, Agra", category: "Destinations", desc: "Sunrise at the iconic Taj Mahal", alt: "Taj Mahal Agra sightseeing by taxi service" },
+  { img: happyFamily, title: "Happy Customers", category: "Customers", desc: "Family trip to a heritage site with our sedan", alt: "Happy family on Agra outstation cab tour" },
+  { img: varanasiGhats, title: "Varanasi Ghats", category: "Destinations", desc: "Evening aarti at the sacred ghats of Varanasi", alt: "Varanasi ghat tour from Agra by taxi" },
+  { img: jaipurHawaMahal, title: "Hawa Mahal, Jaipur", category: "Destinations", desc: "The stunning Palace of Winds in Jaipur", alt: "Jaipur Hawa Mahal road trip taxi from Agra" },
+  { img: manaliMountains, title: "Road to Manali", category: "Road Trips", desc: "Scenic mountain road to Manali", alt: "Manali road trip with Delhi and Agra cab service" },
+  { img: ayodhyaTemple, title: "Ayodhya Temple", category: "Destinations", desc: "Grand temple architecture in Ayodhya", alt: "Ayodhya temple darshan taxi tour package" },
+  { img: innovaTrip, title: "Our Innova on Tour", category: "Fleet", desc: "Toyota Innova ready for an outstation trip", alt: "Toyota Innova outstation taxi in Agra" },
+  { img: rishikeshBridge, title: "Rishikesh Bridge", category: "Road Trips", desc: "Iconic suspension bridge at sunset in Rishikesh", alt: "Rishikesh trip from Agra and Delhi by cab" },
 ];
 
 const categories = ["All", "Destinations", "Road Trips", "Customers", "Fleet"];
@@ -38,7 +38,7 @@ const Gallery = () => {
         title="Photo Gallery | Shivansh Tour & Travels | Trip Photos & Destinations"
         description="Browse photos from our trips to Taj Mahal, Varanasi, Jaipur, Manali, Rishikesh & more. See our fleet and happy customer moments."
         keywords="travel photos india, taxi trip gallery, agra trip photos, varanasi tour photos, jaipur photos, travel agency gallery"
-        canonical="https://shivanshtravels.com/gallery"
+        canonical="https://shivansh-tour-hub.netlify.app/gallery"
       />
       <section className="page-header">
         <div className="container mx-auto text-center">
@@ -61,7 +61,7 @@ const Gallery = () => {
             {filtered.map((g, i) => (
               <div key={i} className="group relative rounded-xl overflow-hidden shadow-md hover-lift cursor-pointer border border-border/50" onClick={() => setLightbox(galleryItems.indexOf(g))}>
                 <div className="aspect-square overflow-hidden">
-                  <img src={g.img} alt={g.title} loading="lazy" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+                  <img src={g.img} alt={g.alt} loading="lazy" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
                 </div>
                 <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
@@ -98,14 +98,14 @@ const Gallery = () => {
             <X className="h-8 w-8" />
           </button>
           <div className="max-w-4xl w-full" onClick={(e) => e.stopPropagation()}>
-            <img src={galleryItems[lightbox].img} alt={galleryItems[lightbox].title} className="w-full max-h-[80vh] object-contain rounded-xl" />
+            <img src={galleryItems[lightbox].img} alt={galleryItems[lightbox].alt} className="w-full max-h-[80vh] object-contain rounded-xl" loading="lazy" />
             <div className="text-center mt-4">
               <h3 className="font-heading font-bold text-primary-foreground text-lg">{galleryItems[lightbox].title}</h3>
               <p className="text-primary-foreground/70 text-sm">{galleryItems[lightbox].desc}</p>
             </div>
             <div className="flex justify-center gap-3 mt-4">
-              <Button variant="hero-outline" size="sm" disabled={lightbox === 0} onClick={() => setLightbox((prev) => (prev !== null && prev > 0 ? prev - 1 : prev))}>← Previous</Button>
-              <Button variant="hero-outline" size="sm" disabled={lightbox === galleryItems.length - 1} onClick={() => setLightbox((prev) => (prev !== null && prev < galleryItems.length - 1 ? prev + 1 : prev))}>Next →</Button>
+              <Button variant="hero-outline" size="sm" disabled={lightbox === 0} onClick={() => setLightbox((prev) => (prev !== null && prev > 0 ? prev - 1 : prev))}>â† Previous</Button>
+              <Button variant="hero-outline" size="sm" disabled={lightbox === galleryItems.length - 1} onClick={() => setLightbox((prev) => (prev !== null && prev < galleryItems.length - 1 ? prev + 1 : prev))}>Next â†’</Button>
             </div>
           </div>
         </div>
@@ -115,3 +115,4 @@ const Gallery = () => {
 };
 
 export default Gallery;
+

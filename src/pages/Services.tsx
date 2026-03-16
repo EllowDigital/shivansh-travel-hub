@@ -1,4 +1,4 @@
-import SectionHeading from "@/components/SectionHeading";
+﻿import SectionHeading from "@/components/SectionHeading";
 import SEO from "@/components/SEO";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
@@ -16,14 +16,14 @@ const Services = () => (
   <div className="pt-14 sm:pt-16 lg:pt-[88px]">
     <SEO
       title="Taxi Services in Agra | Airport Pickup, Outstation Cab, Tour Packages"
-      description="Book airport transfers, local city taxi, outstation cabs & tour packages from Agra. Affordable rates, verified drivers, 24/7 service. Call +91 89604 46756."
+      description="Book airport transfers, local city taxi, outstation cabs & tour packages from Agra. Affordable rates, verified drivers, 24/7 service. Call +91 8865038345."
       keywords="taxi services agra, airport pickup agra, outstation cab agra, local taxi agra, corporate taxi agra, tour packages agra, cab service agra"
-      canonical="https://shivanshtravels.com/services"
+      canonical="https://shivansh-tour-hub.netlify.app/services"
     />
     <section className="page-header">
       <div className="container mx-auto text-center">
         <h1 className="page-header-title">Our Services</h1>
-        <p className="page-header-subtitle">Comprehensive travel solutions for every need — from airport pickups to outstation trips.</p>
+        <p className="page-header-subtitle">Comprehensive travel solutions for every need â€” from airport pickups to outstation trips.</p>
       </div>
     </section>
     <section className="section-padding bg-background">
@@ -57,3 +57,4 @@ const Services = () => (
 );
 
 export default Services;
+

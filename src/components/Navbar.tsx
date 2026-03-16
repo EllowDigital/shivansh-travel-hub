@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+﻿import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X, Phone, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -9,6 +9,7 @@ const navLinks = [
   { to: "/fleet", label: "Our Cars" },
   { to: "/tours", label: "Tours" },
   { to: "/routes", label: "Routes" },
+  { to: "/service-areas", label: "Service Areas" },
   { to: "/reviews", label: "Reviews" },
   { to: "/blog", label: "Blog" },
   { to: "/about", label: "About" },
@@ -35,17 +36,22 @@ const Navbar = () => {
       {/* Top bar with phone */}
       <div className="bg-primary text-primary-foreground text-xs py-1.5 px-4 hidden sm:block">
         <div className="container mx-auto flex items-center justify-between">
-          <span>📍 Serving across India from Agra, UP</span>
+          <span>ðŸ“ Serving across India from Agra, UP</span>
           <div className="flex items-center gap-4">
-            <a href="mailto:sarwanyadav6174@gmail.com" className="hover:text-secondary transition-colors">✉ sarwanyadav6174@gmail.com</a>
-            <a href="tel:+918960446756" className="hover:text-secondary transition-colors font-medium">📞 +91 89604 46756</a>
+            <a href="mailto:sarwanyadav6174@gmail.com" className="hover:text-secondary transition-colors">âœ‰ sarwanyadav6174@gmail.com</a>
+            <a href="tel:+918865038345" className="hover:text-secondary transition-colors font-medium">ðŸ“ž +91 8865038345</a>
           </div>
         </div>
       </div>
 
       <div className="container mx-auto flex items-center justify-between h-14 sm:h-16 px-4">
-        <Link to="/" className="font-heading text-lg sm:text-xl font-bold text-primary shrink-0">
-          Shivansh<span className="text-secondary"> Tour & Travels</span>
+        <Link to="/" className="shrink-0" aria-label="Shivansh Tour and Travels home">
+          <img
+            src="/logo.svg"
+            alt="Shivansh Tour and Travels"
+            className="h-9 sm:h-10 w-auto"
+            loading="eager"
+          />
         </Link>
 
         {/* Desktop */}
@@ -61,7 +67,7 @@ const Navbar = () => {
               {l.label}
             </Link>
           ))}
-          <a href="tel:+918960446756" className="ml-2">
+          <a href="tel:+918865038345" className="ml-2">
             <Button size="sm" variant="hero" className="gap-1.5">
               <Phone className="h-3.5 w-3.5" /> Call Now
             </Button>
@@ -70,7 +76,7 @@ const Navbar = () => {
 
         {/* Mobile toggle */}
         <div className="flex items-center gap-2 lg:hidden">
-          <a href="tel:+918960446756" className="p-2 text-secondary">
+          <a href="tel:+918865038345" className="p-2 text-secondary">
             <Phone className="h-5 w-5" />
           </a>
           <button
@@ -104,7 +110,7 @@ const Navbar = () => {
             </Link>
           ))}
           <div className="pt-2 pb-1">
-            <a href="tel:+918960446756">
+            <a href="tel:+918865038345">
               <Button size="sm" variant="hero" className="w-full gap-1.5">
                 <Phone className="h-3.5 w-3.5" /> Call Now
               </Button>
@@ -117,3 +123,4 @@ const Navbar = () => {
 };
 
 export default Navbar;
+

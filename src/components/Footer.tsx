@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+﻿import { Link } from "react-router-dom";
 import { Phone, Mail, MapPin, Car } from "lucide-react";
 
 const quickLinks = [
@@ -57,7 +57,7 @@ const Footer = () => (
         <ul className="space-y-3 text-sm text-primary-foreground/80">
           <li className="flex items-center gap-2">
             <Phone className="h-4 w-4 text-secondary shrink-0" />
-            <a href="tel:+918960446756" className="hover:text-secondary transition-colors">+91 89604 46756</a>
+            <a href="tel:+918865038345" className="hover:text-secondary transition-colors">+91 8865038345</a>
           </li>
           <li className="flex items-center gap-2">
             <Mail className="h-4 w-4 text-secondary shrink-0" />
@@ -72,9 +72,10 @@ const Footer = () => (
     </div>
 
     <div className="border-t border-primary-foreground/15 text-center py-4 px-4 text-xs text-primary-foreground/50">
-      © {new Date().getFullYear()} Shivansh Tour and Travels. All rights reserved.
+      Â© {new Date().getFullYear()} Shivansh Tour and Travels. All rights reserved.
     </div>
   </footer>
 );
 
 export default Footer;
+

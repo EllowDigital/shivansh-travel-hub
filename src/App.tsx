@@ -18,6 +18,8 @@ import Gallery from "./pages/Gallery";
 import Reviews from "./pages/Reviews";
 import Blog from "./pages/Blog";
 import BlogArticle from "./pages/BlogArticle";
+import RouteLanding from "./pages/RouteLanding";
+import ServiceAreas from "./pages/ServiceAreas";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -43,6 +45,9 @@ const App = () => (
             <Route path="/reviews" element={<Reviews />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/:slug" element={<BlogArticle />} />
+            <Route path="/service-areas" element={<ServiceAreas />} />
+            <Route path="/:fromSlug-to-:toSlug-taxi" element={<RouteLanding />} />
+            <Route path="/:fromSlug-to-:toSlug-cab-service" element={<RouteLanding />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </main>

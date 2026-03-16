@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+﻿import { useEffect, useMemo, useState } from "react";
 import { MessageCircle, X, Send, ArrowRight, MapPin, Navigation, Car, Calendar, User, Phone, Check, Loader2, Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
@@ -6,15 +6,15 @@ import { openWhatsAppMessage } from "@/lib/whatsapp";
 import { searchLocationSuggestions, type LocationSuggestion } from "@/lib/locationSearch";
 
 const carOptions = [
-  { name: "Swift Dzire", seats: "4 Seater", price: "₹11/km" },
-  { name: "Ertiga", seats: "7 Seater", price: "₹14/km" },
-  { name: "Toyota Innova", seats: "7 Seater Premium", price: "₹16/km" },
-  { name: "Tempo Traveller", seats: "12 Seater", price: "₹22/km" },
+  { name: "Swift Dzire", seats: "4 Seater", price: "â‚¹11/km" },
+  { name: "Ertiga", seats: "7 Seater", price: "â‚¹14/km" },
+  { name: "Toyota Innova", seats: "7 Seater Premium", price: "â‚¹16/km" },
+  { name: "Tempo Traveller", seats: "12 Seater", price: "â‚¹22/km" },
 ];
 
 type Step = "welcome" | "pickup" | "drop" | "car" | "date" | "name" | "phone" | "confirm";
 
-const WHATSAPP_NUMBER = "918960446756";
+const WHATSAPP_NUMBER = "918865038345";
 
 const WhatsAppButton = () => {
   const [open, setOpen] = useState(false);
@@ -109,19 +109,19 @@ const WhatsAppButton = () => {
 
   const sendToWhatsApp = () => {
     const text = [
-      `🚕 *TAXI BOOKING REQUEST*`,
-      `━━━━━━━━━━━━━━━━━━`,
+      `ðŸš• *TAXI BOOKING REQUEST*`,
+      `â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”`,
       ``,
-      `👤 *Name:* ${data.name}`,
-      `📱 *Phone:* ${data.phone}`,
-      `📍 *Pickup:* ${data.pickup}`,
-      `🏁 *Drop:* ${data.drop}`,
-      `🚗 *Car:* ${data.car}`,
-      `📅 *Date:* ${data.date}`,
+      `ðŸ‘¤ *Name:* ${data.name}`,
+      `ðŸ“± *Phone:* ${data.phone}`,
+      `ðŸ“ *Pickup:* ${data.pickup}`,
+      `ðŸ *Drop:* ${data.drop}`,
+      `ðŸš— *Car:* ${data.car}`,
+      `ðŸ“… *Date:* ${data.date}`,
       ``,
       `Please confirm availability and fare.`,
       ``,
-      `━━━━━━━━━━━━━━━━━━`,
+      `â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”`,
       `Sent via Shivansh Travels Website`,
     ].join("\n");
 
@@ -139,7 +139,7 @@ const WhatsAppButton = () => {
   const messages = useMemo(() => {
     const msgs: { from: "bot" | "user"; text: string; jsx?: React.ReactNode }[] = [];
 
-    msgs.push({ from: "bot", text: "👋 Hi! Welcome to Shivansh Tour & Travels. I'll help you book a taxi in a few steps." });
+    msgs.push({ from: "bot", text: "ðŸ‘‹ Hi! Welcome to Shivansh Tour & Travels. I'll help you book a taxi in a few steps." });
 
     if (step === "welcome") {
       msgs.push({
@@ -154,30 +154,30 @@ const WhatsAppButton = () => {
       return msgs;
     }
 
-    msgs.push({ from: "bot", text: "📍 Pickup location?" });
+    msgs.push({ from: "bot", text: "ðŸ“ Pickup location?" });
     if (data.pickup) {
       msgs.push({ from: "user", text: data.pickup });
-      msgs.push({ from: "bot", text: "🏁 Drop location?" });
+      msgs.push({ from: "bot", text: "ðŸ Drop location?" });
     }
     if (data.drop) {
       msgs.push({ from: "user", text: data.drop });
-      msgs.push({ from: "bot", text: "🚗 Choose your car:" });
+      msgs.push({ from: "bot", text: "ðŸš— Choose your car:" });
     }
     if (data.car) {
       msgs.push({ from: "user", text: data.car });
-      msgs.push({ from: "bot", text: "📅 Travel date & time? (e.g., 15 March, 8 AM)" });
+      msgs.push({ from: "bot", text: "ðŸ“… Travel date & time? (e.g., 15 March, 8 AM)" });
     }
     if (data.date) {
       msgs.push({ from: "user", text: data.date });
-      msgs.push({ from: "bot", text: "👤 Your name?" });
+      msgs.push({ from: "bot", text: "ðŸ‘¤ Your name?" });
     }
     if (data.name) {
       msgs.push({ from: "user", text: data.name });
-      msgs.push({ from: "bot", text: "📱 Phone number?" });
+      msgs.push({ from: "bot", text: "ðŸ“± Phone number?" });
     }
     if (data.phone) {
       msgs.push({ from: "user", text: data.phone });
-      msgs.push({ from: "bot", text: "✅ Great! Confirm this booking:" });
+      msgs.push({ from: "bot", text: "âœ… Great! Confirm this booking:" });
     }
 
     return msgs;
@@ -194,7 +194,7 @@ const WhatsAppButton = () => {
               </div>
               <div>
                 <p className="font-semibold text-xs">Shivansh Travels</p>
-                <p className="text-[10px] opacity-80">Online • Quick reply</p>
+                <p className="text-[10px] opacity-80">Online â€¢ Quick reply</p>
               </div>
             </div>
             <button onClick={() => { setOpen(false); reset(); }} className="hover:bg-primary-foreground/10 p-1 rounded-full transition-colors">
@@ -336,3 +336,4 @@ const WhatsAppButton = () => {
 };
 
 export default WhatsAppButton;
+

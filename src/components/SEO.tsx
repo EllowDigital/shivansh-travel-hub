@@ -1,12 +1,15 @@
-import { useEffect } from "react";
+﻿import { useEffect } from "react";
 
 interface SEOProps {
   title: string;
   description: string;
   keywords?: string;
   canonical?: string;
-  schema?: object;
+  schema?: object | object[];
 }
+
+const SITE_URL = "https://shivansh-tour-hub.netlify.app";
+const DEFAULT_OG_IMAGE = `${SITE_URL}/og-image.jpg`;
 
 const SEO = ({ title, description, keywords, canonical, schema }: SEOProps) => {
   useEffect(() => {
@@ -28,10 +31,12 @@ const SEO = ({ title, description, keywords, canonical, schema }: SEOProps) => {
     setMeta("og:title", title, true);
     setMeta("og:description", description, true);
     setMeta("og:type", "website", true);
-    if (canonical) setMeta("og:url", canonical, true);
+    setMeta("og:url", canonical || window.location.href, true);
+    setMeta("og:image", DEFAULT_OG_IMAGE, true);
     setMeta("twitter:card", "summary_large_image");
     setMeta("twitter:title", title);
     setMeta("twitter:description", description);
+    setMeta("twitter:image", DEFAULT_OG_IMAGE);
 
     // Canonical
     let link = document.querySelector('link[rel="canonical"]') as HTMLLinkElement | null;
@@ -45,14 +50,16 @@ const SEO = ({ title, description, keywords, canonical, schema }: SEOProps) => {
     }
 
     // JSON-LD Schema
-    const existingScript = document.querySelector('script[data-seo-schema]');
-    if (existingScript) existingScript.remove();
+    document.querySelectorAll('script[data-seo-schema]').forEach((node) => node.remove());
     if (schema) {
-      const script = document.createElement("script");
-      script.type = "application/ld+json";
-      script.setAttribute("data-seo-schema", "true");
-      script.textContent = JSON.stringify(schema);
-      document.head.appendChild(script);
+      const schemas = Array.isArray(schema) ? schema : [schema];
+      schemas.forEach((schemaItem) => {
+        const script = document.createElement("script");
+        script.type = "application/ld+json";
+        script.setAttribute("data-seo-schema", "true");
+        script.textContent = JSON.stringify(schemaItem);
+        document.head.appendChild(script);
+      });
     }
   }, [title, description, keywords, canonical, schema]);
 
@@ -60,3 +67,4 @@ const SEO = ({ title, description, keywords, canonical, schema }: SEOProps) => {
 };
 
 export default SEO;
+
