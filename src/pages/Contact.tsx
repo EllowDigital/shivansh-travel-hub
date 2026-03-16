@@ -11,6 +11,33 @@ const contactInfo = [
   { icon: Clock, title: "Working Hours", content: "24/7 — Always Available" },
 ];
 
+const contactSchema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Shivansh Tour and Travels",
+  "url": "https://shivanshtravels.com/contact",
+  "image": "https://shivanshtravels.com/og-image.jpg",
+  "telephone": "+918960446756",
+  "email": "sarwanyadav6174@gmail.com",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Agra",
+    "addressRegion": "Uttar Pradesh",
+    "addressCountry": "IN"
+  },
+  "openingHours": "Mo-Su 00:00-23:59",
+  "areaServed": ["Agra", "Delhi", "Noida", "Gurgaon", "Mathura", "Jaipur", "Lucknow"]
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://shivanshtravels.com" },
+    { "@type": "ListItem", "position": 2, "name": "Contact", "item": "https://shivanshtravels.com/contact" }
+  ]
+};
+
 const Contact = () => (
   <div className="pt-14 sm:pt-16 lg:pt-[88px]">
     <SEO
@@ -18,6 +45,7 @@ const Contact = () => (
       description="Contact Shivansh Tour & Travels for taxi bookings, tour packages & custom quotes. Call +91 89604 46756, WhatsApp or email. 24/7 service from Agra."
       keywords="contact taxi agra, book cab agra, taxi booking phone number agra, whatsapp taxi booking, agra travel agency contact"
       canonical="https://shivanshtravels.com/contact"
+      schema={[contactSchema, breadcrumbSchema]}
     />
     <section className="page-header">
       <div className="container mx-auto text-center">

@@ -3,7 +3,6 @@ import { Button } from "@/components/ui/button";
 import BookingForm from "@/components/BookingForm";
 import SectionHeading from "@/components/SectionHeading";
 import SEO from "@/components/SEO";
-import heroBg from "@/assets/hero-bg.jpg";
 import swiftDzire from "@/assets/swift-dzire.png";
 import ertiga from "@/assets/ertiga.png";
 import innova from "@/assets/innova.png";
@@ -40,6 +39,8 @@ const stats = [
   { value: "24/7", label: "Support Available" },
   { value: "100%", label: "Safe Journeys" },
 ];
+
+const heroBg = "/agra-taxi-service-hero.jpg";
 
 const whyUs = [
   { icon: ShieldCheck, title: "Verified Drivers", desc: "Background-checked, experienced professionals." },
