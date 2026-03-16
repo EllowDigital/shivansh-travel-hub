@@ -11,13 +11,28 @@ const tripTypes = ["One Way", "Round Trip", "Local", "Airport"];
 
 const WHATSAPP_NUMBER = "918865038345";
 
-const BookingForm = ({ defaultPickup = "", defaultDrop = "" }: { defaultPickup?: string; defaultDrop?: string }) => {
+const BookingForm = ({
+  defaultPickup = "",
+  defaultDrop = "",
+}: {
+  defaultPickup?: string;
+  defaultDrop?: string;
+}) => {
   const [tripType, setTripType] = useState("One Way");
   const [form, setForm] = useState({
-    pickup: defaultPickup, drop: defaultDrop, date: "", time: "", car: "", name: "", phone: "", passengers: "", message: "",
+    pickup: defaultPickup,
+    drop: defaultDrop,
+    date: "",
+    time: "",
+    car: "",
+    name: "",
+    phone: "",
+    passengers: "",
+    message: "",
   });
 
-  const update = (key: string, val: string) => setForm((p) => ({ ...p, [key]: val }));
+  const update = (key: string, val: string) =>
+    setForm((p) => ({ ...p, [key]: val }));
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -26,7 +41,13 @@ const BookingForm = ({ defaultPickup = "", defaultDrop = "" }: { defaultPickup?:
       return;
     }
 
-    const formattedDate = form.date ? new Date(form.date).toLocaleDateString("en-IN", { day: "numeric", month: "long", year: "numeric" }) : "Not specified";
+    const formattedDate = form.date
+      ? new Date(form.date).toLocaleDateString("en-IN", {
+          day: "numeric",
+          month: "long",
+          year: "numeric",
+        })
+      : "Not specified";
 
     const text = [
       `ðŸš• *NEW TAXI BOOKING REQUEST*`,
@@ -50,7 +71,9 @@ const BookingForm = ({ defaultPickup = "", defaultDrop = "" }: { defaultPickup?:
       ``,
       `â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”`,
       `Sent via Shivansh Tour & Travels Website`,
-    ].filter(Boolean).join("\n");
+    ]
+      .filter(Boolean)
+      .join("\n");
 
     const opened = openWhatsAppMessage(WHATSAPP_NUMBER, text);
     if (opened) {
@@ -61,9 +84,16 @@ const BookingForm = ({ defaultPickup = "", defaultDrop = "" }: { defaultPickup?:
   };
 
   return (
-    <form onSubmit={handleSubmit} className="bg-card rounded-xl shadow-2xl p-5 sm:p-6 w-full max-w-md">
-      <h3 className="font-heading text-lg font-bold text-foreground text-center">Book Your Taxi</h3>
-      <p className="text-xs text-muted-foreground text-center mb-4">Fill the form & get instant confirmation</p>
+    <form
+      onSubmit={handleSubmit}
+      className="bg-card rounded-xl shadow-2xl p-5 sm:p-6 w-full max-w-md"
+    >
+      <h3 className="font-heading text-lg font-bold text-foreground text-center">
+        Book Your Taxi
+      </h3>
+      <p className="text-xs text-muted-foreground text-center mb-4">
+        Fill the form & get instant confirmation
+      </p>
 
       {/* Trip Type Tabs */}
       <div className="grid grid-cols-4 gap-1 bg-muted rounded-lg p-1 mb-4">
@@ -101,8 +131,20 @@ const BookingForm = ({ defaultPickup = "", defaultDrop = "" }: { defaultPickup?:
         />
 
         <div className="grid grid-cols-2 gap-3">
-          <Input type="date" value={form.date} onChange={(e) => update("date", e.target.value)} className="text-sm" required />
-          <Input type="time" value={form.time} onChange={(e) => update("time", e.target.value)} className="text-sm" placeholder="Pickup Time" />
+          <Input
+            type="date"
+            value={form.date}
+            onChange={(e) => update("date", e.target.value)}
+            className="text-sm"
+            required
+          />
+          <Input
+            type="time"
+            value={form.time}
+            onChange={(e) => update("time", e.target.value)}
+            className="text-sm"
+            placeholder="Pickup Time"
+          />
         </div>
 
         <select
@@ -111,28 +153,58 @@ const BookingForm = ({ defaultPickup = "", defaultDrop = "" }: { defaultPickup?:
           onChange={(e) => update("car", e.target.value)}
         >
           <option value="">ðŸš— Select Car Type</option>
-          {carTypes.map((c) => <option key={c} value={c}>{c}</option>)}
+          {carTypes.map((c) => (
+            <option key={c} value={c}>
+              {c}
+            </option>
+          ))}
         </select>
 
         <div className="grid grid-cols-2 gap-3">
-          <Input placeholder="Your Name *" value={form.name} onChange={(e) => update("name", e.target.value)} className="text-sm" required />
-          <Input placeholder="Phone *" type="tel" value={form.phone} onChange={(e) => update("phone", e.target.value)} className="text-sm" required />
+          <Input
+            placeholder="Your Name *"
+            value={form.name}
+            onChange={(e) => update("name", e.target.value)}
+            className="text-sm"
+            required
+          />
+          <Input
+            placeholder="Phone *"
+            type="tel"
+            value={form.phone}
+            onChange={(e) => update("phone", e.target.value)}
+            className="text-sm"
+            required
+          />
         </div>
 
         <div className="grid grid-cols-2 gap-3">
-          <Input placeholder="Passengers" type="number" min="1" max="20" value={form.passengers} onChange={(e) => update("passengers", e.target.value)} className="text-sm" />
-          <Input placeholder="Message (optional)" value={form.message} onChange={(e) => update("message", e.target.value)} className="text-sm" />
+          <Input
+            placeholder="Passengers"
+            type="number"
+            min="1"
+            max="20"
+            value={form.passengers}
+            onChange={(e) => update("passengers", e.target.value)}
+            className="text-sm"
+          />
+          <Input
+            placeholder="Message (optional)"
+            value={form.message}
+            onChange={(e) => update("message", e.target.value)}
+            className="text-sm"
+          />
         </div>
       </div>
 
       <Button type="submit" variant="hero" className="w-full gap-2 mt-4">
         <Send className="h-4 w-4" /> Book via WhatsApp
       </Button>
-      <p className="text-[10px] text-center text-muted-foreground mt-2">âœ… Place search enabled â€¢ Manual input also accepted</p>
+      <p className="text-[10px] text-center text-muted-foreground mt-2">
+        âœ… Place search enabled â€¢ Manual input also accepted
+      </p>
     </form>
   );
 };
 
 export default BookingForm;
-
-

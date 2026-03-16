@@ -27,7 +27,10 @@ const CITY_ORDER: City[] = [
   { name: "Vrindavan", slug: "vrindavan" },
 ];
 
-const KNOWN_ROUTE_DATA: Record<string, { distanceKm: number; travelTimeHours: number; oneWayFare: number }> = {
+const KNOWN_ROUTE_DATA: Record<
+  string,
+  { distanceKm: number; travelTimeHours: number; oneWayFare: number }
+> = {
   "agra-delhi": { distanceKm: 230, travelTimeHours: 4, oneWayFare: 3500 },
   "delhi-agra": { distanceKm: 230, travelTimeHours: 4, oneWayFare: 3500 },
   "agra-jaipur": { distanceKm: 240, travelTimeHours: 4.5, oneWayFare: 3600 },
@@ -44,7 +47,10 @@ const KNOWN_ROUTE_DATA: Record<string, { distanceKm: number; travelTimeHours: nu
   "chandigarh-delhi": { distanceKm: 250, travelTimeHours: 5, oneWayFare: 3800 },
 };
 
-function estimateRoute(from: City, to: City): { distanceKm: number; travelTimeHours: number; oneWayFare: number } {
+function estimateRoute(
+  from: City,
+  to: City,
+): { distanceKm: number; travelTimeHours: number; oneWayFare: number } {
   const key = `${from.slug}-${to.slug}`;
   const known = KNOWN_ROUTE_DATA[key];
   if (known) return known;
@@ -52,7 +58,9 @@ function estimateRoute(from: City, to: City): { distanceKm: number; travelTimeHo
   const fromIdx = CITY_ORDER.findIndex((c) => c.slug === from.slug);
   const toIdx = CITY_ORDER.findIndex((c) => c.slug === to.slug);
   const gap = Math.abs(fromIdx - toIdx) + 1;
-  const distanceKm = Math.round(70 + gap * 52 + (fromIdx % 3) * 11 + (toIdx % 4) * 9);
+  const distanceKm = Math.round(
+    70 + gap * 52 + (fromIdx % 3) * 11 + (toIdx % 4) * 9,
+  );
   const travelTimeHours = Number((distanceKm / 58).toFixed(1));
   const oneWayFare = Math.max(1200, Math.round(distanceKm * 14));
   return { distanceKm, travelTimeHours, oneWayFare };
@@ -92,13 +100,25 @@ export function findRouteBySlug(slug: string): RouteSEOData | undefined {
   return routePages.find((route) => route.slug === slug);
 }
 
-export function findRouteByCities(fromSlug: string, toSlug: string): RouteSEOData | undefined {
-  return routePages.find((route) => route.from.slug === fromSlug && route.to.slug === toSlug);
+export function findRouteByCities(
+  fromSlug: string,
+  toSlug: string,
+): RouteSEOData | undefined {
+  return routePages.find(
+    (route) => route.from.slug === fromSlug && route.to.slug === toSlug,
+  );
 }
 
-export function getRelatedRoutes(route: RouteSEOData, limit = 6): RouteSEOData[] {
-  const sameOrigin = routePages.filter((r) => r.from.slug === route.from.slug && r.to.slug !== route.to.slug);
-  const reverse = routePages.find((r) => r.from.slug === route.to.slug && r.to.slug === route.from.slug);
+export function getRelatedRoutes(
+  route: RouteSEOData,
+  limit = 6,
+): RouteSEOData[] {
+  const sameOrigin = routePages.filter(
+    (r) => r.from.slug === route.from.slug && r.to.slug !== route.to.slug,
+  );
+  const reverse = routePages.find(
+    (r) => r.from.slug === route.to.slug && r.to.slug === route.from.slug,
+  );
   const priority = reverse ? [reverse, ...sameOrigin] : sameOrigin;
   return priority.slice(0, limit);
 }
@@ -125,20 +145,25 @@ export function getRouteFAQs(route: RouteSEOData) {
     },
     {
       question: `Is one-way cab available for ${route.from.name} to ${route.to.name}?`,
-      answer: "Yes, one-way and round-trip cabs are both available, with fixed transparent pricing and no hidden charges.",
+      answer:
+        "Yes, one-way and round-trip cabs are both available, with fixed transparent pricing and no hidden charges.",
     },
     {
       question: "Can I book by WhatsApp for instant confirmation?",
-      answer: "Yes. Share pickup date, time, and passenger count on WhatsApp and the booking team confirms car availability quickly.",
+      answer:
+        "Yes. Share pickup date, time, and passenger count on WhatsApp and the booking team confirms car availability quickly.",
     },
     {
       question: "Are toll tax, driver allowance, and parking included?",
-      answer: "Most intercity fare quotes include toll and driver charges. Parking or state tax is shared before booking confirmation to keep billing transparent.",
+      answer:
+        "Most intercity fare quotes include toll and driver charges. Parking or state tax is shared before booking confirmation to keep billing transparent.",
     },
   ];
 }
 
-export function getRouteWordySections(route: RouteSEOData): Array<{ heading: string; body: string }> {
+export function getRouteWordySections(
+  route: RouteSEOData,
+): Array<{ heading: string; body: string }> {
   return [
     {
       heading: `Book ${route.from.name} to ${route.to.name} Taxi at the Best Price`,
@@ -175,6 +200,7 @@ export function getAirportToAgraRoute(): RouteSEOData {
     distanceKm: 235,
     travelTimeHours: 4.5,
     oneWayFare: 3900,
-    keywords: "delhi airport to agra taxi, igi airport to agra cab, agra airport transfer, delhi to agra one way taxi",
+    keywords:
+      "delhi airport to agra taxi, igi airport to agra cab, agra airport transfer, delhi to agra one way taxi",
   };
 }

@@ -1,9 +1,26 @@
 ﻿import { useEffect, useMemo, useState } from "react";
-import { MessageCircle, X, Send, ArrowRight, MapPin, Navigation, Car, Calendar, User, Phone, Check, Loader2, Search } from "lucide-react";
+import {
+  MessageCircle,
+  X,
+  Send,
+  ArrowRight,
+  MapPin,
+  Navigation,
+  Car,
+  Calendar,
+  User,
+  Phone,
+  Check,
+  Loader2,
+  Search,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
 import { openWhatsAppMessage } from "@/lib/whatsapp";
-import { searchLocationSuggestions, type LocationSuggestion } from "@/lib/locationSearch";
+import {
+  searchLocationSuggestions,
+  type LocationSuggestion,
+} from "@/lib/locationSearch";
 
 const carOptions = [
   { name: "Swift Dzire", seats: "4 Seater", price: "Rs 11/km" },
@@ -12,17 +29,34 @@ const carOptions = [
   { name: "Tempo Traveller", seats: "12 Seater", price: "Rs 22/km" },
 ];
 
-type Step = "welcome" | "pickup" | "drop" | "car" | "date" | "name" | "phone" | "confirm";
+type Step =
+  | "welcome"
+  | "pickup"
+  | "drop"
+  | "car"
+  | "date"
+  | "name"
+  | "phone"
+  | "confirm";
 
 const WHATSAPP_NUMBER = "918865038345";
 
 const WhatsAppButton = () => {
   const [open, setOpen] = useState(false);
   const [step, setStep] = useState<Step>("welcome");
-  const [data, setData] = useState({ pickup: "", drop: "", car: "", date: "", name: "", phone: "" });
+  const [data, setData] = useState({
+    pickup: "",
+    drop: "",
+    car: "",
+    date: "",
+    name: "",
+    phone: "",
+  });
   const [inputVal, setInputVal] = useState("");
 
-  const [locationSuggestions, setLocationSuggestions] = useState<LocationSuggestion[]>([]);
+  const [locationSuggestions, setLocationSuggestions] = useState<
+    LocationSuggestion[]
+  >([]);
   const [searchingLocation, setSearchingLocation] = useState(false);
 
   const locationStep = step === "pickup" || step === "drop";
@@ -137,16 +171,28 @@ const WhatsAppButton = () => {
   };
 
   const messages = useMemo(() => {
-    const msgs: { from: "bot" | "user"; text: string; jsx?: React.ReactNode }[] = [];
+    const msgs: {
+      from: "bot" | "user";
+      text: string;
+      jsx?: React.ReactNode;
+    }[] = [];
 
-    msgs.push({ from: "bot", text: "Hi! Welcome to Shivansh Tour & Travels. I will help you book a taxi in a few steps." });
+    msgs.push({
+      from: "bot",
+      text: "Hi! Welcome to Shivansh Tour & Travels. I will help you book a taxi in a few steps.",
+    });
 
     if (step === "welcome") {
       msgs.push({
         from: "bot",
         text: "",
         jsx: (
-          <Button variant="hero" size="sm" className="w-full gap-2 text-xs mt-1" onClick={() => setStep("pickup")}>
+          <Button
+            variant="hero"
+            size="sm"
+            className="w-full gap-2 text-xs mt-1"
+            onClick={() => setStep("pickup")}
+          >
             Start Booking <ArrowRight className="h-3.5 w-3.5" />
           </Button>
         ),
@@ -165,7 +211,10 @@ const WhatsAppButton = () => {
     }
     if (data.car) {
       msgs.push({ from: "user", text: data.car });
-      msgs.push({ from: "bot", text: "Travel date and time? (e.g., 15 March, 8 AM)" });
+      msgs.push({
+        from: "bot",
+        text: "Travel date and time? (e.g., 15 March, 8 AM)",
+      });
     }
     if (data.date) {
       msgs.push({ from: "user", text: data.date });
@@ -197,14 +246,23 @@ const WhatsAppButton = () => {
                 <p className="text-[10px] opacity-80">Online | Quick reply</p>
               </div>
             </div>
-            <button onClick={() => { setOpen(false); reset(); }} className="hover:bg-primary-foreground/10 p-1 rounded-full transition-colors">
+            <button
+              onClick={() => {
+                setOpen(false);
+                reset();
+              }}
+              className="hover:bg-primary-foreground/10 p-1 rounded-full transition-colors"
+            >
               <X className="h-4 w-4" />
             </button>
           </div>
 
           <div className="h-[320px] overflow-y-auto p-3 space-y-2 bg-muted/30">
             {messages.map((m, i) => (
-              <div key={i} className={`flex ${m.from === "user" ? "justify-end" : "justify-start"}`}>
+              <div
+                key={i}
+                className={`flex ${m.from === "user" ? "justify-end" : "justify-start"}`}
+              >
                 <div
                   className={`max-w-[85%] rounded-xl px-3 py-2 text-xs leading-relaxed ${
                     m.from === "user"
@@ -226,10 +284,16 @@ const WhatsAppButton = () => {
                     className="w-full bg-card rounded-lg p-2.5 border border-border/50 hover:border-secondary shadow-sm text-left flex items-center justify-between gap-2 transition-colors"
                   >
                     <div>
-                      <p className="font-semibold text-foreground text-xs">{c.name}</p>
-                      <p className="text-[10px] text-muted-foreground">{c.seats}</p>
+                      <p className="font-semibold text-foreground text-xs">
+                        {c.name}
+                      </p>
+                      <p className="text-[10px] text-muted-foreground">
+                        {c.seats}
+                      </p>
                     </div>
-                    <span className="text-xs font-bold text-secondary shrink-0">{c.price}</span>
+                    <span className="text-xs font-bold text-secondary shrink-0">
+                      {c.price}
+                    </span>
                   </button>
                 ))}
               </div>
@@ -238,17 +302,43 @@ const WhatsAppButton = () => {
             {step === "confirm" && (
               <div className="bg-card rounded-xl p-3 border border-border/50 shadow-sm space-y-1.5">
                 <div className="text-[10px] text-muted-foreground space-y-1">
-                  <p className="flex items-center gap-1.5"><MapPin className="h-3 w-3 text-secondary" /> <strong>Pickup:</strong> {data.pickup}</p>
-                  <p className="flex items-center gap-1.5"><Navigation className="h-3 w-3 text-secondary" /> <strong>Drop:</strong> {data.drop}</p>
-                  <p className="flex items-center gap-1.5"><Car className="h-3 w-3 text-secondary" /> <strong>Car:</strong> {data.car}</p>
-                  <p className="flex items-center gap-1.5"><Calendar className="h-3 w-3 text-secondary" /> <strong>Date:</strong> {data.date}</p>
-                  <p className="flex items-center gap-1.5"><User className="h-3 w-3 text-secondary" /> <strong>Name:</strong> {data.name}</p>
-                  <p className="flex items-center gap-1.5"><Phone className="h-3 w-3 text-secondary" /> <strong>Phone:</strong> {data.phone}</p>
+                  <p className="flex items-center gap-1.5">
+                    <MapPin className="h-3 w-3 text-secondary" />{" "}
+                    <strong>Pickup:</strong> {data.pickup}
+                  </p>
+                  <p className="flex items-center gap-1.5">
+                    <Navigation className="h-3 w-3 text-secondary" />{" "}
+                    <strong>Drop:</strong> {data.drop}
+                  </p>
+                  <p className="flex items-center gap-1.5">
+                    <Car className="h-3 w-3 text-secondary" />{" "}
+                    <strong>Car:</strong> {data.car}
+                  </p>
+                  <p className="flex items-center gap-1.5">
+                    <Calendar className="h-3 w-3 text-secondary" />{" "}
+                    <strong>Date:</strong> {data.date}
+                  </p>
+                  <p className="flex items-center gap-1.5">
+                    <User className="h-3 w-3 text-secondary" />{" "}
+                    <strong>Name:</strong> {data.name}
+                  </p>
+                  <p className="flex items-center gap-1.5">
+                    <Phone className="h-3 w-3 text-secondary" />{" "}
+                    <strong>Phone:</strong> {data.phone}
+                  </p>
                 </div>
-                <Button variant="hero" size="sm" className="w-full gap-2 text-xs mt-2 bg-success hover:bg-success/90" onClick={sendToWhatsApp}>
+                <Button
+                  variant="hero"
+                  size="sm"
+                  className="w-full gap-2 text-xs mt-2 bg-success hover:bg-success/90"
+                  onClick={sendToWhatsApp}
+                >
                   <Check className="h-3.5 w-3.5" /> Confirm & Send on WhatsApp
                 </Button>
-                <button onClick={reset} className="w-full text-center text-[10px] text-muted-foreground hover:text-foreground mt-1 transition-colors">
+                <button
+                  onClick={reset}
+                  className="w-full text-center text-[10px] text-muted-foreground hover:text-foreground mt-1 transition-colors"
+                >
                   Start Over
                 </button>
               </div>
@@ -261,7 +351,8 @@ const WhatsAppButton = () => {
                 <div className="max-h-24 overflow-auto mb-2 space-y-1">
                   {searchingLocation ? (
                     <div className="text-[10px] text-muted-foreground px-1.5 py-1 inline-flex items-center gap-1.5">
-                      <Loader2 className="h-3 w-3 animate-spin" /> Searching places...
+                      <Loader2 className="h-3 w-3 animate-spin" /> Searching
+                      places...
                     </div>
                   ) : (
                     <>
@@ -288,14 +379,22 @@ const WhatsAppButton = () => {
                         rel="noopener noreferrer"
                         className="block text-[10px] px-2 py-1.5 rounded-md bg-muted hover:bg-accent text-muted-foreground transition-colors"
                       >
-                        <span className="inline-flex items-center gap-1"><Search className="h-3 w-3" /> Search on Google Maps</span>
+                        <span className="inline-flex items-center gap-1">
+                          <Search className="h-3 w-3" /> Search on Google Maps
+                        </span>
                       </a>
                     </>
                   )}
                 </div>
               )}
 
-              <form onSubmit={(e) => { e.preventDefault(); handleSubmit(); }} className="flex items-center gap-2">
+              <form
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  handleSubmit();
+                }}
+                className="flex items-center gap-2"
+              >
                 <input
                   type="text"
                   value={inputVal}
@@ -314,7 +413,10 @@ const WhatsAppButton = () => {
                   className="flex-1 bg-muted rounded-lg px-3 py-2 text-xs text-foreground placeholder:text-muted-foreground outline-none border-none"
                   autoFocus
                 />
-                <button type="submit" className="w-8 h-8 rounded-full bg-success flex items-center justify-center text-primary-foreground hover:bg-success/90 transition-colors shrink-0">
+                <button
+                  type="submit"
+                  className="w-8 h-8 rounded-full bg-success flex items-center justify-center text-primary-foreground hover:bg-success/90 transition-colors shrink-0"
+                >
                   <Send className="h-3.5 w-3.5" />
                 </button>
               </form>
@@ -329,11 +431,14 @@ const WhatsAppButton = () => {
         style={!open ? { animation: "bounce 2s ease-in-out 3" } : undefined}
         aria-label="Book via WhatsApp"
       >
-        {open ? <X className="h-5 w-5 sm:h-6 sm:w-6" /> : <MessageCircle className="h-5 w-5 sm:h-6 sm:w-6" />}
+        {open ? (
+          <X className="h-5 w-5 sm:h-6 sm:w-6" />
+        ) : (
+          <MessageCircle className="h-5 w-5 sm:h-6 sm:w-6" />
+        )}
       </button>
     </>
   );
 };
 
 export default WhatsAppButton;
-

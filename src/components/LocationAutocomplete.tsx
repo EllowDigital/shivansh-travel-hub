@@ -1,7 +1,10 @@
 import { useEffect, useState } from "react";
 import { Input } from "@/components/ui/input";
 import { MapPin, Navigation, Search, Loader2 } from "lucide-react";
-import { searchLocationSuggestions, type LocationSuggestion } from "@/lib/locationSearch";
+import {
+  searchLocationSuggestions,
+  type LocationSuggestion,
+} from "@/lib/locationSearch";
 
 interface LocationAutocompleteProps {
   value: string;
@@ -63,7 +66,8 @@ const LocationAutocomplete = ({
         <div className="absolute left-0 right-0 top-[calc(100%+6px)] z-30 bg-card border border-border rounded-xl shadow-lg overflow-hidden">
           {loading ? (
             <div className="px-3 py-2 text-xs text-muted-foreground flex items-center gap-2">
-              <Loader2 className="h-3.5 w-3.5 animate-spin" /> Searching places...
+              <Loader2 className="h-3.5 w-3.5 animate-spin" /> Searching
+              places...
             </div>
           ) : (
             <>

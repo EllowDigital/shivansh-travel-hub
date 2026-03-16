@@ -17,7 +17,9 @@ const SEO = ({ title, description, keywords, canonical, schema }: SEOProps) => {
 
     const setMeta = (name: string, content: string, property = false) => {
       const attr = property ? "property" : "name";
-      let el = document.querySelector(`meta[${attr}="${name}"]`) as HTMLMetaElement | null;
+      let el = document.querySelector(
+        `meta[${attr}="${name}"]`,
+      ) as HTMLMetaElement | null;
       if (!el) {
         el = document.createElement("meta");
         el.setAttribute(attr, name);
@@ -39,7 +41,9 @@ const SEO = ({ title, description, keywords, canonical, schema }: SEOProps) => {
     setMeta("twitter:image", DEFAULT_OG_IMAGE);
 
     // Canonical
-    let link = document.querySelector('link[rel="canonical"]') as HTMLLinkElement | null;
+    let link = document.querySelector(
+      'link[rel="canonical"]',
+    ) as HTMLLinkElement | null;
     if (canonical) {
       if (!link) {
         link = document.createElement("link");
@@ -50,7 +54,9 @@ const SEO = ({ title, description, keywords, canonical, schema }: SEOProps) => {
     }
 
     // JSON-LD Schema
-    document.querySelectorAll('script[data-seo-schema]').forEach((node) => node.remove());
+    document
+      .querySelectorAll("script[data-seo-schema]")
+      .forEach((node) => node.remove());
     if (schema) {
       const schemas = Array.isArray(schema) ? schema : [schema];
       schemas.forEach((schemaItem) => {
@@ -67,4 +73,3 @@ const SEO = ({ title, description, keywords, canonical, schema }: SEOProps) => {
 };
 
 export default SEO;
-
