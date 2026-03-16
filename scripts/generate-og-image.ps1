@@ -45,7 +45,7 @@ $soft = New-Object System.Drawing.SolidBrush([System.Drawing.Color]::FromArgb(23
 $tagBrush = New-Object System.Drawing.SolidBrush([System.Drawing.Color]::FromArgb(144, 19, 54, 82))
 $tagRect = New-Object System.Drawing.Rectangle(86, 60, 320, 40)
 $graphics.FillRectangle($tagBrush, $tagRect)
-$graphics.DrawString("TRUSTED TAXI AND TOURS", $badgeFont, $accent, 94, 67)
+$graphics.DrawString("SHIVANSH TOUR & TRAVELS", $badgeFont, $accent, 92, 67)
 
 $graphics.DrawString("Shivansh", $brandFont, $white, 84, 118)
 $graphics.DrawString("Tour & Travels", $subBrandFont, $accent, 90, 214)
