@@ -9,7 +9,7 @@ interface SEOProps {
 }
 
 const SITE_URL = "https://shivansh-tour-hub.netlify.app";
-const DEFAULT_OG_IMAGE = `${SITE_URL}/og-image.jpg`;
+const DEFAULT_OG_IMAGE = `${SITE_URL}/og-image.jpg?v=20260316`;
 
 const SEO = ({ title, description, keywords, canonical, schema }: SEOProps) => {
   useEffect(() => {
