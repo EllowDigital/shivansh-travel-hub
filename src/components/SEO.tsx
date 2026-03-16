@@ -5,7 +5,7 @@ interface SEOProps {
   description: string;
   keywords?: string;
   canonical?: string;
-  schema?: object;
+  schema?: object | object[];
 }
 
 const SITE_URL = "https://shivanshtravels.com";
@@ -50,14 +50,16 @@ const SEO = ({ title, description, keywords, canonical, schema }: SEOProps) => {
     }
 
     // JSON-LD Schema
-    const existingScript = document.querySelector('script[data-seo-schema]');
-    if (existingScript) existingScript.remove();
+    document.querySelectorAll('script[data-seo-schema]').forEach((node) => node.remove());
     if (schema) {
-      const script = document.createElement("script");
-      script.type = "application/ld+json";
-      script.setAttribute("data-seo-schema", "true");
-      script.textContent = JSON.stringify(schema);
-      document.head.appendChild(script);
+      const schemas = Array.isArray(schema) ? schema : [schema];
+      schemas.forEach((schemaItem) => {
+        const script = document.createElement("script");
+        script.type = "application/ld+json";
+        script.setAttribute("data-seo-schema", "true");
+        script.textContent = JSON.stringify(schemaItem);
+        document.head.appendChild(script);
+      });
     }
   }, [title, description, keywords, canonical, schema]);
 
