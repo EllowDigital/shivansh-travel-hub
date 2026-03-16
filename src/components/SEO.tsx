@@ -39,6 +39,14 @@ const SEO = ({ title, description, keywords, canonical, schema }: SEOProps) => {
     setMeta("twitter:title", title);
     setMeta("twitter:description", description);
     setMeta("twitter:image", DEFAULT_OG_IMAGE);
+    setMeta(
+      "robots",
+      "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+    );
+    setMeta(
+      "googlebot",
+      "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+    );
 
     // Canonical
     let link = document.querySelector(
