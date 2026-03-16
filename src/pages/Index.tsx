@@ -7,10 +7,6 @@ import swiftDzire from "@/assets/swift-dzire.png";
 import ertiga from "@/assets/ertiga.png";
 import innova from "@/assets/innova.png";
 import tempoTraveller from "@/assets/tempo-traveller.png";
-import tajMahal from "@/assets/gallery/taj-mahal.jpg";
-import hawaMahal from "@/assets/gallery/jaipur-hawa-mahal.jpg";
-import varanasiGhats from "@/assets/gallery/varanasi-ghats.jpg";
-import ayodhyaTemple from "@/assets/gallery/ayodhya-temple.jpg";
 import {
   Plane,
   Car,
@@ -121,30 +117,30 @@ const heroSlides = [
   {
     title: "Taj Mahal, Agra",
     alt: "Taj Mahal monument in Agra",
-    desktopImage: "/agra-taxi-service-hero.jpg",
-    tabletImage: tajMahal,
-    mobileImage: tajMahal,
+    desktopImage: "/hero/agra-taj-desktop.jpg",
+    tabletImage: "/hero/agra-taj-tablet.jpg",
+    mobileImage: "/hero/agra-taj-mobile.jpg",
   },
   {
     title: "Hawa Mahal, Jaipur",
     alt: "Hawa Mahal monument in Jaipur",
-    desktopImage: hawaMahal,
-    tabletImage: hawaMahal,
-    mobileImage: hawaMahal,
+    desktopImage: "/hero/jaipur-hawa-mahal-desktop.jpg",
+    tabletImage: "/hero/jaipur-hawa-mahal-tablet.jpg",
+    mobileImage: "/hero/jaipur-hawa-mahal-mobile.jpg",
   },
   {
     title: "Varanasi Ghats",
     alt: "Famous ghats in Varanasi",
-    desktopImage: varanasiGhats,
-    tabletImage: varanasiGhats,
-    mobileImage: varanasiGhats,
+    desktopImage: "/hero/varanasi-ghats-desktop.jpg",
+    tabletImage: "/hero/varanasi-ghats-tablet.jpg",
+    mobileImage: "/hero/varanasi-ghats-mobile.jpg",
   },
   {
     title: "Ayodhya Temple",
     alt: "Famous temple monument in Ayodhya",
-    desktopImage: ayodhyaTemple,
-    tabletImage: ayodhyaTemple,
-    mobileImage: ayodhyaTemple,
+    desktopImage: "/hero/ayodhya-temple-desktop.jpg",
+    tabletImage: "/hero/ayodhya-temple-tablet.jpg",
+    mobileImage: "/hero/ayodhya-temple-mobile.jpg",
   },
 ];
 
