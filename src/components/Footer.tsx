@@ -11,8 +11,12 @@ const quickLinks = [
 ];
 
 const popularRoutes = [
-  "Agra to Delhi", "Delhi to Jaipur", "Agra to Varanasi",
-  "Delhi to Manali", "Agra to Mathura", "Delhi to Shimla",
+  "Agra to Delhi",
+  "Delhi to Jaipur",
+  "Agra to Varanasi",
+  "Delhi to Manali",
+  "Agra to Mathura",
+  "Delhi to Shimla",
 ];
 
 const Footer = () => (
@@ -26,42 +30,69 @@ const Footer = () => (
           </span>
         </Link>
         <p className="text-sm text-primary-foreground/75 leading-relaxed">
-          Your trusted partner for comfortable, affordable taxi & tour services across India. Available 24/7.
+          Your trusted partner for comfortable, affordable taxi & tour services
+          across India. Available 24/7.
         </p>
       </div>
 
       <div>
-        <h4 className="font-heading font-semibold mb-4 text-secondary text-sm uppercase tracking-wider">Quick Links</h4>
+        <h4 className="font-heading font-semibold mb-4 text-secondary text-sm uppercase tracking-wider">
+          Quick Links
+        </h4>
         <ul className="space-y-2 text-sm text-primary-foreground/80">
           {quickLinks.map((l) => (
             <li key={l.to}>
-              <Link to={l.to} className="hover:text-secondary transition-colors">{l.label}</Link>
+              <Link
+                to={l.to}
+                className="hover:text-secondary transition-colors"
+              >
+                {l.label}
+              </Link>
             </li>
           ))}
         </ul>
       </div>
 
       <div>
-        <h4 className="font-heading font-semibold mb-4 text-secondary text-sm uppercase tracking-wider">Popular Routes</h4>
+        <h4 className="font-heading font-semibold mb-4 text-secondary text-sm uppercase tracking-wider">
+          Popular Routes
+        </h4>
         <ul className="space-y-2 text-sm text-primary-foreground/80">
           {popularRoutes.map((r) => (
             <li key={r}>
-              <Link to="/routes" className="hover:text-secondary transition-colors">{r}</Link>
+              <Link
+                to="/routes"
+                className="hover:text-secondary transition-colors"
+              >
+                {r}
+              </Link>
             </li>
           ))}
         </ul>
       </div>
 
       <div>
-        <h4 className="font-heading font-semibold mb-4 text-secondary text-sm uppercase tracking-wider">Contact Us</h4>
+        <h4 className="font-heading font-semibold mb-4 text-secondary text-sm uppercase tracking-wider">
+          Contact Us
+        </h4>
         <ul className="space-y-3 text-sm text-primary-foreground/80">
           <li className="flex items-center gap-2">
             <Phone className="h-4 w-4 text-secondary shrink-0" />
-            <a href="tel:+918865038345" className="hover:text-secondary transition-colors">+91 8865038345</a>
+            <a
+              href="tel:+918865038345"
+              className="hover:text-secondary transition-colors"
+            >
+              +91 8865038345
+            </a>
           </li>
           <li className="flex items-center gap-2">
             <Mail className="h-4 w-4 text-secondary shrink-0" />
-            <a href="mailto:sarwanyadav6174@gmail.com" className="hover:text-secondary transition-colors text-xs sm:text-sm break-all">sarwanyadav6174@gmail.com</a>
+            <a
+              href="mailto:sarwanyadav6174@gmail.com"
+              className="hover:text-secondary transition-colors text-xs sm:text-sm break-all"
+            >
+              sarwanyadav6174@gmail.com
+            </a>
           </li>
           <li className="flex items-start gap-2">
             <MapPin className="h-4 w-4 text-secondary shrink-0 mt-0.5" />
@@ -72,10 +103,10 @@ const Footer = () => (
     </div>
 
     <div className="border-t border-primary-foreground/15 text-center py-4 px-4 text-xs text-primary-foreground/50">
-      Â© {new Date().getFullYear()} Shivansh Tour and Travels. All rights reserved.
+      Â© {new Date().getFullYear()} Shivansh Tour and Travels. All rights
+      reserved.
     </div>
   </footer>
 );
 
 export default Footer;
-

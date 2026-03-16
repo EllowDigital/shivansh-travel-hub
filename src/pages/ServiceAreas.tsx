@@ -33,7 +33,10 @@ const ServiceAreas = () => {
       <section className="page-header">
         <div className="container mx-auto text-center">
           <h1 className="page-header-title">Taxi Service Areas</h1>
-          <p className="page-header-subtitle">Local and outstation cab coverage across major cities in North India.</p>
+          <p className="page-header-subtitle">
+            Local and outstation cab coverage across major cities in North
+            India.
+          </p>
         </div>
       </section>
 
@@ -41,17 +44,31 @@ const ServiceAreas = () => {
         <div className="container mx-auto">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
             {cities.map((city) => {
-              const outgoing = routePages.filter((route) => route.from.slug === city.slug).slice(0, 6);
+              const outgoing = routePages
+                .filter((route) => route.from.slug === city.slug)
+                .slice(0, 6);
               return (
-                <article key={city.slug} className="bg-card rounded-xl border border-border/50 p-5">
-                  <h2 className="font-heading text-lg font-bold text-foreground">{city.name} Taxi Service</h2>
+                <article
+                  key={city.slug}
+                  className="bg-card rounded-xl border border-border/50 p-5"
+                >
+                  <h2 className="font-heading text-lg font-bold text-foreground">
+                    {city.name} Taxi Service
+                  </h2>
                   <p className="mt-2 text-sm text-muted-foreground">
-                    Book local and outstation taxi from {city.name} with transparent fare and verified drivers.
+                    Book local and outstation taxi from {city.name} with
+                    transparent fare and verified drivers.
                   </p>
-                  <h3 className="font-heading text-sm font-semibold text-foreground mt-4">Popular routes from {city.name}</h3>
+                  <h3 className="font-heading text-sm font-semibold text-foreground mt-4">
+                    Popular routes from {city.name}
+                  </h3>
                   <div className="mt-2 space-y-1.5">
                     {outgoing.map((route) => (
-                      <Link key={route.slug} to={`/${route.slug}`} className="block text-sm text-secondary hover:underline">
+                      <Link
+                        key={route.slug}
+                        to={`/${route.slug}`}
+                        className="block text-sm text-secondary hover:underline"
+                      >
                         {route.from.name} to {route.to.name} taxi
                       </Link>
                     ))}
@@ -63,7 +80,9 @@ const ServiceAreas = () => {
 
           <div className="text-center mt-8">
             <Link to="/contact">
-              <Button variant="hero" size="lg">Get Route-Specific Quote</Button>
+              <Button variant="hero" size="lg">
+                Get Route-Specific Quote
+              </Button>
             </Link>
           </div>
         </div>
@@ -73,4 +92,3 @@ const ServiceAreas = () => {
 };
 
 export default ServiceAreas;
-

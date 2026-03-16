@@ -9,7 +9,14 @@ import {
   getRouteFAQs,
   getRouteWordySections,
 } from "@/lib/routeSeo";
-import { ArrowRight, Clock, IndianRupee, MapPin, Phone, Route as RouteIcon } from "lucide-react";
+import {
+  ArrowRight,
+  Clock,
+  IndianRupee,
+  MapPin,
+  Phone,
+  Route as RouteIcon,
+} from "lucide-react";
 
 const NAP = {
   name: "Shivansh Tour and Travels",
@@ -23,7 +30,10 @@ function titleCase(value: string) {
 }
 
 const RouteLanding = () => {
-  const { fromSlug, toSlug } = useParams<{ fromSlug: string; toSlug: string }>();
+  const { fromSlug, toSlug } = useParams<{
+    fromSlug: string;
+    toSlug: string;
+  }>();
 
   const route =
     fromSlug === "delhi-airport" && toSlug === "agra"
@@ -35,10 +45,16 @@ const RouteLanding = () => {
   if (!route) {
     return (
       <div className="pt-14 sm:pt-16 lg:pt-[88px] section-padding text-center">
-        <h1 className="font-heading text-2xl font-bold text-foreground">Route Not Found</h1>
-        <p className="mt-2 text-muted-foreground text-sm">The requested taxi route page is not available.</p>
+        <h1 className="font-heading text-2xl font-bold text-foreground">
+          Route Not Found
+        </h1>
+        <p className="mt-2 text-muted-foreground text-sm">
+          The requested taxi route page is not available.
+        </p>
         <Link to="/routes">
-          <Button variant="outline" className="mt-5">Back to Routes</Button>
+          <Button variant="outline" className="mt-5">
+            Back to Routes
+          </Button>
         </Link>
       </div>
     );
@@ -55,8 +71,18 @@ const RouteLanding = () => {
     "@type": "BreadcrumbList",
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Home", item: NAP.url },
-      { "@type": "ListItem", position: 2, name: "Routes", item: `${NAP.url}/routes` },
-      { "@type": "ListItem", position: 3, name: `${route.from.name} to ${route.to.name} Taxi`, item: pageUrl },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Routes",
+        item: `${NAP.url}/routes`,
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: `${route.from.name} to ${route.to.name} Taxi`,
+        item: pageUrl,
+      },
     ],
   };
 
@@ -125,14 +151,22 @@ const RouteLanding = () => {
         description={`Book ${route.from.name} to ${route.to.name} taxi service with verified drivers. Distance ${route.distanceKm} km, travel time ${route.travelTimeHours} hours, one-way fare starts Rs ${fare.dzire}. Call ${NAP.phone}.`}
         keywords={route.keywords}
         canonical={pageUrl}
-        schema={[taxiServiceSchema, localBusinessSchema, faqSchema, breadcrumbSchema]}
+        schema={[
+          taxiServiceSchema,
+          localBusinessSchema,
+          faqSchema,
+          breadcrumbSchema,
+        ]}
       />
 
       <section className="page-header">
         <div className="container mx-auto text-center">
-          <h1 className="page-header-title">{route.from.name} to {route.to.name} Taxi Service</h1>
+          <h1 className="page-header-title">
+            {route.from.name} to {route.to.name} Taxi Service
+          </h1>
           <p className="page-header-subtitle">
-            Trusted one-way and round-trip cab booking with transparent fare, safe cars, and 24/7 support.
+            Trusted one-way and round-trip cab booking with transparent fare,
+            safe cars, and 24/7 support.
           </p>
         </div>
       </section>
@@ -140,14 +174,26 @@ const RouteLanding = () => {
       <section className="section-padding bg-background">
         <div className="container mx-auto grid grid-cols-1 lg:grid-cols-3 gap-5 sm:gap-6">
           <div className="bg-card rounded-xl p-5 border border-border/50">
-            <h2 className="font-heading text-lg font-bold text-foreground flex items-center gap-2"><RouteIcon className="h-4 w-4 text-secondary" /> Route Details</h2>
-            <p className="mt-3 text-sm text-muted-foreground">{route.from.name} to {route.to.name}</p>
-            <p className="mt-1 text-sm text-muted-foreground flex items-center gap-2"><MapPin className="h-3.5 w-3.5" /> {route.distanceKm} km</p>
-            <p className="mt-1 text-sm text-muted-foreground flex items-center gap-2"><Clock className="h-3.5 w-3.5" /> {route.travelTimeHours} hrs (approx)</p>
+            <h2 className="font-heading text-lg font-bold text-foreground flex items-center gap-2">
+              <RouteIcon className="h-4 w-4 text-secondary" /> Route Details
+            </h2>
+            <p className="mt-3 text-sm text-muted-foreground">
+              {route.from.name} to {route.to.name}
+            </p>
+            <p className="mt-1 text-sm text-muted-foreground flex items-center gap-2">
+              <MapPin className="h-3.5 w-3.5" /> {route.distanceKm} km
+            </p>
+            <p className="mt-1 text-sm text-muted-foreground flex items-center gap-2">
+              <Clock className="h-3.5 w-3.5" /> {route.travelTimeHours} hrs
+              (approx)
+            </p>
           </div>
 
           <div className="bg-card rounded-xl p-5 border border-border/50">
-            <h2 className="font-heading text-lg font-bold text-foreground flex items-center gap-2"><IndianRupee className="h-4 w-4 text-secondary" /> Taxi Fare Estimate</h2>
+            <h2 className="font-heading text-lg font-bold text-foreground flex items-center gap-2">
+              <IndianRupee className="h-4 w-4 text-secondary" /> Taxi Fare
+              Estimate
+            </h2>
             <ul className="mt-3 text-sm text-muted-foreground space-y-1.5">
               <li>Swift Dzire: Rs {fare.dzire}</li>
               <li>Ertiga: Rs {fare.ertiga}</li>
@@ -157,14 +203,25 @@ const RouteLanding = () => {
           </div>
 
           <div className="bg-card rounded-xl p-5 border border-border/50">
-            <h2 className="font-heading text-lg font-bold text-foreground">Book Instantly</h2>
-            <p className="mt-2 text-sm text-muted-foreground">Call or WhatsApp for immediate fare confirmation and car availability.</p>
+            <h2 className="font-heading text-lg font-bold text-foreground">
+              Book Instantly
+            </h2>
+            <p className="mt-2 text-sm text-muted-foreground">
+              Call or WhatsApp for immediate fare confirmation and car
+              availability.
+            </p>
             <div className="mt-4 flex gap-2 flex-wrap">
-              <a href="https://wa.me/918865038345" target="_blank" rel="noopener noreferrer">
+              <a
+                href="https://wa.me/918865038345"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <Button variant="hero">Book on WhatsApp</Button>
               </a>
               <a href="tel:+918865038345">
-                <Button variant="outline" className="gap-1.5"><Phone className="h-3.5 w-3.5" /> Call Now</Button>
+                <Button variant="outline" className="gap-1.5">
+                  <Phone className="h-3.5 w-3.5" /> Call Now
+                </Button>
               </a>
             </div>
           </div>
@@ -175,8 +232,12 @@ const RouteLanding = () => {
         <div className="container mx-auto max-w-5xl space-y-7">
           {sections.map((section) => (
             <article key={section.heading}>
-              <h2 className="font-heading text-xl font-bold text-foreground">{section.heading}</h2>
-              <p className="mt-3 text-sm sm:text-base text-muted-foreground leading-relaxed">{section.body}</p>
+              <h2 className="font-heading text-xl font-bold text-foreground">
+                {section.heading}
+              </h2>
+              <p className="mt-3 text-sm sm:text-base text-muted-foreground leading-relaxed">
+                {section.body}
+              </p>
             </article>
           ))}
         </div>
@@ -185,8 +246,13 @@ const RouteLanding = () => {
       <section className="section-padding bg-background">
         <div className="container mx-auto grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
           <div>
-            <h2 className="font-heading text-2xl font-bold text-foreground">Google Map and Pickup Support</h2>
-            <p className="mt-2 text-sm text-muted-foreground">Use this map as your service area reference. Live pickup landmarks are confirmed on call before dispatch.</p>
+            <h2 className="font-heading text-2xl font-bold text-foreground">
+              Google Map and Pickup Support
+            </h2>
+            <p className="mt-2 text-sm text-muted-foreground">
+              Use this map as your service area reference. Live pickup landmarks
+              are confirmed on call before dispatch.
+            </p>
             <div className="mt-4 rounded-xl overflow-hidden border border-border/50 shadow-sm">
               <iframe
                 title={`${route.from.name} to ${route.to.name} taxi service area map`}
@@ -202,19 +268,45 @@ const RouteLanding = () => {
           </div>
 
           <div>
-            <h2 className="font-heading text-2xl font-bold text-foreground">Business NAP Details</h2>
+            <h2 className="font-heading text-2xl font-bold text-foreground">
+              Business NAP Details
+            </h2>
             <div className="mt-4 bg-card rounded-xl p-5 border border-border/50 text-sm text-muted-foreground space-y-1.5">
-              <p><span className="font-semibold text-foreground">Name:</span> {NAP.name}</p>
-              <p><span className="font-semibold text-foreground">Address:</span> {NAP.address}</p>
-              <p><span className="font-semibold text-foreground">Phone:</span> <a href="tel:+918865038345" className="text-secondary">{NAP.phone}</a></p>
-              <p><span className="font-semibold text-foreground">Service Route:</span> {route.from.name} to {route.to.name}</p>
+              <p>
+                <span className="font-semibold text-foreground">Name:</span>{" "}
+                {NAP.name}
+              </p>
+              <p>
+                <span className="font-semibold text-foreground">Address:</span>{" "}
+                {NAP.address}
+              </p>
+              <p>
+                <span className="font-semibold text-foreground">Phone:</span>{" "}
+                <a href="tel:+918865038345" className="text-secondary">
+                  {NAP.phone}
+                </a>
+              </p>
+              <p>
+                <span className="font-semibold text-foreground">
+                  Service Route:
+                </span>{" "}
+                {route.from.name} to {route.to.name}
+              </p>
             </div>
 
-            <h3 className="font-heading text-lg font-bold text-foreground mt-6">Related Taxi Routes</h3>
+            <h3 className="font-heading text-lg font-bold text-foreground mt-6">
+              Related Taxi Routes
+            </h3>
             <div className="mt-3 grid grid-cols-1 sm:grid-cols-2 gap-2.5">
               {related.map((item) => (
-                <Link key={item.slug} to={`/${item.slug}`} className="rounded-lg border border-border/50 bg-card p-3 text-sm hover:bg-accent transition-colors flex items-center justify-between">
-                  <span>{item.from.name} to {item.to.name}</span>
+                <Link
+                  key={item.slug}
+                  to={`/${item.slug}`}
+                  className="rounded-lg border border-border/50 bg-card p-3 text-sm hover:bg-accent transition-colors flex items-center justify-between"
+                >
+                  <span>
+                    {item.from.name} to {item.to.name}
+                  </span>
                   <ArrowRight className="h-3.5 w-3.5 text-secondary" />
                 </Link>
               ))}
@@ -225,12 +317,21 @@ const RouteLanding = () => {
 
       <section className="section-padding bg-muted">
         <div className="container mx-auto max-w-4xl">
-          <h2 className="font-heading text-2xl font-bold text-foreground">Frequently Asked Questions</h2>
+          <h2 className="font-heading text-2xl font-bold text-foreground">
+            Frequently Asked Questions
+          </h2>
           <div className="mt-5 space-y-3">
             {faqs.map((faq) => (
-              <div key={faq.question} className="bg-card rounded-xl p-4 border border-border/50">
-                <h3 className="font-heading text-base font-semibold text-foreground">{faq.question}</h3>
-                <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{faq.answer}</p>
+              <div
+                key={faq.question}
+                className="bg-card rounded-xl p-4 border border-border/50"
+              >
+                <h3 className="font-heading text-base font-semibold text-foreground">
+                  {faq.question}
+                </h3>
+                <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
+                  {faq.answer}
+                </p>
               </div>
             ))}
           </div>
@@ -241,4 +342,3 @@ const RouteLanding = () => {
 };
 
 export default RouteLanding;
-

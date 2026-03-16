@@ -46,8 +46,14 @@ const App = () => (
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/:slug" element={<BlogArticle />} />
             <Route path="/service-areas" element={<ServiceAreas />} />
-            <Route path="/:fromSlug-to-:toSlug-taxi" element={<RouteLanding />} />
-            <Route path="/:fromSlug-to-:toSlug-cab-service" element={<RouteLanding />} />
+            <Route
+              path="/:fromSlug-to-:toSlug-taxi"
+              element={<RouteLanding />}
+            />
+            <Route
+              path="/:fromSlug-to-:toSlug-cab-service"
+              element={<RouteLanding />}
+            />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </main>

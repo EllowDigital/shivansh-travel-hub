@@ -65,63 +65,81 @@ function buildLongGuide(input: LongGuideInput): BlogArticleContent {
 export const blogPosts: BlogPost[] = [
   {
     slug: "best-time-to-travel-agra-to-delhi",
-    title: "Best Time to Travel Agra to Delhi by Taxi: Season, Traffic, Fare, and Planning Guide",
-    excerpt: "Learn the best months, time slots, and booking strategy for Agra to Delhi taxi travel with fare tips and real planning advice.",
+    title:
+      "Best Time to Travel Agra to Delhi by Taxi: Season, Traffic, Fare, and Planning Guide",
+    excerpt:
+      "Learn the best months, time slots, and booking strategy for Agra to Delhi taxi travel with fare tips and real planning advice.",
     date: "March 16, 2026",
     readTime: "14 min read",
     author: "Shivansh Travels Editorial Team",
     category: "Route Planning",
-    keywords: "best time to travel agra to delhi, agra to delhi taxi, agra delhi cab timing, yamuna expressway taxi",
+    keywords:
+      "best time to travel agra to delhi, agra to delhi taxi, agra delhi cab timing, yamuna expressway taxi",
   },
   {
     slug: "delhi-to-agra-distance-guide",
-    title: "Delhi to Agra Distance Guide: Route, Toll, Cab Fare, and Travel Time in 2026",
-    excerpt: "Complete Delhi to Agra distance and route guide with fare estimates, route options, and taxi booking tips for smooth travel.",
+    title:
+      "Delhi to Agra Distance Guide: Route, Toll, Cab Fare, and Travel Time in 2026",
+    excerpt:
+      "Complete Delhi to Agra distance and route guide with fare estimates, route options, and taxi booking tips for smooth travel.",
     date: "March 16, 2026",
     readTime: "15 min read",
     author: "Shivansh Travels Editorial Team",
     category: "Distance Guide",
-    keywords: "delhi to agra distance guide, delhi to agra cab, delhi to agra taxi fare, delhi agra highway route",
+    keywords:
+      "delhi to agra distance guide, delhi to agra cab, delhi to agra taxi fare, delhi agra highway route",
   },
   {
     slug: "delhi-to-agra-distance",
-    title: "Delhi to Agra Distance by Road: Taxi Cost, Time, and Smart Route Planning",
-    excerpt: "A practical road distance guide for Delhi to Agra with travel time, fare range, and best way to book an intercity cab.",
+    title:
+      "Delhi to Agra Distance by Road: Taxi Cost, Time, and Smart Route Planning",
+    excerpt:
+      "A practical road distance guide for Delhi to Agra with travel time, fare range, and best way to book an intercity cab.",
     date: "March 16, 2026",
     readTime: "13 min read",
     author: "Shivansh Travels Editorial Team",
     category: "Distance Guide",
-    keywords: "delhi to agra distance, delhi to agra cab service, delhi to agra taxi booking, agra route by road",
+    keywords:
+      "delhi to agra distance, delhi to agra cab service, delhi to agra taxi booking, agra route by road",
   },
   {
     slug: "taj-mahal-tour-from-delhi",
-    title: "Taj Mahal Tour from Delhi by Taxi: One-Day and Two-Day Itinerary Guide",
-    excerpt: "Plan a Taj Mahal tour from Delhi with taxi fare insights, ideal itinerary, monument timing, and local travel tips.",
+    title:
+      "Taj Mahal Tour from Delhi by Taxi: One-Day and Two-Day Itinerary Guide",
+    excerpt:
+      "Plan a Taj Mahal tour from Delhi with taxi fare insights, ideal itinerary, monument timing, and local travel tips.",
     date: "March 16, 2026",
     readTime: "16 min read",
     author: "Shivansh Travels Editorial Team",
     category: "Tour Guide",
-    keywords: "taj mahal tour from delhi, delhi to agra taxi tour, same day taj mahal trip, agra tour taxi",
+    keywords:
+      "taj mahal tour from delhi, delhi to agra taxi tour, same day taj mahal trip, agra tour taxi",
   },
   {
     slug: "best-time-to-visit-agra",
-    title: "Best Time to Visit Agra: Month-Wise Weather, Crowd, and Taxi Planning Guide",
-    excerpt: "Month-by-month Agra travel guide with weather patterns, crowd expectations, and taxi booking strategy for a better trip.",
+    title:
+      "Best Time to Visit Agra: Month-Wise Weather, Crowd, and Taxi Planning Guide",
+    excerpt:
+      "Month-by-month Agra travel guide with weather patterns, crowd expectations, and taxi booking strategy for a better trip.",
     date: "March 16, 2026",
     readTime: "14 min read",
     author: "Shivansh Travels Editorial Team",
     category: "Destination Guide",
-    keywords: "best time to visit agra, agra taxi service, agra tour planning, taj mahal season guide",
+    keywords:
+      "best time to visit agra, agra taxi service, agra tour planning, taj mahal season guide",
   },
   {
     slug: "agra-one-day-trip-guide",
-    title: "Agra One Day Trip Guide: Taxi Itinerary, Monument Timing, and Budget Plan",
-    excerpt: "A complete one-day Agra itinerary with local taxi route planning, best timing, and budget-friendly sightseeing strategy.",
+    title:
+      "Agra One Day Trip Guide: Taxi Itinerary, Monument Timing, and Budget Plan",
+    excerpt:
+      "A complete one-day Agra itinerary with local taxi route planning, best timing, and budget-friendly sightseeing strategy.",
     date: "March 16, 2026",
     readTime: "15 min read",
     author: "Shivansh Travels Editorial Team",
     category: "Itinerary",
-    keywords: "agra one day trip guide, agra local taxi, taj mahal agra fort itinerary, agra sightseeing cab",
+    keywords:
+      "agra one day trip guide, agra local taxi, taj mahal agra fort itinerary, agra sightseeing cab",
   },
 ];
 

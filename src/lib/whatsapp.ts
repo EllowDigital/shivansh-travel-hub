@@ -14,7 +14,10 @@ export const buildWhatsAppDeepLink = (phone: string, message: string) =>
  * 2. Fallback to wa.me link
  * 3. If both fail, copy message to clipboard and show toast
  */
-export const openWhatsAppMessage = (phone: string, message: string): boolean => {
+export const openWhatsAppMessage = (
+  phone: string,
+  message: string,
+): boolean => {
   const waMe = buildWhatsAppUrl(phone, message);
   const deepLink = buildWhatsAppDeepLink(phone, message);
 
@@ -52,15 +55,21 @@ const copyMessageToClipboard = (phone: string, message: string) => {
   const fallbackText = message;
   try {
     navigator.clipboard.writeText(fallbackText).then(() => {
-      toast.success("Message copied to clipboard! If WhatsApp didn't open, paste it manually.", {
-        duration: 6000,
-        action: {
-          label: "Open WhatsApp",
-          onClick: () => {
-            window.open(`https://web.whatsapp.com/send?phone=${phone}&text=${encodeURIComponent(message)}`, "_blank");
+      toast.success(
+        "Message copied to clipboard! If WhatsApp didn't open, paste it manually.",
+        {
+          duration: 6000,
+          action: {
+            label: "Open WhatsApp",
+            onClick: () => {
+              window.open(
+                `https://web.whatsapp.com/send?phone=${phone}&text=${encodeURIComponent(message)}`,
+                "_blank",
+              );
+            },
           },
         },
-      });
+      );
     });
   } catch {
     // Clipboard API not available â€” silent fail, wa.me should have worked
@@ -68,4 +77,3 @@ const copyMessageToClipboard = (phone: string, message: string) => {
 };
 
 export { WHATSAPP_NUMBER };
-

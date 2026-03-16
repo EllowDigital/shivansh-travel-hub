@@ -27,25 +27,45 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  useEffect(() => { setOpen(false); }, [location.pathname]);
+  useEffect(() => {
+    setOpen(false);
+  }, [location.pathname]);
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      scrolled ? "bg-card/98 backdrop-blur-lg shadow-md" : "bg-card/95 backdrop-blur-md shadow-sm"
-    }`}>
+    <nav
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled
+          ? "bg-card/98 backdrop-blur-lg shadow-md"
+          : "bg-card/95 backdrop-blur-md shadow-sm"
+      }`}
+    >
       {/* Top bar with phone */}
       <div className="bg-primary text-primary-foreground text-xs py-1.5 px-4 hidden sm:block">
         <div className="container mx-auto flex items-center justify-between">
           <span>ðŸ“ Serving across India from Agra, UP</span>
           <div className="flex items-center gap-4">
-            <a href="mailto:sarwanyadav6174@gmail.com" className="hover:text-secondary transition-colors">âœ‰ sarwanyadav6174@gmail.com</a>
-            <a href="tel:+918865038345" className="hover:text-secondary transition-colors font-medium">ðŸ“ž +91 8865038345</a>
+            <a
+              href="mailto:sarwanyadav6174@gmail.com"
+              className="hover:text-secondary transition-colors"
+            >
+              âœ‰ sarwanyadav6174@gmail.com
+            </a>
+            <a
+              href="tel:+918865038345"
+              className="hover:text-secondary transition-colors font-medium"
+            >
+              ðŸ“ž +91 8865038345
+            </a>
           </div>
         </div>
       </div>
 
       <div className="container mx-auto flex items-center justify-between h-14 sm:h-16 px-4">
-        <Link to="/" className="shrink-0" aria-label="Shivansh Tour and Travels home">
+        <Link
+          to="/"
+          className="shrink-0"
+          aria-label="Shivansh Tour and Travels home"
+        >
           <img
             src="/logo.svg"
             alt="Shivansh Tour and Travels"
@@ -61,7 +81,9 @@ const Navbar = () => {
               key={l.to}
               to={l.to}
               className={`px-3 py-2 rounded-md text-sm font-medium transition-colors hover:text-secondary hover:bg-accent ${
-                location.pathname === l.to ? "text-secondary bg-accent" : "text-foreground"
+                location.pathname === l.to
+                  ? "text-secondary bg-accent"
+                  : "text-foreground"
               }`}
             >
               {l.label}
@@ -90,9 +112,11 @@ const Navbar = () => {
       </div>
 
       {/* Mobile menu */}
-      <div className={`lg:hidden overflow-hidden transition-all duration-300 ${
-        open ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
-      }`}>
+      <div
+        className={`lg:hidden overflow-hidden transition-all duration-300 ${
+          open ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
+        }`}
+      >
         <div className="bg-card border-t border-border px-4 py-3 space-y-1">
           {navLinks.map((l) => (
             <Link
@@ -123,4 +147,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
