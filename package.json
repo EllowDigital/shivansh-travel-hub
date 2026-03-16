@@ -8,6 +8,8 @@
     "build": "set BROWSERSLIST_IGNORE_OLD_DATA=1&& vite build",
     "build:dev": "set BROWSERSLIST_IGNORE_OLD_DATA=1&& vite build --mode development",
     "lint": "eslint .",
+    "typecheck": "tsc -b",
+    "format": "prettier --write .",
     "preview": "vite preview",
     "test": "vitest run",
     "test:watch": "vitest"
@@ -79,6 +81,7 @@
     "globals": "^15.15.0",
     "jsdom": "^29.0.0",
     "postcss": "^8.5.6",
+    "prettier": "^3.8.1",
     "tailwindcss": "^3.4.17",
     "typescript": "^5.8.3",
     "typescript-eslint": "^8.38.0",
