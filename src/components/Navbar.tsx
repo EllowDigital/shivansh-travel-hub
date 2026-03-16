@@ -75,7 +75,7 @@ const Navbar = () => {
           <img
             src="/logo.svg"
             alt="Shivansh Tour and Travels"
-            className="h-9 sm:h-10 w-auto"
+            className="h-11 sm:h-12 w-auto"
             loading="eager"
           />
         </Link>

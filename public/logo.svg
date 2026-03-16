@@ -1,4 +1,4 @@
-﻿<svg xmlns="http://www.w3.org/2000/svg" width="540" height="132" viewBox="0 0 540 132" role="img" aria-label="Shivansh Tour and Travels logo">
+﻿<svg xmlns="http://www.w3.org/2000/svg" width="560" height="140" viewBox="0 0 560 140" role="img" aria-label="Shivansh Tour and Travels logo">
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
       <stop offset="0%" stop-color="#0E3858" />
@@ -9,16 +9,21 @@
       <stop offset="100%" stop-color="#E6A93E" />
     </linearGradient>
   </defs>
-  <rect x="0" y="0" width="540" height="132" fill="none"/>
-  <g transform="translate(10 16)">
-    <rect x="0" y="0" width="100" height="100" rx="24" fill="url(#bg)"/>
-    <path d="M20 66c8 13 19 20 34 22 12 2 21 0 30-6" fill="none" stroke="#ffffff" stroke-opacity="0.9" stroke-width="6" stroke-linecap="round"/>
-    <path d="M24 58h52l10 13h-68zM30 54l10-12h24l10 12" fill="url(#gold)"/>
-    <circle cx="36" cy="71" r="7" fill="#0b1620"/>
-    <circle cx="72" cy="71" r="7" fill="#0b1620"/>
+  <rect x="0" y="0" width="560" height="140" fill="none"/>
+  <g transform="translate(8 12)">
+    <rect x="0" y="0" width="116" height="116" rx="28" fill="url(#bg)"/>
+    <path d="M22 66l18-20h36l18 20v20H22z" fill="url(#gold)"/>
+    <path d="M41 50h34l11 12H30z" fill="#fff" fill-opacity="0.9"/>
+    <path d="M22 84h72" stroke="#fff" stroke-opacity="0.85" stroke-width="4" stroke-linecap="round"/>
+    <circle cx="38" cy="88" r="10" fill="#0b1620"/>
+    <circle cx="78" cy="88" r="10" fill="#0b1620"/>
+    <circle cx="38" cy="88" r="4" fill="#d7deea"/>
+    <circle cx="78" cy="88" r="4" fill="#d7deea"/>
+    <rect x="26" y="72" width="8" height="5" rx="2" fill="#fff2b8"/>
+    <rect x="82" y="72" width="8" height="5" rx="2" fill="#fff2b8"/>
   </g>
-  <g transform="translate(128 28)">
-    <text x="0" y="38" font-family="Poppins, Montserrat, 'Segoe UI', Arial, sans-serif" font-size="42" font-weight="800" fill="#0E3858">Shivansh</text>
-    <text x="0" y="76" font-family="Poppins, Montserrat, 'Segoe UI', Arial, sans-serif" font-size="30" font-weight="600" fill="#E6A93E">Tour &amp; Travels</text>
+  <g transform="translate(140 30)">
+    <text x="0" y="42" font-family="Poppins, Montserrat, 'Segoe UI', Arial, sans-serif" font-size="46" font-weight="800" fill="#0E3858">Shivansh</text>
+    <text x="0" y="84" font-family="Poppins, Montserrat, 'Segoe UI', Arial, sans-serif" font-size="31" font-weight="700" fill="#E6A93E">Tour &amp; Travels</text>
   </g>
 </svg>
