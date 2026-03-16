@@ -20,7 +20,8 @@ import {
 
 const NAP = {
   name: "Shivansh Tour and Travels",
-  address: "Agra, Uttar Pradesh, India",
+  address:
+    "Ganga Enclave Phase-2, Near Khel Gaon Khel Road, Dayal Bagh, Agra, Uttar Pradesh - 282005",
   phone: "+91 8865038345",
   url: "https://shivansh-tour-hub.netlify.app",
 };
