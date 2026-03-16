@@ -1,6 +1,6 @@
 Add-Type -AssemblyName System.Drawing
 
-$inputPath = "public/agra-taxi-service-hero.jpg"
+$inputPath = "public/hero/agra-taj-desktop.jpg"
 $outputPath = "public/og-image.jpg"
 $width = 1200
 $height = 630
@@ -20,33 +20,38 @@ $offsetY = [int](($height - $drawHeight) / 2)
 $graphics.DrawImage($bg, $offsetX, $offsetY, $drawWidth, $drawHeight)
 
 $fullRect = New-Object System.Drawing.Rectangle(0, 0, $width, $height)
-$overlay = New-Object System.Drawing.Drawing2D.LinearGradientBrush(
-  $fullRect,
-  ([System.Drawing.Color]::FromArgb(180, 8, 32, 52)),
-  ([System.Drawing.Color]::FromArgb(120, 15, 66, 102)),
-  20.0
+$overlayDark = New-Object System.Drawing.SolidBrush([System.Drawing.Color]::FromArgb(52, 8, 22, 34))
+$graphics.FillRectangle($overlayDark, $fullRect)
+
+$leftShade = New-Object System.Drawing.Drawing2D.LinearGradientBrush(
+  (New-Object System.Drawing.Rectangle(0, 0, 760, $height)),
+  ([System.Drawing.Color]::FromArgb(128, 7, 26, 43)),
+  ([System.Drawing.Color]::FromArgb(12, 7, 26, 43)),
+  0.0
 )
-$graphics.FillRectangle($overlay, $fullRect)
+$graphics.FillRectangle($leftShade, 0, 0, 760, $height)
 
-$panelRect = New-Object System.Drawing.Rectangle(70, 90, 1060, 450)
-$panelBrush = New-Object System.Drawing.SolidBrush([System.Drawing.Color]::FromArgb(120, 5, 20, 34))
-$panelBorder = New-Object System.Drawing.Pen([System.Drawing.Color]::FromArgb(130, 120, 175, 215), 2)
-$graphics.FillRectangle($panelBrush, $panelRect)
-$graphics.DrawRectangle($panelBorder, $panelRect)
-
-$brandFont = New-Object System.Drawing.Font("Segoe UI", 70, [System.Drawing.FontStyle]::Bold, [System.Drawing.GraphicsUnit]::Pixel)
-$subBrandFont = New-Object System.Drawing.Font("Segoe UI", 38, [System.Drawing.FontStyle]::Regular, [System.Drawing.GraphicsUnit]::Pixel)
-$taglineFont = New-Object System.Drawing.Font("Segoe UI", 42, [System.Drawing.FontStyle]::Bold, [System.Drawing.GraphicsUnit]::Pixel)
-$metaFont = New-Object System.Drawing.Font("Segoe UI", 28, [System.Drawing.FontStyle]::Regular, [System.Drawing.GraphicsUnit]::Pixel)
+$brandFont = New-Object System.Drawing.Font("Segoe UI", 74, [System.Drawing.FontStyle]::Bold, [System.Drawing.GraphicsUnit]::Pixel)
+$subBrandFont = New-Object System.Drawing.Font("Segoe UI", 40, [System.Drawing.FontStyle]::Bold, [System.Drawing.GraphicsUnit]::Pixel)
+$taglineFont = New-Object System.Drawing.Font("Segoe UI", 40, [System.Drawing.FontStyle]::Bold, [System.Drawing.GraphicsUnit]::Pixel)
+$metaFont = New-Object System.Drawing.Font("Segoe UI", 27, [System.Drawing.FontStyle]::Regular, [System.Drawing.GraphicsUnit]::Pixel)
+$phoneFont = New-Object System.Drawing.Font("Segoe UI", 35, [System.Drawing.FontStyle]::Bold, [System.Drawing.GraphicsUnit]::Pixel)
+$badgeFont = New-Object System.Drawing.Font("Segoe UI", 19, [System.Drawing.FontStyle]::Bold, [System.Drawing.GraphicsUnit]::Pixel)
 
 $white = New-Object System.Drawing.SolidBrush([System.Drawing.Color]::FromArgb(245, 249, 253))
 $accent = New-Object System.Drawing.SolidBrush([System.Drawing.Color]::FromArgb(255, 236, 178, 76))
+$soft = New-Object System.Drawing.SolidBrush([System.Drawing.Color]::FromArgb(232, 218, 230, 244))
 
-$graphics.DrawString("Shivansh", $brandFont, $white, 120, 130)
-$graphics.DrawString("Tour & Travels", $subBrandFont, $accent, 126, 220)
-$graphics.DrawString("Trusted Taxi & Tour Services", $taglineFont, $white, 120, 320)
-$graphics.DrawString("Trusted taxi and tour services across India", $metaFont, $white, 120, 390)
-$graphics.DrawString("Call +91 8865038345", $metaFont, $accent, 120, 440)
+$tagBrush = New-Object System.Drawing.SolidBrush([System.Drawing.Color]::FromArgb(144, 19, 54, 82))
+$tagRect = New-Object System.Drawing.Rectangle(86, 60, 320, 40)
+$graphics.FillRectangle($tagBrush, $tagRect)
+$graphics.DrawString("SHIVANSH TOUR & TRAVELS", $badgeFont, $accent, 92, 67)
+
+$graphics.DrawString("Shivansh", $brandFont, $white, 84, 118)
+$graphics.DrawString("Tour & Travels", $subBrandFont, $accent, 90, 214)
+$graphics.DrawString("Book Trusted Taxi Rides", $taglineFont, $white, 84, 326)
+$graphics.DrawString("Airport Pickup | Outstation | Tours", $metaFont, $soft, 86, 392)
+$graphics.DrawString("Call +91 8865038345", $phoneFont, $accent, 84, 448)
 
 $jpgCodec = [System.Drawing.Imaging.ImageCodecInfo]::GetImageEncoders() | Where-Object { $_.MimeType -eq "image/jpeg" }
 $encParams = New-Object System.Drawing.Imaging.EncoderParameters(1)
@@ -57,11 +62,14 @@ $brandFont.Dispose()
 $subBrandFont.Dispose()
 $taglineFont.Dispose()
 $metaFont.Dispose()
+$phoneFont.Dispose()
+$badgeFont.Dispose()
 $white.Dispose()
 $accent.Dispose()
-$panelBrush.Dispose()
-$panelBorder.Dispose()
-$overlay.Dispose()
+$soft.Dispose()
+$tagBrush.Dispose()
+$leftShade.Dispose()
+$overlayDark.Dispose()
 $bg.Dispose()
 $graphics.Dispose()
 $bitmap.Dispose()
