@@ -103,10 +103,11 @@ const Footer = () => (
     </div>
 
     <div className="border-t border-primary-foreground/15 text-center py-4 px-4 text-xs text-primary-foreground/50">
-      Â© {new Date().getFullYear()} Shivansh Tour and Travels. All rights
+      © {new Date().getFullYear()} Shivansh Tour and Travels. All rights
       reserved.
     </div>
   </footer>
 );
 
 export default Footer;
+

@@ -39,7 +39,7 @@ const About = () => (
       <div className="container mx-auto text-center">
         <h1 className="page-header-title">About Shivansh Tour & Travels</h1>
         <p className="page-header-subtitle">
-          Agra's trusted taxi and tour service â€” serving thousands of happy
+          Agra's trusted taxi and tour service — serving thousands of happy
           customers across India.
         </p>
       </div>
@@ -65,7 +65,7 @@ const About = () => (
           <p className="mt-4 text-muted-foreground text-sm sm:text-base leading-relaxed">
             Whether you're a family heading to a pilgrimage, a tourist exploring
             India's heritage, or a corporate traveler needing reliable transport
-            â€” we are here for you, 24 hours a day, 7 days a week.
+            — we are here for you, 24 hours a day, 7 days a week.
           </p>
         </div>
 
@@ -147,3 +147,4 @@ const About = () => (
 );
 
 export default About;
+

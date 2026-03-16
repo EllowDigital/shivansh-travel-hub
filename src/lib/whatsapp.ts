@@ -35,7 +35,7 @@ export const openWhatsAppMessage = (
     // On desktop, use wa.me (opens WhatsApp Web or desktop app)
     const win = window.open(waMe, "_blank");
     if (!win) {
-      // Popup blocked â€” try anchor click method
+      // Popup blocked — try anchor click method
       const a = document.createElement("a");
       a.href = waMe;
       a.target = "_blank";
@@ -72,8 +72,9 @@ const copyMessageToClipboard = (phone: string, message: string) => {
       );
     });
   } catch {
-    // Clipboard API not available â€” silent fail, wa.me should have worked
+    // Clipboard API not available — silent fail, wa.me should have worked
   }
 };
 
 export { WHATSAPP_NUMBER };
+

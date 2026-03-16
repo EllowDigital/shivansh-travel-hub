@@ -15,11 +15,11 @@ const tours = [
   {
     name: "Ayodhya Tour",
     duration: "2 Days / 1 Night",
-    price: "â‚¹4,999",
+    price: "₹4,999",
     highlights: "Ram Mandir, Hanuman Garhi, Kanak Bhawan, Saryu River Ghat",
     itinerary: [
-      "Day 1: Pickup â†’ Drive to Ayodhya â†’ Ram Mandir & Hanuman Garhi â†’ Evening Saryu Aarti",
-      "Day 2: Kanak Bhawan â†’ Nageshwarnath Temple â†’ Dashrath Mahal â†’ Return",
+      "Day 1: Pickup → Drive to Ayodhya → Ram Mandir & Hanuman Garhi → Evening Saryu Aarti",
+      "Day 2: Kanak Bhawan → Nageshwarnath Temple → Dashrath Mahal → Return",
     ],
     included: [
       "AC Car",
@@ -31,12 +31,12 @@ const tours = [
   {
     name: "Varanasi Tour",
     duration: "3 Days / 2 Nights",
-    price: "â‚¹6,999",
+    price: "₹6,999",
     highlights: "Kashi Vishwanath, Ganga Aarti, Sarnath, Boat Ride",
     itinerary: [
-      "Day 1: Arrival â†’ Hotel check-in â†’ Evening Ganga Aarti at Dashashwamedh Ghat",
-      "Day 2: Kashi Vishwanath â†’ Manikarnika Ghat â†’ Boat ride â†’ Sarnath",
-      "Day 3: Tulsi Manas Temple â†’ Ramnagar Fort â†’ Return",
+      "Day 1: Arrival → Hotel check-in → Evening Ganga Aarti at Dashashwamedh Ghat",
+      "Day 2: Kashi Vishwanath → Manikarnika Ghat → Boat ride → Sarnath",
+      "Day 3: Tulsi Manas Temple → Ramnagar Fort → Return",
     ],
     included: [
       "AC Car",
@@ -49,11 +49,11 @@ const tours = [
   {
     name: "Prayagraj Tour",
     duration: "2 Days / 1 Night",
-    price: "â‚¹3,999",
+    price: "₹3,999",
     highlights: "Triveni Sangam, Anand Bhawan, Allahabad Fort, Khusro Bagh",
     itinerary: [
-      "Day 1: Pickup â†’ Triveni Sangam boat ride â†’ Anand Bhawan Museum",
-      "Day 2: Allahabad Fort â†’ Khusro Bagh â†’ Hanuman Mandir â†’ Return",
+      "Day 1: Pickup → Triveni Sangam boat ride → Anand Bhawan Museum",
+      "Day 2: Allahabad Fort → Khusro Bagh → Hanuman Mandir → Return",
     ],
     included: [
       "AC Car",
@@ -65,11 +65,11 @@ const tours = [
   {
     name: "Mathura Vrindavan Tour",
     duration: "2 Days / 1 Night",
-    price: "â‚¹4,499",
+    price: "₹4,499",
     highlights: "Krishna Janmabhoomi, Banke Bihari, Prem Mandir, Govardhan",
     itinerary: [
-      "Day 1: Mathura: Krishna Janmabhoomi, Dwarkadhish Temple â†’ Vrindavan: Banke Bihari",
-      "Day 2: Prem Mandir â†’ ISKCON Temple â†’ Govardhan Parikrama â†’ Return",
+      "Day 1: Mathura: Krishna Janmabhoomi, Dwarkadhish Temple → Vrindavan: Banke Bihari",
+      "Day 2: Prem Mandir → ISKCON Temple → Govardhan Parikrama → Return",
     ],
     included: [
       "AC Car",
@@ -81,14 +81,14 @@ const tours = [
   {
     name: "Uttarakhand Tour",
     duration: "5 Days / 4 Nights",
-    price: "â‚¹14,999",
+    price: "₹14,999",
     highlights: "Mussoorie, Rishikesh, Haridwar, Nainital",
     itinerary: [
-      "Day 1: Pickup â†’ Haridwar â†’ Har Ki Pauri â†’ Evening Ganga Aarti",
-      "Day 2: Rishikesh â†’ Laxman Jhula, Ram Jhula â†’ Rafting (optional)",
-      "Day 3: Drive to Mussoorie â†’ Kempty Falls, Mall Road, Gun Hill",
-      "Day 4: Mussoorie to Nainital â†’ Naini Lake, Naina Devi Temple",
-      "Day 5: Tiffin Top, Snow View Point â†’ Return",
+      "Day 1: Pickup → Haridwar → Har Ki Pauri → Evening Ganga Aarti",
+      "Day 2: Rishikesh → Laxman Jhula, Ram Jhula → Rafting (optional)",
+      "Day 3: Drive to Mussoorie → Kempty Falls, Mall Road, Gun Hill",
+      "Day 4: Mussoorie to Nainital → Naini Lake, Naina Devi Temple",
+      "Day 5: Tiffin Top, Snow View Point → Return",
     ],
     included: [
       "AC Car",
@@ -101,25 +101,25 @@ const tours = [
   {
     name: "Agra Tour",
     duration: "1 Day",
-    price: "â‚¹2,499",
+    price: "₹2,499",
     highlights: "Taj Mahal, Agra Fort, Mehtab Bagh, Fatehpur Sikri",
     itinerary: [
-      "Day 1: Taj Mahal sunrise â†’ Agra Fort â†’ Mehtab Bagh â†’ Fatehpur Sikri â†’ Return",
+      "Day 1: Taj Mahal sunrise → Agra Fort → Mehtab Bagh → Fatehpur Sikri → Return",
     ],
     included: ["AC Car", "Driver Allowance", "Toll & Parking"],
   },
   {
     name: "Rajasthan Tour",
     duration: "6 Days / 5 Nights",
-    price: "â‚¹19,999",
+    price: "₹19,999",
     highlights: "Jaipur, Jodhpur, Udaipur, Ajmer",
     itinerary: [
-      "Day 1: Jaipur â†’ Hawa Mahal, City Palace â†’ Evening Chokhi Dhani",
-      "Day 2: Amber Fort â†’ Ajmer â†’ Dargah Sharif",
-      "Day 3: Pushkar â†’ Drive to Jodhpur â†’ Mehrangarh Fort",
-      "Day 4: Jodhpur â†’ Drive to Udaipur",
+      "Day 1: Jaipur → Hawa Mahal, City Palace → Evening Chokhi Dhani",
+      "Day 2: Amber Fort → Ajmer → Dargah Sharif",
+      "Day 3: Pushkar → Drive to Jodhpur → Mehrangarh Fort",
+      "Day 4: Jodhpur → Drive to Udaipur",
       "Day 5: Udaipur: City Palace, Lake Pichola boat ride",
-      "Day 6: Fateh Sagar Lake â†’ Return",
+      "Day 6: Fateh Sagar Lake → Return",
     ],
     included: [
       "AC Car",
@@ -132,14 +132,14 @@ const tours = [
   {
     name: "Shimla Manali Tour",
     duration: "5 Days / 4 Nights",
-    price: "â‚¹15,999",
+    price: "₹15,999",
     highlights: "Shimla Mall Road, Kufri, Solang Valley, Rohtang Pass",
     itinerary: [
-      "Day 1: Drive to Shimla â†’ Mall Road, Ridge, Christ Church",
-      "Day 2: Kufri, Jakhoo Temple â†’ Drive to Manali",
-      "Day 3: Solang Valley â†’ Hadimba Temple",
-      "Day 4: Rohtang Pass â†’ Old Manali, Vashisht Hot Springs",
-      "Day 5: Manikaran Sahib â†’ Return",
+      "Day 1: Drive to Shimla → Mall Road, Ridge, Christ Church",
+      "Day 2: Kufri, Jakhoo Temple → Drive to Manali",
+      "Day 3: Solang Valley → Hadimba Temple",
+      "Day 4: Rohtang Pass → Old Manali, Vashisht Hot Springs",
+      "Day 5: Manikaran Sahib → Return",
     ],
     included: [
       "AC Car",
@@ -154,7 +154,7 @@ const Tours = () => (
   <div className="pt-14 sm:pt-16 lg:pt-[88px]">
     <SEO
       title="Tour Packages from Agra | Ayodhya, Varanasi, Rajasthan, Shimla Manali"
-      description="Book all-inclusive tour packages from Agra. Ayodhya â‚¹4,999, Varanasi â‚¹6,999, Rajasthan â‚¹19,999, Shimla Manali â‚¹15,999. Hotel + Car + Sightseeing included. Call +91 8865038345."
+      description="Book all-inclusive tour packages from Agra. Ayodhya ₹4,999, Varanasi ₹6,999, Rajasthan ₹19,999, Shimla Manali ₹15,999. Hotel + Car + Sightseeing included. Call +91 8865038345."
       keywords="tour packages from agra, ayodhya tour package, varanasi tour package, rajasthan tour package, shimla manali tour, mathura vrindavan tour, uttarakhand tour package, agra tour package, pilgrimage tour india"
       canonical="https://shivansh-tour-hub.netlify.app/tours"
     />
@@ -250,3 +250,4 @@ const Tours = () => (
 );
 
 export default Tours;
+

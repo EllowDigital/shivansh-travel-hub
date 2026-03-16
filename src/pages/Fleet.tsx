@@ -13,7 +13,7 @@ const cars = [
     name: "Swift Dzire",
     img: swiftDzire,
     seats: 4,
-    price: "â‚¹11/km",
+    price: "₹11/km",
     type: "Sedan",
     fuel: "Petrol/CNG",
     best: "City & Short Trips",
@@ -22,7 +22,7 @@ const cars = [
     name: "Ertiga",
     img: ertiga,
     seats: 7,
-    price: "â‚¹14/km",
+    price: "₹14/km",
     type: "MPV",
     fuel: "Petrol/Diesel",
     best: "Family Trips",
@@ -31,7 +31,7 @@ const cars = [
     name: "Toyota Innova",
     img: innova,
     seats: 7,
-    price: "â‚¹16/km",
+    price: "₹16/km",
     type: "Premium MPV",
     fuel: "Diesel",
     best: "Outstation & Tours",
@@ -40,7 +40,7 @@ const cars = [
     name: "Tempo Traveller",
     img: tempoTraveller,
     seats: 12,
-    price: "â‚¹22/km",
+    price: "₹22/km",
     type: "Mini Bus",
     fuel: "Diesel",
     best: "Group Travel",
@@ -51,7 +51,7 @@ const Fleet = () => (
   <div className="pt-14 sm:pt-16 lg:pt-[88px]">
     <SEO
       title="Our Fleet | Book Swift Dzire, Innova, Ertiga, Tempo Traveller in Agra"
-      description="Choose from our well-maintained fleet: Swift Dzire â‚¹11/km, Ertiga â‚¹14/km, Toyota Innova â‚¹16/km, Tempo Traveller â‚¹22/km. Book taxi in Agra for any trip."
+      description="Choose from our well-maintained fleet: Swift Dzire ₹11/km, Ertiga ₹14/km, Toyota Innova ₹16/km, Tempo Traveller ₹22/km. Book taxi in Agra for any trip."
       keywords="swift dzire taxi agra, innova hire agra, ertiga cab booking, tempo traveller agra, taxi fleet agra, car rental agra, outstation car agra"
       canonical="https://shivansh-tour-hub.netlify.app/fleet"
     />
@@ -120,3 +120,4 @@ const Fleet = () => (
 );
 
 export default Fleet;
+

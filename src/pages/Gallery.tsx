@@ -224,7 +224,7 @@ const Gallery = () => {
                   )
                 }
               >
-                â† Previous
+                ← Previous
               </Button>
               <Button
                 variant="hero-outline"
@@ -238,7 +238,7 @@ const Gallery = () => {
                   )
                 }
               >
-                Next â†’
+                Next →
               </Button>
             </div>
           </div>
@@ -249,3 +249,4 @@ const Gallery = () => {
 };
 
 export default Gallery;
+

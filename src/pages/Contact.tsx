@@ -23,7 +23,7 @@ const contactInfo = [
     href: "mailto:sarwanyadav6174@gmail.com",
   },
   { icon: MapPin, title: "Address", content: "Agra, Uttar Pradesh, India" },
-  { icon: Clock, title: "Working Hours", content: "24/7 â€” Always Available" },
+  { icon: Clock, title: "Working Hours", content: "24/7 — Always Available" },
 ];
 
 const contactSchema = {
@@ -145,3 +145,4 @@ const Contact = () => (
 );
 
 export default Contact;
+
