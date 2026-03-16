@@ -45,16 +45,22 @@ const Navbar = () => {
           <span>📍 Serving across India from Agra, UP</span>
           <div className="flex items-center gap-4">
             <a
-              href="mailto:sarwanyadav6174@gmail.com"
+              href="mailto:shivanshtourandtravel.in@gmail.com"
               className="hover:text-secondary transition-colors"
             >
-              ✉ sarwanyadav6174@gmail.com
+              ✉ shivanshtourandtravel.in@gmail.com
             </a>
             <a
               href="tel:+918865038345"
               className="hover:text-secondary transition-colors font-medium"
             >
               📞 +91 8865038345
+            </a>
+            <a
+              href="tel:+917505075626"
+              className="hover:text-secondary transition-colors font-medium"
+            >
+              📞 +91 7505075626
             </a>
           </div>
         </div>

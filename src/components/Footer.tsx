@@ -86,17 +86,29 @@ const Footer = () => (
             </a>
           </li>
           <li className="flex items-center gap-2">
+            <Phone className="h-4 w-4 text-secondary shrink-0" />
+            <a
+              href="tel:+917505075626"
+              className="hover:text-secondary transition-colors"
+            >
+              +91 7505075626
+            </a>
+          </li>
+          <li className="flex items-center gap-2">
             <Mail className="h-4 w-4 text-secondary shrink-0" />
             <a
-              href="mailto:sarwanyadav6174@gmail.com"
+              href="mailto:shivanshtourandtravel.in@gmail.com"
               className="hover:text-secondary transition-colors text-xs sm:text-sm break-all"
             >
-              sarwanyadav6174@gmail.com
+              shivanshtourandtravel.in@gmail.com
             </a>
           </li>
           <li className="flex items-start gap-2">
             <MapPin className="h-4 w-4 text-secondary shrink-0 mt-0.5" />
-            <span>Agra, Uttar Pradesh, India</span>
+            <span>
+              Ganga Enclave Phase-2, Near Khel Gaon Khel Road, Dayal Bagh,
+              Agra, Uttar Pradesh - 282005
+            </span>
           </li>
         </ul>
       </div>

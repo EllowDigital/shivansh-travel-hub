@@ -261,13 +261,27 @@ const homeSchema = {
     "Book affordable taxi & cab services from Agra to Delhi, Jaipur, Varanasi, Ayodhya & all major cities. Airport pickup, outstation trips, tour packages. Call +91 8865038345.",
   url: "https://shivansh-tour-hub.netlify.app",
   telephone: "+918865038345",
-  email: "sarwanyadav6174@gmail.com",
+  email: "shivanshtourandtravel.in@gmail.com",
   address: {
     "@type": "PostalAddress",
+    streetAddress: "Ganga Enclave Phase-2, Near Khel Gaon Khel Road, Dayal Bagh",
     addressLocality: "Agra",
     addressRegion: "Uttar Pradesh",
+    postalCode: "282005",
     addressCountry: "IN",
   },
+  contactPoint: [
+    {
+      "@type": "ContactPoint",
+      telephone: "+918865038345",
+      contactType: "customer service",
+    },
+    {
+      "@type": "ContactPoint",
+      telephone: "+917505075626",
+      contactType: "customer service",
+    },
+  ],
   areaServed: { "@type": "Country", name: "India" },
   priceRange: "₹₹",
   openingHours: "Mo-Su 00:00-23:59",
