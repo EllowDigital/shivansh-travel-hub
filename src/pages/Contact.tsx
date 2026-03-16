@@ -11,6 +11,12 @@ const contactInfo = [
     href: "tel:+918865038345",
   },
   {
+    icon: Phone,
+    title: "Alternate Phone",
+    content: "+91 7505075626",
+    href: "tel:+917505075626",
+  },
+  {
     icon: MessageCircle,
     title: "WhatsApp",
     content: "Chat on WhatsApp",
@@ -19,10 +25,15 @@ const contactInfo = [
   {
     icon: Mail,
     title: "Email",
-    content: "sarwanyadav6174@gmail.com",
-    href: "mailto:sarwanyadav6174@gmail.com",
+    content: "shivanshtourandtravel.in@gmail.com",
+    href: "mailto:shivanshtourandtravel.in@gmail.com",
   },
-  { icon: MapPin, title: "Address", content: "Agra, Uttar Pradesh, India" },
+  {
+    icon: MapPin,
+    title: "Address",
+    content:
+      "Ganga Enclave Phase-2, Near Khel Gaon Khel Road, Dayal Bagh, Agra, Uttar Pradesh - 282005",
+  },
   { icon: Clock, title: "Working Hours", content: "24/7 — Always Available" },
 ];
 
@@ -33,13 +44,27 @@ const contactSchema = {
   url: "https://shivansh-tour-hub.netlify.app/contact",
   image: "https://shivansh-tour-hub.netlify.app/og-image.jpg",
   telephone: "+918865038345",
-  email: "sarwanyadav6174@gmail.com",
+  email: "shivanshtourandtravel.in@gmail.com",
   address: {
     "@type": "PostalAddress",
+    streetAddress: "Ganga Enclave Phase-2, Near Khel Gaon Khel Road, Dayal Bagh",
     addressLocality: "Agra",
     addressRegion: "Uttar Pradesh",
+    postalCode: "282005",
     addressCountry: "IN",
   },
+  contactPoint: [
+    {
+      "@type": "ContactPoint",
+      telephone: "+918865038345",
+      contactType: "customer service",
+    },
+    {
+      "@type": "ContactPoint",
+      telephone: "+917505075626",
+      contactType: "customer service",
+    },
+  ],
   openingHours: "Mo-Su 00:00-23:59",
   areaServed: [
     "Agra",
@@ -74,8 +99,8 @@ const breadcrumbSchema = {
 const Contact = () => (
   <div className="pt-14 sm:pt-16 lg:pt-[88px]">
     <SEO
-      title="Contact Us | Book Taxi in Agra | Call +91 8865038345"
-      description="Contact Shivansh Tour & Travels for taxi bookings, tour packages & custom quotes. Call +91 8865038345, WhatsApp or email. 24/7 service from Agra."
+      title="Contact Us | Book Taxi in Agra | Call +91 8865038345 / +91 7505075626"
+      description="Contact Shivansh Tour & Travels for taxi bookings, tour packages & custom quotes. Call +91 8865038345 or +91 7505075626, WhatsApp on +91 8865038345, or email us. 24/7 service from Agra."
       keywords="contact taxi agra, book cab agra, taxi booking phone number agra, whatsapp taxi booking, agra travel agency contact"
       canonical="https://shivansh-tour-hub.netlify.app/contact"
       schema={[contactSchema, breadcrumbSchema]}
