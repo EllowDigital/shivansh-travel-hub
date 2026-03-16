@@ -4,7 +4,11 @@ $targets = @(
   @{ Name = "agra-taj"; Source = "public/agra-taxi-service-hero.jpg" },
   @{ Name = "jaipur-hawa-mahal"; Source = "src/assets/gallery/jaipur-hawa-mahal.jpg" },
   @{ Name = "varanasi-ghats"; Source = "src/assets/gallery/varanasi-ghats.jpg" },
-  @{ Name = "ayodhya-temple"; Source = "src/assets/gallery/ayodhya-temple.jpg" }
+  @{ Name = "ayodhya-temple"; Source = "src/assets/gallery/ayodhya-temple.jpg" },
+  @{ Name = "manali-mountains"; Source = "src/assets/gallery/manali-mountains.jpg" },
+  @{ Name = "rishikesh-bridge"; Source = "src/assets/gallery/rishikesh-bridge.jpg" },
+  @{ Name = "tour-happy-family"; Source = "src/assets/gallery/happy-family.jpg" },
+  @{ Name = "innova-tour"; Source = "src/assets/gallery/innova-trip.jpg" }
 )
 
 $sizes = @(

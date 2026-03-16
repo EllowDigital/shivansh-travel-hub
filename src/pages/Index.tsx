@@ -146,6 +146,34 @@ const heroSlides = [
     tabletImage: "/hero/ayodhya-temple-tablet.jpg",
     mobileImage: "/hero/ayodhya-temple-mobile.jpg",
   },
+  {
+    title: "Rishikesh Lakshman Jhula",
+    alt: "Lakshman Jhula bridge in Rishikesh",
+    desktopImage: "/hero/rishikesh-bridge-desktop.jpg",
+    tabletImage: "/hero/rishikesh-bridge-tablet.jpg",
+    mobileImage: "/hero/rishikesh-bridge-mobile.jpg",
+  },
+  {
+    title: "Manali Mountain Escape",
+    alt: "Scenic mountain route near Manali",
+    desktopImage: "/hero/manali-mountains-desktop.jpg",
+    tabletImage: "/hero/manali-mountains-tablet.jpg",
+    mobileImage: "/hero/manali-mountains-mobile.jpg",
+  },
+  {
+    title: "Family Tour Across India",
+    alt: "Happy family enjoying a tour with taxi service",
+    desktopImage: "/hero/tour-happy-family-desktop.jpg",
+    tabletImage: "/hero/tour-happy-family-tablet.jpg",
+    mobileImage: "/hero/tour-happy-family-mobile.jpg",
+  },
+  {
+    title: "Premium Innova Tours",
+    alt: "Toyota Innova ready for long-distance India tours",
+    desktopImage: "/hero/innova-tour-desktop.jpg",
+    tabletImage: "/hero/innova-tour-tablet.jpg",
+    mobileImage: "/hero/innova-tour-mobile.jpg",
+  },
 ];
 
 const whyUs = [
@@ -493,6 +521,9 @@ const Index = () => {
                 </span>
               </div>
               <div className="mt-5 flex items-center justify-center lg:justify-start gap-2">
+                <span className="mr-1 inline-flex items-center rounded-full border border-secondary/40 bg-secondary/15 px-3 py-1 text-[10px] sm:text-xs font-medium text-secondary">
+                  {heroSlides[currentHeroSlide].title}
+                </span>
                 {heroSlides.map((slide, index) => (
                   <button
                     key={slide.title}
@@ -506,6 +537,9 @@ const Index = () => {
                     aria-label={`Show hero image ${index + 1}: ${slide.title}`}
                   />
                 ))}
+                <span className="ml-1 text-[10px] sm:text-xs text-primary-foreground/80">
+                  {currentHeroSlide + 1}/{heroSlides.length}
+                </span>
               </div>
             </div>
             <div
