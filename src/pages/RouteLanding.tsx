@@ -1,4 +1,4 @@
-import { Link, useParams } from "react-router-dom";
+﻿import { Link, useParams } from "react-router-dom";
 import SEO from "@/components/SEO";
 import { Button } from "@/components/ui/button";
 import {
@@ -14,8 +14,8 @@ import { ArrowRight, Clock, IndianRupee, MapPin, Phone, Route as RouteIcon } fro
 const NAP = {
   name: "Shivansh Tour and Travels",
   address: "Agra, Uttar Pradesh, India",
-  phone: "+91 89604 46756",
-  url: "https://shivanshtravels.com",
+  phone: "+91 8865038345",
+  url: "https://shivansh-tour-hub.netlify.app",
 };
 
 function titleCase(value: string) {
@@ -160,10 +160,10 @@ const RouteLanding = () => {
             <h2 className="font-heading text-lg font-bold text-foreground">Book Instantly</h2>
             <p className="mt-2 text-sm text-muted-foreground">Call or WhatsApp for immediate fare confirmation and car availability.</p>
             <div className="mt-4 flex gap-2 flex-wrap">
-              <a href="https://wa.me/918960446756" target="_blank" rel="noopener noreferrer">
+              <a href="https://wa.me/918865038345" target="_blank" rel="noopener noreferrer">
                 <Button variant="hero">Book on WhatsApp</Button>
               </a>
-              <a href="tel:+918960446756">
+              <a href="tel:+918865038345">
                 <Button variant="outline" className="gap-1.5"><Phone className="h-3.5 w-3.5" /> Call Now</Button>
               </a>
             </div>
@@ -206,7 +206,7 @@ const RouteLanding = () => {
             <div className="mt-4 bg-card rounded-xl p-5 border border-border/50 text-sm text-muted-foreground space-y-1.5">
               <p><span className="font-semibold text-foreground">Name:</span> {NAP.name}</p>
               <p><span className="font-semibold text-foreground">Address:</span> {NAP.address}</p>
-              <p><span className="font-semibold text-foreground">Phone:</span> <a href="tel:+918960446756" className="text-secondary">{NAP.phone}</a></p>
+              <p><span className="font-semibold text-foreground">Phone:</span> <a href="tel:+918865038345" className="text-secondary">{NAP.phone}</a></p>
               <p><span className="font-semibold text-foreground">Service Route:</span> {route.from.name} to {route.to.name}</p>
             </div>
 
@@ -241,3 +241,4 @@ const RouteLanding = () => {
 };
 
 export default RouteLanding;
+

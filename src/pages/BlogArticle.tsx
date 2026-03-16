@@ -1,4 +1,4 @@
-import { useParams, Link } from "react-router-dom";
+﻿import { useParams, Link } from "react-router-dom";
 import SEO from "@/components/SEO";
 import { Button } from "@/components/ui/button";
 import { articleContent, blogPosts } from "@/lib/blogContent";
@@ -32,13 +32,13 @@ const BlogArticle = () => {
     publisher: {
       "@type": "Organization",
       name: "Shivansh Tour and Travels",
-      url: "https://shivanshtravels.com",
-      logo: { "@type": "ImageObject", url: "https://shivanshtravels.com/logo.svg" },
+      url: "https://shivansh-tour-hub.netlify.app",
+      logo: { "@type": "ImageObject", url: "https://shivansh-tour-hub.netlify.app/logo.svg" },
     },
     datePublished: "2026-03-16",
     dateModified: "2026-03-16",
-    image: "https://shivanshtravels.com/og-image.jpg",
-    mainEntityOfPage: `https://shivanshtravels.com/blog/${post.slug}`,
+    image: "https://shivansh-tour-hub.netlify.app/og-image.jpg",
+    mainEntityOfPage: `https://shivansh-tour-hub.netlify.app/blog/${post.slug}`,
   };
 
   const faqSchema = {
@@ -55,9 +55,9 @@ const BlogArticle = () => {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: "https://shivanshtravels.com" },
-      { "@type": "ListItem", position: 2, name: "Blog", item: "https://shivanshtravels.com/blog" },
-      { "@type": "ListItem", position: 3, name: post.title, item: `https://shivanshtravels.com/blog/${post.slug}` },
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://shivansh-tour-hub.netlify.app" },
+      { "@type": "ListItem", position: 2, name: "Blog", item: "https://shivansh-tour-hub.netlify.app/blog" },
+      { "@type": "ListItem", position: 3, name: post.title, item: `https://shivansh-tour-hub.netlify.app/blog/${post.slug}` },
     ],
   };
 
@@ -67,7 +67,7 @@ const BlogArticle = () => {
         title={post.title}
         description={post.excerpt}
         keywords={post.keywords}
-        canonical={`https://shivanshtravels.com/blog/${post.slug}`}
+        canonical={`https://shivansh-tour-hub.netlify.app/blog/${post.slug}`}
         schema={[articleSchema, faqSchema, breadcrumbSchema]}
       />
 
@@ -101,11 +101,11 @@ const BlogArticle = () => {
             <h3 className="font-heading text-lg sm:text-xl font-bold text-foreground">Need a Taxi for This Route?</h3>
             <p className="mt-2 text-muted-foreground text-xs sm:text-sm">Get an instant quote for outstation and local taxi booking from Shivansh Tour and Travels.</p>
             <div className="mt-5 flex flex-wrap justify-center gap-3">
-              <a href="https://wa.me/918960446756" target="_blank" rel="noopener noreferrer">
+              <a href="https://wa.me/918865038345" target="_blank" rel="noopener noreferrer">
                 <Button variant="hero" className="gap-2 text-sm">WhatsApp Us <ArrowRight className="h-4 w-4" /></Button>
               </a>
-              <a href="tel:+918960446756">
-                <Button variant="outline" className="gap-2 text-sm"><Phone className="h-4 w-4" /> Call +91 89604 46756</Button>
+              <a href="tel:+918865038345">
+                <Button variant="outline" className="gap-2 text-sm"><Phone className="h-4 w-4" /> Call +91 8865038345</Button>
               </a>
             </div>
           </div>
@@ -129,3 +129,4 @@ const BlogArticle = () => {
 };
 
 export default BlogArticle;
+

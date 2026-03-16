@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+﻿import { Link } from "react-router-dom";
 import SEO from "@/components/SEO";
 import { Button } from "@/components/ui/button";
 import { cities, routePages } from "@/lib/routeSeo";
@@ -8,9 +8,9 @@ const ServiceAreas = () => {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     name: "Shivansh Tour and Travels",
-    url: "https://shivanshtravels.com/service-areas",
-    image: "https://shivanshtravels.com/og-image.jpg",
-    telephone: "+91 89604 46756",
+    url: "https://shivansh-tour-hub.netlify.app/service-areas",
+    image: "https://shivansh-tour-hub.netlify.app/og-image.jpg",
+    telephone: "+91 8865038345",
     address: {
       "@type": "PostalAddress",
       addressLocality: "Agra",
@@ -26,7 +26,7 @@ const ServiceAreas = () => {
         title="Taxi Service Areas | Agra, Delhi, Noida, Gurgaon, Jaipur, Lucknow"
         description="Explore all service areas covered by Shivansh Tour and Travels. Outstation taxi and local cab booking for Agra, Delhi, Noida, Gurgaon, Jaipur, Lucknow, Haridwar, Rishikesh, and more."
         keywords="agra taxi service, delhi to agra cab, noida taxi service, gurgaon taxi booking, jaipur outstation taxi, lucknow cab service"
-        canonical="https://shivanshtravels.com/service-areas"
+        canonical="https://shivansh-tour-hub.netlify.app/service-areas"
         schema={schema}
       />
 
@@ -73,3 +73,4 @@ const ServiceAreas = () => {
 };
 
 export default ServiceAreas;
+

@@ -1,4 +1,4 @@
-import { useState } from "react";
+﻿import { useState } from "react";
 import SectionHeading from "@/components/SectionHeading";
 import SEO from "@/components/SEO";
 import { Button } from "@/components/ui/button";
@@ -38,7 +38,7 @@ const Gallery = () => {
         title="Photo Gallery | Shivansh Tour & Travels | Trip Photos & Destinations"
         description="Browse photos from our trips to Taj Mahal, Varanasi, Jaipur, Manali, Rishikesh & more. See our fleet and happy customer moments."
         keywords="travel photos india, taxi trip gallery, agra trip photos, varanasi tour photos, jaipur photos, travel agency gallery"
-        canonical="https://shivanshtravels.com/gallery"
+        canonical="https://shivansh-tour-hub.netlify.app/gallery"
       />
       <section className="page-header">
         <div className="container mx-auto text-center">
@@ -104,8 +104,8 @@ const Gallery = () => {
               <p className="text-primary-foreground/70 text-sm">{galleryItems[lightbox].desc}</p>
             </div>
             <div className="flex justify-center gap-3 mt-4">
-              <Button variant="hero-outline" size="sm" disabled={lightbox === 0} onClick={() => setLightbox((prev) => (prev !== null && prev > 0 ? prev - 1 : prev))}>← Previous</Button>
-              <Button variant="hero-outline" size="sm" disabled={lightbox === galleryItems.length - 1} onClick={() => setLightbox((prev) => (prev !== null && prev < galleryItems.length - 1 ? prev + 1 : prev))}>Next →</Button>
+              <Button variant="hero-outline" size="sm" disabled={lightbox === 0} onClick={() => setLightbox((prev) => (prev !== null && prev > 0 ? prev - 1 : prev))}>â† Previous</Button>
+              <Button variant="hero-outline" size="sm" disabled={lightbox === galleryItems.length - 1} onClick={() => setLightbox((prev) => (prev !== null && prev < galleryItems.length - 1 ? prev + 1 : prev))}>Next â†’</Button>
             </div>
           </div>
         </div>
@@ -115,3 +115,4 @@ const Gallery = () => {
 };
 
 export default Gallery;
+

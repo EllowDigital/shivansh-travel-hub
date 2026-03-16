@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+﻿import { useEffect } from "react";
 
 interface SEOProps {
   title: string;
@@ -8,7 +8,7 @@ interface SEOProps {
   schema?: object | object[];
 }
 
-const SITE_URL = "https://shivanshtravels.com";
+const SITE_URL = "https://shivansh-tour-hub.netlify.app";
 const DEFAULT_OG_IMAGE = `${SITE_URL}/og-image.jpg`;
 
 const SEO = ({ title, description, keywords, canonical, schema }: SEOProps) => {
@@ -67,3 +67,4 @@ const SEO = ({ title, description, keywords, canonical, schema }: SEOProps) => {
 };
 
 export default SEO;
+

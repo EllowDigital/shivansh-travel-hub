@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+﻿import { Link } from "react-router-dom";
 import SEO from "@/components/SEO";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Calendar, Clock } from "lucide-react";
@@ -10,7 +10,7 @@ const Blog = () => (
       title="Travel Blog | Taxi Tips, Route Guides & Tour Itineraries from Agra"
       description="Read long-form taxi route guides and travel planning articles: Agra to Delhi taxi tips, Delhi to Agra distance, Taj Mahal tour planning, and destination advice."
       keywords="agra to delhi taxi blog, delhi to agra distance guide, taj mahal tour from delhi, agra travel planning"
-      canonical="https://shivanshtravels.com/blog"
+      canonical="https://shivansh-tour-hub.netlify.app/blog"
     />
     <section className="page-header">
       <div className="container mx-auto text-center">
@@ -56,7 +56,7 @@ const Blog = () => (
     <section className="section-padding bg-secondary text-center">
       <div className="container mx-auto">
         <h2 className="font-heading text-2xl sm:text-3xl font-bold text-secondary-foreground">Ready to Book Your Trip?</h2>
-        <p className="mt-2 text-secondary-foreground/90 text-sm sm:text-base">Turn these guides into reality — book a taxi with us today!</p>
+        <p className="mt-2 text-secondary-foreground/90 text-sm sm:text-base">Turn these guides into reality â€” book a taxi with us today!</p>
         <div className="mt-6 flex justify-center gap-3 flex-wrap">
           <Link to="/contact"><Button variant="default" size="lg" className="text-sm sm:text-base">Book Taxi Now</Button></Link>
           <Link to="/tours"><Button variant="hero-outline" size="lg" className="border-primary text-primary hover:bg-primary/10 text-sm sm:text-base">View Tour Packages</Button></Link>
@@ -67,3 +67,4 @@ const Blog = () => (
 );
 
 export default Blog;
+

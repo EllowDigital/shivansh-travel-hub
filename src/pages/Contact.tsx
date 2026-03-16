@@ -1,23 +1,23 @@
-import BookingForm from "@/components/BookingForm";
+﻿import BookingForm from "@/components/BookingForm";
 import SEO from "@/components/SEO";
 import { Phone, Mail, MapPin, MessageCircle, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const contactInfo = [
-  { icon: Phone, title: "Phone", content: "+91 89604 46756", href: "tel:+918960446756" },
-  { icon: MessageCircle, title: "WhatsApp", content: "Chat on WhatsApp", href: "https://wa.me/918960446756" },
+  { icon: Phone, title: "Phone", content: "+91 8865038345", href: "tel:+918865038345" },
+  { icon: MessageCircle, title: "WhatsApp", content: "Chat on WhatsApp", href: "https://wa.me/918865038345" },
   { icon: Mail, title: "Email", content: "sarwanyadav6174@gmail.com", href: "mailto:sarwanyadav6174@gmail.com" },
   { icon: MapPin, title: "Address", content: "Agra, Uttar Pradesh, India" },
-  { icon: Clock, title: "Working Hours", content: "24/7 — Always Available" },
+  { icon: Clock, title: "Working Hours", content: "24/7 â€” Always Available" },
 ];
 
 const contactSchema = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   "name": "Shivansh Tour and Travels",
-  "url": "https://shivanshtravels.com/contact",
-  "image": "https://shivanshtravels.com/og-image.jpg",
-  "telephone": "+918960446756",
+  "url": "https://shivansh-tour-hub.netlify.app/contact",
+  "image": "https://shivansh-tour-hub.netlify.app/og-image.jpg",
+  "telephone": "+918865038345",
   "email": "sarwanyadav6174@gmail.com",
   "address": {
     "@type": "PostalAddress",
@@ -33,18 +33,18 @@ const breadcrumbSchema = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
-    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://shivanshtravels.com" },
-    { "@type": "ListItem", "position": 2, "name": "Contact", "item": "https://shivanshtravels.com/contact" }
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://shivansh-tour-hub.netlify.app" },
+    { "@type": "ListItem", "position": 2, "name": "Contact", "item": "https://shivansh-tour-hub.netlify.app/contact" }
   ]
 };
 
 const Contact = () => (
   <div className="pt-14 sm:pt-16 lg:pt-[88px]">
     <SEO
-      title="Contact Us | Book Taxi in Agra | Call +91 89604 46756"
-      description="Contact Shivansh Tour & Travels for taxi bookings, tour packages & custom quotes. Call +91 89604 46756, WhatsApp or email. 24/7 service from Agra."
+      title="Contact Us | Book Taxi in Agra | Call +91 8865038345"
+      description="Contact Shivansh Tour & Travels for taxi bookings, tour packages & custom quotes. Call +91 8865038345, WhatsApp or email. 24/7 service from Agra."
       keywords="contact taxi agra, book cab agra, taxi booking phone number agra, whatsapp taxi booking, agra travel agency contact"
-      canonical="https://shivanshtravels.com/contact"
+      canonical="https://shivansh-tour-hub.netlify.app/contact"
       schema={[contactSchema, breadcrumbSchema]}
     />
     <section className="page-header">
@@ -95,3 +95,4 @@ const Contact = () => (
 );
 
 export default Contact;
+

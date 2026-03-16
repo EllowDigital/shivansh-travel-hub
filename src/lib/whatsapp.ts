@@ -1,6 +1,6 @@
-import { toast } from "sonner";
+﻿import { toast } from "sonner";
 
-const WHATSAPP_NUMBER = "918960446756";
+const WHATSAPP_NUMBER = "918865038345";
 
 export const buildWhatsAppUrl = (phone: string, message: string) =>
   `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
@@ -32,7 +32,7 @@ export const openWhatsAppMessage = (phone: string, message: string): boolean => 
     // On desktop, use wa.me (opens WhatsApp Web or desktop app)
     const win = window.open(waMe, "_blank");
     if (!win) {
-      // Popup blocked — try anchor click method
+      // Popup blocked â€” try anchor click method
       const a = document.createElement("a");
       a.href = waMe;
       a.target = "_blank";
@@ -63,8 +63,9 @@ const copyMessageToClipboard = (phone: string, message: string) => {
       });
     });
   } catch {
-    // Clipboard API not available — silent fail, wa.me should have worked
+    // Clipboard API not available â€” silent fail, wa.me should have worked
   }
 };
 
 export { WHATSAPP_NUMBER };
+
