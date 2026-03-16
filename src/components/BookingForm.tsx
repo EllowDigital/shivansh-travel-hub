@@ -11,6 +11,30 @@ const tripTypes = ["One Way", "Round Trip", "Local", "Airport"];
 
 const WHATSAPP_NUMBER = "918865038345";
 
+const getDayPeriodLabel = (hour24: number) => {
+  if (hour24 >= 5 && hour24 < 12) return "Morning";
+  if (hour24 >= 12 && hour24 < 17) return "Afternoon";
+  if (hour24 >= 17 && hour24 < 21) return "Evening";
+  return "Night";
+};
+
+const formatTime12Hour = (time: string) => {
+  if (!time) return "";
+
+  const [rawHour, rawMinute] = time.split(":");
+  const hour = Number(rawHour);
+  const minute = Number(rawMinute);
+
+  if (Number.isNaN(hour) || Number.isNaN(minute)) {
+    return time;
+  }
+
+  const period = hour >= 12 ? "PM" : "AM";
+  const hour12 = hour % 12 || 12;
+  const dayPeriod = getDayPeriodLabel(hour);
+  return `${hour12}:${String(minute).padStart(2, "0")} ${period} (${dayPeriod})`;
+};
+
 const BookingForm = ({
   defaultPickup = "",
   defaultDrop = "",
@@ -49,6 +73,10 @@ const BookingForm = ({
         })
       : "Not specified";
 
+    const formattedTime = form.time
+      ? formatTime12Hour(form.time)
+      : "Not specified";
+
     const text = [
       `*NEW TAXI BOOKING REQUEST*`,
       `--------------------`,
@@ -64,7 +92,7 @@ const BookingForm = ({
       `- Pickup: ${form.pickup}`,
       `- Drop: ${form.drop}`,
       `- Date: ${formattedDate}`,
-      form.time ? `- Time: ${form.time}` : "",
+      form.time ? `- Time: ${formattedTime}` : "",
       form.car ? `- Car Type: ${form.car}` : `- Car Type: Any Available`,
       ``,
       form.message ? `*Message:* ${form.message}` : "",
@@ -135,15 +163,16 @@ const BookingForm = ({
             type="date"
             value={form.date}
             onChange={(e) => update("date", e.target.value)}
-            className="text-sm"
+            className="text-sm text-foreground [color-scheme:light]"
+            aria-label="Pickup Date"
             required
           />
           <Input
             type="time"
             value={form.time}
             onChange={(e) => update("time", e.target.value)}
-            className="text-sm"
-            placeholder="Pickup Time"
+            className="text-sm text-foreground [color-scheme:light]"
+            aria-label="Pickup Time"
           />
         </div>
 

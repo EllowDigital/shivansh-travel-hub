@@ -41,6 +41,38 @@ type Step =
 
 const WHATSAPP_NUMBER = "918865038345";
 
+const getDayPeriodLabel = (hour24: number) => {
+  if (hour24 >= 5 && hour24 < 12) return "Morning";
+  if (hour24 >= 12 && hour24 < 17) return "Afternoon";
+  if (hour24 >= 17 && hour24 < 21) return "Evening";
+  return "Night";
+};
+
+const getReadableDateTimeDetails = (value: string) => {
+  const input = value.trim();
+  if (!input) return "";
+
+  const amPmMatch = input.match(/\b(1[0-2]|0?[1-9])(?::([0-5]\d))?\s*(AM|PM)\b/i);
+  if (amPmMatch) {
+    const hour12 = Number(amPmMatch[1]);
+    const minute = amPmMatch[2] ?? "00";
+    const period = amPmMatch[3].toUpperCase();
+    const hour24 = period === "PM" ? (hour12 % 12) + 12 : hour12 % 12;
+    return `${hour12}:${minute} ${period} (${getDayPeriodLabel(hour24)})`;
+  }
+
+  const twentyFourHourMatch = input.match(/\b([01]?\d|2[0-3]):([0-5]\d)\b/);
+  if (twentyFourHourMatch) {
+    const hour24 = Number(twentyFourHourMatch[1]);
+    const minute = twentyFourHourMatch[2];
+    const period = hour24 >= 12 ? "PM" : "AM";
+    const hour12 = hour24 % 12 || 12;
+    return `${hour12}:${minute} ${period} (${getDayPeriodLabel(hour24)})`;
+  }
+
+  return "";
+};
+
 const WhatsAppButton = () => {
   const [open, setOpen] = useState(false);
   const [step, setStep] = useState<Step>("welcome");
@@ -142,6 +174,8 @@ const WhatsAppButton = () => {
   };
 
   const sendToWhatsApp = () => {
+    const timeDetails = getReadableDateTimeDetails(data.date);
+
     const text = [
       `TAXI BOOKING REQUEST`,
       `--------------------`,
@@ -152,6 +186,7 @@ const WhatsAppButton = () => {
       `Drop: ${data.drop}`,
       `Car: ${data.car}`,
       `Date: ${data.date}`,
+      timeDetails ? `Time: ${timeDetails}` : "",
       ``,
       `Please confirm availability and fare.`,
       ``,
