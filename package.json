@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "hero:generate": "powershell -ExecutionPolicy Bypass -File ./scripts/generate-hero-breakpoints.ps1",
     "build": "set BROWSERSLIST_IGNORE_OLD_DATA=1&& vite build",
     "build:dev": "set BROWSERSLIST_IGNORE_OLD_DATA=1&& vite build --mode development",
     "lint": "eslint .",

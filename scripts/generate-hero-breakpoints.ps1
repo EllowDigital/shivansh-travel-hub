@@ -1,11 +1,101 @@
 Add-Type -AssemblyName System.Drawing
 
-$targets = @(
-  @{ Name = "agra-taj"; Source = "public/agra-taxi-service-hero.jpg" },
-  @{ Name = "jaipur-hawa-mahal"; Source = "src/assets/gallery/jaipur-hawa-mahal.jpg" },
-  @{ Name = "varanasi-ghats"; Source = "src/assets/gallery/varanasi-ghats.jpg" },
-  @{ Name = "ayodhya-temple"; Source = "src/assets/gallery/ayodhya-temple.jpg" }
+$manualTargets = @(
+  @{
+    Name = "agra-taj"
+    Source = "public/agra-taxi-service-hero.jpg"
+    Title = "Taj Mahal, Agra"
+    Alt = "Taj Mahal monument in Agra"
+  }
 )
+
+$titleOverrides = @{
+  "ayodhya-temple" = "Ayodhya Temple"
+  "happy-family" = "Family Tour Across India"
+  "innova-trip" = "Premium Innova Tours"
+  "jaipur-hawa-mahal" = "Hawa Mahal, Jaipur"
+  "manali-mountains" = "Manali Mountain Escape"
+  "rishikesh-bridge" = "Rishikesh Lakshman Jhula"
+  "taj-mahal" = "Taj Mahal Sunrise View"
+  "varanasi-ghats" = "Varanasi Ghats"
+}
+
+function Convert-ToSlug {
+  param([string]$Value)
+  $slug = $Value.ToLower() -replace "[^a-z0-9]+", "-"
+  return $slug.Trim("-")
+}
+
+function Convert-ToTitle {
+  param([string]$Slug)
+  (($Slug -split "-" | Where-Object { $_ }) |
+    ForEach-Object { $_.Substring(0, 1).ToUpper() + $_.Substring(1) }) -join " "
+}
+
+function Escape-TsString {
+  param([string]$Value)
+  return $Value.Replace("\", "\\").Replace('"', '\"')
+}
+
+$script:targets = @()
+$script:usedNames = @{}
+
+function Add-HeroTarget {
+  param(
+    [string]$Name,
+    [string]$Source,
+    [string]$Title,
+    [string]$Alt
+  )
+
+  if (-not (Test-Path $Source)) {
+    return
+  }
+
+  $finalName = $Name
+  $suffix = 2
+  while ($script:usedNames.ContainsKey($finalName)) {
+    $finalName = "$Name-$suffix"
+    $suffix += 1
+  }
+  $script:usedNames[$finalName] = $true
+
+  $script:targets += @{
+    Name = $finalName
+    Source = $Source
+    Title = $Title
+    Alt = $Alt
+  }
+}
+
+foreach ($target in $manualTargets) {
+  Add-HeroTarget -Name $target.Name -Source $target.Source -Title $target.Title -Alt $target.Alt
+}
+
+$galleryDir = "src/assets/gallery"
+$supportedExtensions = @(".jpg", ".jpeg", ".png", ".webp")
+
+if (Test-Path $galleryDir) {
+  $galleryFiles = Get-ChildItem -Path $galleryDir -File |
+    Where-Object { $supportedExtensions -contains $_.Extension.ToLower() } |
+    Sort-Object Name
+
+  foreach ($file in $galleryFiles) {
+    $baseSlug = Convert-ToSlug -Value $file.BaseName
+    if ([string]::IsNullOrWhiteSpace($baseSlug)) {
+      continue
+    }
+
+    $title = if ($titleOverrides.ContainsKey($baseSlug)) {
+      $titleOverrides[$baseSlug]
+    }
+    else {
+      Convert-ToTitle -Slug $baseSlug
+    }
+
+    Add-HeroTarget -Name $baseSlug -Source ("src/assets/gallery/" + $file.Name) -Title $title -Alt ("" + $title + " destination view in India")
+  }
+}
 
 $sizes = @(
   @{ Suffix = "desktop"; Width = 1920; Height = 1080; Quality = 88L },
@@ -20,11 +110,7 @@ if (-not (Test-Path $outputDir)) {
 
 $jpgCodec = [System.Drawing.Imaging.ImageCodecInfo]::GetImageEncoders() | Where-Object { $_.MimeType -eq "image/jpeg" }
 
-foreach ($target in $targets) {
-  if (-not (Test-Path $target.Source)) {
-    throw "Source image not found: $($target.Source)"
-  }
-
+foreach ($target in $script:targets) {
   $src = [System.Drawing.Image]::FromFile($target.Source)
 
   foreach ($size in $sizes) {
@@ -57,4 +143,34 @@ foreach ($target in $targets) {
   $src.Dispose()
 }
 
+$heroSlidesTsPath = "src/lib/heroSlides.ts"
+$lines = @(
+  "export type HeroSlide = {",
+  "  title: string;",
+  "  alt: string;",
+  "  desktopImage: string;",
+  "  tabletImage: string;",
+  "  mobileImage: string;",
+  "};",
+  "",
+  "export const heroSlides: HeroSlide[] = ["
+)
+
+foreach ($target in $script:targets) {
+  $safeTitle = Escape-TsString -Value $target.Title
+  $safeAlt = Escape-TsString -Value $target.Alt
+
+  $lines += "  {"
+  $lines += "    title: `"$safeTitle`","
+  $lines += "    alt: `"$safeAlt`","
+  $lines += "    desktopImage: `"/hero/$($target.Name)-desktop.jpg`","
+  $lines += "    tabletImage: `"/hero/$($target.Name)-tablet.jpg`","
+  $lines += "    mobileImage: `"/hero/$($target.Name)-mobile.jpg`","
+  $lines += "  },"
+}
+
+$lines += "];"
+Set-Content -Path $heroSlidesTsPath -Value ($lines -join [Environment]::NewLine) -Encoding UTF8
+
 Write-Output "Generated hero breakpoint images in $outputDir"
+Write-Output "Updated hero slide data in $heroSlidesTsPath"

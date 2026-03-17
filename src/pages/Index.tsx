@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import BookingForm from "@/components/BookingForm";
 import SectionHeading from "@/components/SectionHeading";
 import SEO from "@/components/SEO";
+import { heroSlides } from "@/lib/heroSlides";
 import swiftDzire from "@/assets/swift-dzire.png";
 import ertiga from "@/assets/ertiga.png";
 import innova from "@/assets/innova.png";
@@ -58,6 +59,7 @@ const fleetCars = [
     seats: "4 Seater",
     price: "₹11/km",
     type: "Sedan",
+    extraFare: "₹11/km after 230 kms",
   },
   {
     name: "Ertiga",
@@ -65,6 +67,7 @@ const fleetCars = [
     seats: "7 Seater",
     price: "₹14/km",
     type: "MPV",
+    extraFare: "₹14/km after 230 kms",
   },
   {
     name: "Toyota Innova",
@@ -72,6 +75,7 @@ const fleetCars = [
     seats: "7 Seater",
     price: "₹16/km",
     type: "Premium",
+    extraFare: "₹16/km after 230 kms",
   },
   {
     name: "Tempo Traveller",
@@ -79,6 +83,7 @@ const fleetCars = [
     seats: "12 Seater",
     price: "₹22/km",
     type: "Group",
+    extraFare: "₹22/km after 230 kms",
   },
 ];
 
@@ -111,37 +116,6 @@ const stats = [
   { value: "50+", label: "Cities Covered" },
   { value: "24/7", label: "Support Available" },
   { value: "100%", label: "Safe Journeys" },
-];
-
-const heroSlides = [
-  {
-    title: "Taj Mahal, Agra",
-    alt: "Taj Mahal monument in Agra",
-    desktopImage: "/hero/agra-taj-desktop.jpg",
-    tabletImage: "/hero/agra-taj-tablet.jpg",
-    mobileImage: "/hero/agra-taj-mobile.jpg",
-  },
-  {
-    title: "Hawa Mahal, Jaipur",
-    alt: "Hawa Mahal monument in Jaipur",
-    desktopImage: "/hero/jaipur-hawa-mahal-desktop.jpg",
-    tabletImage: "/hero/jaipur-hawa-mahal-tablet.jpg",
-    mobileImage: "/hero/jaipur-hawa-mahal-mobile.jpg",
-  },
-  {
-    title: "Varanasi Ghats",
-    alt: "Famous ghats in Varanasi",
-    desktopImage: "/hero/varanasi-ghats-desktop.jpg",
-    tabletImage: "/hero/varanasi-ghats-tablet.jpg",
-    mobileImage: "/hero/varanasi-ghats-mobile.jpg",
-  },
-  {
-    title: "Ayodhya Temple",
-    alt: "Famous temple monument in Ayodhya",
-    desktopImage: "/hero/ayodhya-temple-desktop.jpg",
-    tabletImage: "/hero/ayodhya-temple-tablet.jpg",
-    mobileImage: "/hero/ayodhya-temple-mobile.jpg",
-  },
 ];
 
 const whyUs = [
@@ -489,6 +463,9 @@ const Index = () => {
                 </span>
               </div>
               <div className="mt-5 flex items-center justify-center lg:justify-start gap-2">
+                <span className="mr-1 inline-flex items-center rounded-full border border-secondary/40 bg-secondary/15 px-3 py-1 text-[10px] sm:text-xs font-medium text-secondary">
+                  {heroSlides[currentHeroSlide].title}
+                </span>
                 {heroSlides.map((slide, index) => (
                   <button
                     key={slide.title}
@@ -502,6 +479,9 @@ const Index = () => {
                     aria-label={`Show hero image ${index + 1}: ${slide.title}`}
                   />
                 ))}
+                <span className="ml-1 text-[10px] sm:text-xs text-primary-foreground/80">
+                  {currentHeroSlide + 1}/{heroSlides.length}
+                </span>
               </div>
             </div>
             <div
@@ -590,22 +570,33 @@ const Index = () => {
                   />
                 </div>
                 <div className="p-3 sm:p-4 text-center">
-                  <span className="text-[10px] sm:text-xs font-semibold text-secondary bg-secondary/10 px-2 py-0.5 rounded-full">
-                    {c.type}
-                  </span>
+                  <div className="flex flex-wrap items-center justify-center gap-1.5">
+                    <span className="text-[10px] sm:text-xs font-semibold text-secondary bg-secondary/10 px-2 py-0.5 rounded-full">
+                      {c.type}
+                    </span>
+                    <span className="text-[10px] sm:text-xs font-medium text-muted-foreground bg-accent px-2 py-0.5 rounded-full">
+                      AC
+                    </span>
+                    <span className="text-[10px] sm:text-xs font-medium text-muted-foreground bg-accent px-2 py-0.5 rounded-full">
+                      {c.seats.replace(" Seater", " Seat")}
+                    </span>
+                  </div>
                   <h3 className="font-heading text-sm sm:text-base font-bold text-foreground mt-1.5">
                     {c.name}
                   </h3>
-                  <div className="flex items-center justify-center gap-1 mt-1 text-[10px] sm:text-xs text-muted-foreground">
-                    <Users className="h-3 w-3" /> {c.seats}
-                  </div>
                   <p className="mt-1.5 text-base sm:text-lg font-bold text-secondary">
                     {c.price}
+                  </p>
+                  <p className="mt-1 text-[10px] sm:text-xs text-muted-foreground">
+                    Extra km fare : {c.extraFare}
                   </p>
                 </div>
               </Link>
             ))}
           </div>
+          <p className="mt-4 text-center text-xs sm:text-sm text-foreground">
+            Cancellation : Free till 1 hour of departure
+          </p>
           <div className="text-center mt-6 sm:mt-8">
             <Link to="/fleet">
               <Button variant="outline" className="gap-2 text-sm">
