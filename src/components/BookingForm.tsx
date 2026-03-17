@@ -159,21 +159,41 @@ const BookingForm = ({
         />
 
         <div className="grid grid-cols-2 gap-3">
-          <Input
-            type="date"
-            value={form.date}
-            onChange={(e) => update("date", e.target.value)}
-            className="text-sm text-foreground [color-scheme:light]"
-            aria-label="Pickup Date"
-            required
-          />
-          <Input
-            type="time"
-            value={form.time}
-            onChange={(e) => update("time", e.target.value)}
-            className="text-sm text-foreground [color-scheme:light]"
-            aria-label="Pickup Time"
-          />
+          <div className="space-y-1">
+            <label
+              htmlFor="pickup-date"
+              className="block text-[11px] font-medium text-muted-foreground"
+            >
+              Pickup Date *
+            </label>
+            <Input
+              id="pickup-date"
+              type="date"
+              value={form.date}
+              onChange={(e) => update("date", e.target.value)}
+              className={`date-time-input text-sm [color-scheme:light] ${form.date ? "text-foreground" : "date-time-input-empty"}`}
+              aria-label="Pickup Date"
+              lang="en-IN"
+              required
+            />
+          </div>
+          <div className="space-y-1">
+            <label
+              htmlFor="pickup-time"
+              className="block text-[11px] font-medium text-muted-foreground"
+            >
+              Pickup Time
+            </label>
+            <Input
+              id="pickup-time"
+              type="time"
+              value={form.time}
+              onChange={(e) => update("time", e.target.value)}
+              className={`date-time-input text-sm [color-scheme:light] ${form.time ? "text-foreground" : "date-time-input-empty"}`}
+              aria-label="Pickup Time"
+              lang="en-IN"
+            />
+          </div>
         </div>
 
         <select
