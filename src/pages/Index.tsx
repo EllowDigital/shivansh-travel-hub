@@ -4,7 +4,7 @@ import BookingForm from "@/components/BookingForm";
 import SectionHeading from "@/components/SectionHeading";
 import SEO from "@/components/SEO";
 import { heroSlides } from "@/lib/heroSlides";
-import swiftDzire from "@/assets/swift-dzire.png";
+import swiftDzire from "@/assets/swift-dzire.jpg";
 import ertiga from "@/assets/ertiga.png";
 import innova from "@/assets/innova.png";
 import tempoTraveller from "@/assets/tempo-traveller.png";
