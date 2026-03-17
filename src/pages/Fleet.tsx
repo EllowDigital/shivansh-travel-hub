@@ -3,7 +3,7 @@ import SEO from "@/components/SEO";
 import { Users, Fuel, Gauge } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import swiftDzire from "@/assets/swift-dzire.png";
+import swiftDzire from "@/assets/swift-dzire.jpg";
 import ertiga from "@/assets/ertiga.png";
 import innova from "@/assets/innova.png";
 import tempoTraveller from "@/assets/tempo-traveller.png";
