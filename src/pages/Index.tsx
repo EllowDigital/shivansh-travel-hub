@@ -289,12 +289,6 @@ const homeSchema = {
   areaServed: { "@type": "Country", name: "India" },
   priceRange: "₹₹",
   openingHours: "Mo-Su 00:00-23:59",
-  aggregateRating: {
-    "@type": "AggregateRating",
-    ratingValue: "4.9",
-    reviewCount: "500",
-    bestRating: "5",
-  },
   hasOfferCatalog: {
     "@type": "OfferCatalog",
     name: "Taxi Services",
