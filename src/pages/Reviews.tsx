@@ -107,11 +107,12 @@ const avgRating = (
   allReviews.reduce((a, r) => a + r.rating, 0) / allReviews.length
 ).toFixed(1);
 
-const reviewSchema = {
+const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   name: "Shivansh Tour and Travels",
   image: "https://shivansh-tour-hub.netlify.app/og-image.jpg",
+  url: "https://shivansh-tour-hub.netlify.app/reviews",
   address: {
     "@type": "PostalAddress",
     streetAddress:
@@ -122,19 +123,6 @@ const reviewSchema = {
     addressCountry: "IN",
   },
   telephone: "+918865038345",
-  aggregateRating: {
-    "@type": "AggregateRating",
-    ratingValue: avgRating,
-    reviewCount: allReviews.length,
-    bestRating: "5",
-  },
-  review: allReviews.slice(0, 5).map((r) => ({
-    "@type": "Review",
-    author: { "@type": "Person", name: r.name },
-    reviewRating: { "@type": "Rating", ratingValue: r.rating, bestRating: "5" },
-    reviewBody: r.text,
-    datePublished: "2025-01-01",
-  })),
 };
 
 const Reviews = () => (
@@ -144,7 +132,7 @@ const Reviews = () => (
       description={`Read ${allReviews.length}+ genuine reviews from happy customers. Shivansh Tour & Travels rated ${avgRating}/5 for taxi service in Agra, outstation cabs, airport transfers & tour packages.`}
       keywords="shivansh travels reviews, agra taxi reviews, best taxi service agra reviews, customer testimonials taxi agra, cab booking reviews agra"
       canonical="https://shivansh-tour-hub.netlify.app/reviews"
-      schema={reviewSchema}
+      schema={localBusinessSchema}
     />
 
     <section className="page-header">
